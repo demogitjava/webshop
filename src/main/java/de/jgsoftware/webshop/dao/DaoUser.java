@@ -1,0 +1,38 @@
+package de.jgsoftware.webshop.dao;
+
+
+import de.jgsoftware.webshop.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class DaoUser
+{
+
+
+    @Autowired
+    private JdbcTemplate jtm;
+
+    User user;
+
+
+    public User findByEmail(String email)
+    {
+        String finuserbyemail = new String("finduserbyemail");
+        System.out.print("find user by email query" + "\n" + "\n");
+
+
+        System.out.print("Find User by Email --------Query" + "\n" + "\n");
+        jtm.query("select * from user where email like " + "'" + email + "'", new BeanPropertyRowMapper(User.class));
+
+       /*
+             List<Desktoplayout> loginentry = jtm.query("select * from desktoplayout where framename like " + "'" + result + "'", new BeanPropertyRowMapper(Desktoplayout.class));
+        return loginentry;
+         */
+        return user;
+    }
+}
