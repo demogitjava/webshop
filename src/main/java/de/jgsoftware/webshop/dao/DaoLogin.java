@@ -35,4 +35,32 @@ public class DaoLogin
         return userdetails;
     }
 
+
+    /*
+
+        load default blank UserList
+        after sucess login
+
+     */
+    public List<User> getUserbyLoginForm(String email)
+    {
+        String result = String.valueOf(email);
+
+        String searchuserbyemail = "";
+        List<User> defaultUserConfigList = jtm.query("select * from USER where email like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
+
+        return defaultUserConfigList;
+    }
+
+
+    public User decodepassword()
+    {
+
+        User usermodel = new User();
+        String userpassword = usermodel.getPassword();
+
+        return usermodel;
+    }
+
+
 }

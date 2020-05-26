@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -39,25 +40,21 @@ public class IndexController
         return "index";
     }
 
+
     @GetMapping("login")
-    public String login()
-    {
+    public String login() {
         return "login";
     }
 
-    @GetMapping("signup")
-    public String singup()
+
+    @PostMapping("addProcducttocase")
+    public ModelAndView getProduct()
     {
-        return "singup";
+        ModelAndView mv = new ModelAndView("index");
+
+        return mv;
     }
 
-    @PostMapping("signup")
-    public User signUp(User user)
-    {
-        
-        
-        return user;
-    }
 
 
 }

@@ -17,22 +17,39 @@ public class DaoUser
     @Autowired
     private JdbcTemplate jtm;
 
-    User user;
+    public User user;
 
+    public List<User> userlogin;
 
-    public User findByEmail(String email)
+    public List<User> findByEmail(String email)
     {
         String finuserbyemail = new String("finduserbyemail");
         System.out.print("find user by email query" + "\n" + "\n");
 
 
         System.out.print("Find User by Email --------Query" + "\n" + "\n");
-        jtm.query("select * from user where email like " + "'" + email + "'", new BeanPropertyRowMapper(User.class));
+        userlogin = jtm.query("select * from user where email like " + "'" + email + "'", new BeanPropertyRowMapper(de.jgsoftware.webshop.model.User.class));
 
        /*
              List<Desktoplayout> loginentry = jtm.query("select * from desktoplayout where framename like " + "'" + result + "'", new BeanPropertyRowMapper(Desktoplayout.class));
         return loginentry;
          */
+        return userlogin;
+    }
+
+    public User getUser() {
         return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<User> getUserlogin() {
+        return userlogin;
+    }
+
+    public void setUserlogin(List<User> userlogin) {
+        this.userlogin = userlogin;
     }
 }

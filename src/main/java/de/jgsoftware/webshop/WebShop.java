@@ -31,7 +31,8 @@ public class WebShop {
         // start h2 database server
         private static void startH2Server()
         {
-            try {
+            try
+            {
                 Server h2Server = Server.createTcpServer().start();
                 if (h2Server.isRunning(true))
                 {
