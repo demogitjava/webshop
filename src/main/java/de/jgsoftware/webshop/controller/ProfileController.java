@@ -5,19 +5,22 @@ import java.security.Principal;
 import java.util.List;
 
 import de.jgsoftware.webshop.model.Product;
+import de.jgsoftware.webshop.service.Index_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import de.jgsoftware.webshop.model.User;
-
 import de.jgsoftware.webshop.dao.DaoProduct;
 
 import de.jgsoftware.webshop.service.User_Service;
+import de.jgsoftware.webshop.service.Product_Service;
+//import de.jgsoftware.webshop.service.User_Product_List_Service;
 
+import de.jgsoftware.webshop.service.interfaces.User_Product_List_Interface;
+
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Controller
 @RequestMapping("profile")
@@ -32,45 +35,53 @@ public class ProfileController
     DaoProduct dproduct;
 
 
+    @Autowired
+    Product_Service product_service;
+
+    @Autowired
+    User_Product_List_Interface user_product_list_service;
+
+    private  ViewControllerRegistry registry;
+
+
+    @Autowired
+    Index_Service indexservice;
+
+    @Autowired
+    User_Service userService;
+
+
 
     @GetMapping("addToCart/{productId}")
-    public ModelAndView addToCart(@PathVariable("productId")String productId,Principal principal)
+    public String addToCart(@PathVariable("productId") String productId, Principal principal, Model model)
     {
 
-        ModelAndView mv = new ModelAndView("profile/cart-product");
+
         //User user = userService.findByEmail(principal.getName());
 
         List<User> user = user_service.getDaoUser().findByEmail(principal.getName());
+        user.get(0).getUserId();
 
         long productLongId = Long.parseLong(productId);
         Product product = dproduct.getProductById(productLongId);
 
 
-       // Product product = productService.getProductById(productLongId).get();
+        de.jgsoftware.webshop.model.USER_PRODUCT_LIST user_product_list = new de.jgsoftware.webshop.model.USER_PRODUCT_LIST();
 
-        //List<Product> productList = new ArrayList<Product>();
-        //productList.add(product);
-
-
-        //de.jgsoftware.webshop.model.User_Product_List user_product_list = new de.jgsoftware.webshop.model.User_Product_List();
-        //user_product_list.getUser_id();
-        //user_product_list.getProduct_id();
-
-        //user_product_list_service.getDaoUser_product_list().save(user_product_list);
+        user_product_list.setProduct_id(productLongId);
 
 
-        /*
-        productService.addProduct(product);
-        //userService.update(user);
-        double total = findSum(user);
+        Integer userid = user.get(0).getUserId();
+        user_product_list.setUser_id(userid);
+        user_product_list.setProduct_id(productLongId);
 
 
-        mv.addObject("total", total);
-        mv.addObject("user", user);
-        */
+        user_product_list_service.getDoaUserProductList().saveEntrytoDatabase(user_product_list);
 
-        return mv;
+
+
+        //return indexcontroller.index(model);
+        return "redirect:/";
     }
-
 
 }

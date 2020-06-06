@@ -12,7 +12,6 @@ public class Index_Service
     @Autowired
     DaoIndex daoindex;
 
-
     @Autowired
     DaoProduct daoProduct;
 
@@ -38,4 +37,6 @@ public class Index_Service
 
         return daoindex;
     }
+
+
 }
