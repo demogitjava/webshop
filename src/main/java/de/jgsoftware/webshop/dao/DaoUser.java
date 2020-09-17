@@ -1,6 +1,7 @@
 package de.jgsoftware.webshop.dao;
 
 
+import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -19,22 +20,22 @@ public class DaoUser
 
     public User user;
 
-    public List<User> userlogin;
+    public List<Kundenstamm> userlogin;
 
-    public List<User> findByEmail(String email)
+    public Kundenstamm findByEmail(String email)
     {
         String finuserbyemail = new String("finduserbyemail");
         System.out.print("find user by email query" + "\n" + "\n");
 
 
         System.out.print("Find User by Email --------Query" + "\n" + "\n");
-        userlogin = jtm.query("select * from user where email like " + "'" + email + "'", new BeanPropertyRowMapper(de.jgsoftware.webshop.model.User.class));
+        userlogin = jtm.query("select * from kundenstamm where email like " + "'" + email + "'", new BeanPropertyRowMapper(de.jgsoftware.webshop.model.User.class));
 
        /*
              List<Desktoplayout> loginentry = jtm.query("select * from desktoplayout where framename like " + "'" + result + "'", new BeanPropertyRowMapper(Desktoplayout.class));
         return loginentry;
          */
-        return userlogin;
+        return (Kundenstamm) userlogin;
     }
 
     public User getUser() {
@@ -45,11 +46,11 @@ public class DaoUser
         this.user = user;
     }
 
-    public List<User> getUserlogin() {
+    public List<Kundenstamm> getUserlogin() {
         return userlogin;
     }
 
-    public void setUserlogin(List<User> userlogin) {
+    public void setUserlogin(List<Kundenstamm> userlogin) {
         this.userlogin = userlogin;
     }
 }

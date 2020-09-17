@@ -4,6 +4,7 @@ package de.jgsoftware.webshop.controller;
 import java.security.Principal;
 import java.util.List;
 
+import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.Product;
 import de.jgsoftware.webshop.service.Index_Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,28 +56,6 @@ public class ProfileController
     @GetMapping("addToCart/{productId}")
     public String addToCart(@PathVariable("productId") String productId, Principal principal, Model model)
     {
-
-
-        //User user = userService.findByEmail(principal.getName());
-
-        List<User> user = user_service.getDaoUser().findByEmail(principal.getName());
-        user.get(0).getUserId();
-
-        long productLongId = Long.parseLong(productId);
-        Product product = dproduct.getProductById(productLongId);
-
-
-        de.jgsoftware.webshop.model.USER_PRODUCT_LIST user_product_list = new de.jgsoftware.webshop.model.USER_PRODUCT_LIST();
-
-        user_product_list.setProduct_id(productLongId);
-
-
-        Integer userid = user.get(0).getUserId();
-        user_product_list.setUser_id(userid);
-        user_product_list.setProduct_id(productLongId);
-
-
-        user_product_list_service.getDoaUserProductList().saveEntrytoDatabase(user_product_list);
 
 
 

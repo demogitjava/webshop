@@ -2,6 +2,7 @@ package de.jgsoftware.webshop.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import de.jgsoftware.webshop.dao.DaoUser;
@@ -13,6 +14,9 @@ public class User_Service
     private DaoUser daoUser;
 
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public DaoUser getDaoUser() {
         return daoUser;
     }
@@ -20,4 +24,7 @@ public class User_Service
     public void setDaoUser(DaoUser daoUser) {
         this.daoUser = daoUser;
     }
+
+
+
 }
