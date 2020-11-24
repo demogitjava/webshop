@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/")
 public class IndexController
@@ -28,13 +31,19 @@ public class IndexController
 
     // load default landingpage
     @GetMapping({"index", "/"})
-    public String index(Model model)
+    public ModelAndView index()
     {
 
-        model.addAttribute("productList", indexservice.getDaoProduct().getProductsforLandingpage());
+        //ModelAndView webshopindex = new ModelAndView();
+        //webshopindex.addObject("productList", indexservice.getDaoProduct().getProductsforLandingpage());
+
+        Map<String, Object> prodtlists = new HashMap<>();
+        prodtlists.put("productList", indexservice.getDaoProduct().getProductsforLandingpage());
 
 
-        return "index";
+
+
+        return new ModelAndView("index", prodtlists);
     }
 
 

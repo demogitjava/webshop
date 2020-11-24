@@ -24,7 +24,7 @@ public class DaoProduct
     {
 
 
-        List<Product> productList = jtm.query("select * from public.PRODUCT where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
+        List<Product> productList = jtm.query("select * from public.PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
 
         return productList;
     }
@@ -38,7 +38,7 @@ public class DaoProduct
 
 
         // select * from public.PRODUCT where product_id = 1;
-        String sql = "select * from public.PRODUCT where product_id = " + productId;
+        String sql = "select * from public.PRODUCTS where product_id = " + productId;
         cartuserproduct = (Product) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
 
 
