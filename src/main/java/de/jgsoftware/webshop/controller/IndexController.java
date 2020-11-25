@@ -34,14 +34,9 @@ public class IndexController
     public ModelAndView index()
     {
 
-        //ModelAndView webshopindex = new ModelAndView();
-        //webshopindex.addObject("productList", indexservice.getDaoProduct().getProductsforLandingpage());
 
         Map<String, Object> prodtlists = new HashMap<>();
         prodtlists.put("productList", indexservice.getDaoProduct().getProductsforLandingpage());
-
-
-
 
         return new ModelAndView("index", prodtlists);
     }
