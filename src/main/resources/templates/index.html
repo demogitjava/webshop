@@ -5,6 +5,45 @@
 </head>
 <body>
 	<header th:insert="fragments.html :: nav"></header>
+
+
+	<script text="text/javascript">
+
+		var language = window.navigator.language;
+
+		switch (language) {
+			case 'en':
+				window.location.href = '/en/';
+				break;
+
+			case 'it':
+				window.location.href = '/it/';
+				break;
+
+			case 'fr':
+				window.location.href = '/fr/';
+				break;
+
+			case 'tr':
+				window.location.href = '/tr/';
+				break;
+
+			case 'es':
+				window.location.href = '/es/';
+				break;
+
+
+
+			case 'de':
+
+				break;
+
+
+			default:
+				window.location.href = '/en/index.html';
+		}
+
+	</script>
 	<div class="container">
 		<h1 class="display-5">Product Overview</h1>
 
