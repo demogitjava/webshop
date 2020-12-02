@@ -1,10 +1,14 @@
 
-Demo Webshop with Spring Boot + Theamleaf 
+Demo Webshop with Spring Boot + Theamleaf
 ============================================================
-============================================================
-You can use
+
+You can use Netbeans to compile your own webshop from
 https://netbeans.apache.org/
-============================================================
+
+the programm is testet under java java-1.8.0-openjdk-i386
+and maven repository from 
+http://repo.maven.apache.org/maven2/
+
 
 make sure that h2 demodatabases are installed.
 
@@ -19,7 +23,7 @@ for an other path you have to edit the application.properties file
 <br/>
 
 
-the languages over the h2 database are supportet
+the languages over the h2 database are supported
 
 -de
 -fr
