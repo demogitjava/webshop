@@ -102,4 +102,20 @@
 
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>maven-snapshots</id>
+            <url>http://repo.maven.apache.org/maven2/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
 </project>

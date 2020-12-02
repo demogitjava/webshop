@@ -15,7 +15,7 @@ import java.util.Map;
 public class FR_IndexController
 {
 
-    // FR
+    // FR French
     @GetMapping({"index", "/"})
     public ModelAndView index()
     {

@@ -17,7 +17,7 @@ import java.util.Map;
 public class EN_IndexController
 {
 
-    // EN
+    // EN English is set by default
     @GetMapping({"index", "/"})
     public ModelAndView index()
     {

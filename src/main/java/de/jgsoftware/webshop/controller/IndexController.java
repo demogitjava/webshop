@@ -40,7 +40,7 @@ public class IndexController
 
 
 
-    // load default landingpage
+    // DE German
     @GetMapping({"index", "/"})
     public ModelAndView index()
     {

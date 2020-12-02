@@ -2,6 +2,9 @@ package de.jgsoftware.webshop.controller;
 
 
 
+
+
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,18 +15,18 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/tr/")
-public class TR_IndexController
+@RequestMapping("/admin/")
+public class AdminController
 {
 
-    // TR Türkey
+    // EN English is set by default
     @GetMapping({"index", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();
 
-        prodtlists.put("lang", Locale.getDefault().getCountry());
-        return new ModelAndView("/tr/index.html", prodtlists);
+        prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
+        return new ModelAndView("/admin/index.html", prodtlists);
     }
 
 

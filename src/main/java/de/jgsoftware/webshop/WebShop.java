@@ -27,7 +27,6 @@ public class WebShop {
 
         public WebShop()
         {
-
             startH2Server();
         }
 

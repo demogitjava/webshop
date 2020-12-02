@@ -66,7 +66,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 					"/esp/**",
 					"/fr/**",
 					"/it/**",
-					"/tk/**").permitAll()
+					"/tk/**",
+					"/h2/**").permitAll()
 			.antMatchers("/profile/**").authenticated()
 			.antMatchers("/admin/index").hasRole("ADMIN")			// Admin Page after login
 

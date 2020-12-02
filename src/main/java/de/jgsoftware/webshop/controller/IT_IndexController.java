@@ -16,7 +16,7 @@ import java.util.Map;
 public class IT_IndexController
 {
 
-    // EN
+    // IT Italy
     @GetMapping({"index", "/"})
     public ModelAndView index()
     {

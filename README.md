@@ -1,6 +1,10 @@
 
 Demo Webshop with Spring Boot + Theamleaf 
 ============================================================
+============================================================
+You can use
+https://netbeans.apache.org/
+============================================================
 
 make sure that h2 demodatabases are installed.
 
@@ -22,12 +26,6 @@ the languages over the h2 database are supportet
 -es
 -tk
 -it
-
-
-to run this programm you can choose Netbeans
-=============================================
-https://netbeans.apache.org/
-==============================================
 
 <br/>
 <br/>
