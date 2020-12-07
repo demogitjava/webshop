@@ -12,15 +12,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 
 @SpringBootApplication
 public class WebShop {
 
-        public HttpServletRequest request;
-        public HttpServletResponse response;
 
         // handle for language servlet reqeust
         public Object object;
@@ -28,6 +24,8 @@ public class WebShop {
         public WebShop()
         {
             startH2Server();
+
+
         }
 
         public static void main(String[] args)

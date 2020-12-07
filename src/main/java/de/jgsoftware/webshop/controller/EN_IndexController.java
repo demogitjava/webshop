@@ -13,12 +13,12 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/en/")
+@RequestMapping("/en")
 public class EN_IndexController
 {
 
     // EN English is set by default
-    @GetMapping({"index", "/"})
+    @GetMapping({"en", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();

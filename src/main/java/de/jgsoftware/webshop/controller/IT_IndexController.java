@@ -12,17 +12,19 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/it/")
+@RequestMapping("/it")
 public class IT_IndexController
 {
 
+    private Locale locale;
+
+
     // IT Italy
-    @GetMapping({"index", "/"})
+    @GetMapping({"it", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();
 
-        prodtlists.put("lang", Locale.getDefault().getCountry());
         return new ModelAndView("/it/index.html", prodtlists);
     }
 

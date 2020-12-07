@@ -2,26 +2,50 @@ package de.jgsoftware.webshop.config;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import de.jgsoftware.webshop.config.AppConfigLocale;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+
+import javax.servlet.ServletContext;
+import java.util.Locale;
 
 @Configuration
 public class MvcConfig implements WebMvcConfigurer
 {
 
+    @Autowired
+    private AppConfigLocale appConfigLocale;
+
+
     public void addViewControllers(ViewControllerRegistry registry)
     {
-        registry.addViewController("/").setViewName("index");
 
-        registry.addViewController("/en/").setViewName("index");
-        registry.addViewController("/es/").setViewName("index");
-        registry.addViewController("/fr/").setViewName("index");
-        registry.addViewController("/it/").setViewName("index");
-        registry.addViewController("/tr/").setViewName("index");
+        registry.addViewController("/").setViewName("de");
 
+        registry.addViewController("/en/").setViewName("en");
+        registry.addViewController("/es/").setViewName("es");
+        registry.addViewController("/fr/").setViewName("fr");
+        registry.addViewController("/it/").setViewName("it");
+        registry.addViewController("/tr/").setViewName("tr");
 
-        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/admin/").setViewName("admin");
+        registry.addViewController("/profile/").setViewName("profile");
+        registry.addViewController("/login/").setViewName("login");
+        registry.addViewController("/manager/").setViewName("manager");
+
     }
+
+
 
 }

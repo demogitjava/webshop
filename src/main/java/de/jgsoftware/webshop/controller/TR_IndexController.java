@@ -12,12 +12,12 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/tr/")
+@RequestMapping("/tr")
 public class TR_IndexController
 {
 
     // TR Türkey
-    @GetMapping({"index", "/"})
+    @GetMapping({"tr", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();

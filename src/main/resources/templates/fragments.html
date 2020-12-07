@@ -1,43 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <!-- Fragment #1 : Headerfiles contains css and js references -->
 <head th:fragment="headerfiles">
-<meta charset="ISO-8859-1">
-<title>Online-Shop</title>
-<link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Online-Shop</title>
+
+
+	<link th:href="@{~/bootstrap4/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{~/bootstrap4/css/bootstrap-grid.min.css}" rel="stylesheet">
+	<link th:href="@{~/bootstrap4/css/bootstrap-reboot.min.css}" rel="stylesheet">
+	<link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+
 </head>
 <body>
 
-	<!-- Fragment #2 : Navbar contains nav links -->
-	<div th:fragment="nav">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-			<a class="navbar-brand" href="#">Online Shopping</a>
+<!-- Fragment #2 : Navbar contains nav links -->
+<div th:fragment="nav">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Your Webshop Name</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="#"
-						th:href="@{/index}"><i class="fa fa-home mr-2"></i>Home</a></li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						class="nav-link" href="#" th:href="@{/admin/index}">Admin</a></li>
-					<li sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_ADMIN')"	class="nav-item"><a class="nav-link" href="#" th:href="@{/manager/index}">Management</a></li>
-				</ul>
-				<ul class="nav my-auto mr-4">
-					<li class="nav-item"><a href="#" class="text-info" th:href="@{/profile/cart-product}"><i class="fas fa-shopping-cart"></i></a></li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0" form-method="post"
-					th:action="@{/logout}">
-					<button sec:authorize="isAuthenticated()"
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="#"
+										th:href="@{/}"><i class="fa fa-home mr-2"></i>Home</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						class="nav-link" href="/admin/" th:href="@{/admin/index}">Admin</a></li>
+				<li sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_ADMIN')"
+					class="nav-item"><a class="nav-link" href="/manager/"
+										th:href="@{/manager/index}">Management</a></li>
+			</ul>
+
+
+			<ul class="navbar-nav mr-auto text-left">
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Deutsch
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="/en/">Englisch</a>
+						<a class="dropdown-item" href="/es/">Spanisch</a>
+						<a class="dropdown-item" href="/fr/">Französisch</a>
+						<a class="dropdown-item" href="/it/">Italienisch</a>
+						<a class="dropdown-item" href="/tr/">Türkisch</a>
+
+					</div>
+				</li>
+
+			</ul>
+
+
+			<ul class="nav my-auto mr-4">
+				<li class="nav-item"><a href="#" class="text-info" th:href="@{/profile/cart-product}"><i class="fas fa-shopping-cart"></i></a></li>
+			</ul>
+
+
+
+
+			<form class="form-inline my-2 my-lg-0" form-method="post"
+				  th:action="@{/logout}">
+				<button sec:authorize="isAuthenticated()"
 						class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
-					<button sec:authorize="isAnonymous()" th:href="@{~/login}"
+				<button sec:authorize="isAnonymous()" th:href="@{~/login}"
 						class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
-				</form>
-			</div>
-			</div>
-		</nav>
-	</div>
+
+			</form>
+
+
+		</div>
+	</nav>
+</div>
+
+<script th:src="@{~/jquery.min.js}"></script>
+<script th:src="@{~/bootstrap4/js/bootstrap.js}"></script>
+<script th:src="@{~/bootstrap4/js/bootstrap.min.js}"></script>
+<script th:src="@{~/bootstrap4/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 </html>

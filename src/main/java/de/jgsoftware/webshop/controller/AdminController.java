@@ -20,12 +20,12 @@ public class AdminController
 {
 
     // EN English is set by default
-    @GetMapping({"index", "/"})
+    @GetMapping({"admin", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();
 
-        prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
+        //prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
         return new ModelAndView("/admin/index.html", prodtlists);
     }
 

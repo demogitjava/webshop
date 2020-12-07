@@ -14,8 +14,6 @@ public class User_Service
     private DaoUser daoUser;
 
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
     public DaoUser getDaoUser() {
         return daoUser;

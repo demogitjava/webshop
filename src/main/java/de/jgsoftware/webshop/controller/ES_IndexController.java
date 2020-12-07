@@ -12,12 +12,12 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/es/")
+@RequestMapping("/es")
 public class ES_IndexController
 {
 
     // ES Spanisch
-    @GetMapping({"index", "/"})
+    @GetMapping({"es", "/"})
     public ModelAndView index()
     {
         Map<String, Object> prodtlists = new HashMap<>();

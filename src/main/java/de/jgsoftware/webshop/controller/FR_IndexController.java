@@ -11,12 +11,12 @@ import java.util.Locale;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/fr/")
+@RequestMapping("/fr")
 public class FR_IndexController
 {
 
     // FR French
-    @GetMapping({"index", "/"})
+    @GetMapping({"fr", "/"})
     public ModelAndView index()
     {
 
