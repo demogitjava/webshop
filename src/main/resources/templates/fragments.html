@@ -28,11 +28,8 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="#"
 										th:href="@{/}"><i class="fa fa-home mr-2"></i>Home</a></li>
-				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						class="nav-link" href="/admin/" th:href="@{/admin/index}">Admin</a></li>
-				<li sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_ADMIN')"
-					class="nav-item"><a class="nav-link" href="/manager/"
-										th:href="@{/manager/index}">Management</a></li>
+				<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a class="nav-link" href="/admin/" th:href="@{/admin}">Admin</a></li>
+				<li sec:authorize="hasRole('ROLE_MANAGER')" class="nav-item"><a class="nav-link" href="/manager/" th:href="@{/manager}">Management</a></li>
 			</ul>
 
 
