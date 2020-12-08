@@ -58,7 +58,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 						"/index.html",
 						"/signup.html",
 						"/login.html",
-						"/resources/**").permitAll()
+						"/resources/**",
+						"/static/**,").permitAll()
 
 				.antMatchers("/profile/**").access("hasRole('ROLE_USER')")
 				.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")

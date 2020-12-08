@@ -17,8 +17,6 @@ public class AppConfigLocale extends WebMvcConfigurerAdapter
 {
 
 
-    HttpServletRequest request;
-    Locale locale;
 
     @Bean
     public Object localeResolver() {
