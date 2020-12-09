@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
+import static org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME;
 
 @Controller
 @RequestMapping("/")
@@ -29,6 +32,8 @@ public class DE_IndexController
     User_Service userService;
 
 
+    @Autowired
+    HttpServletRequest request = null;
 
 
 
@@ -39,9 +44,12 @@ public class DE_IndexController
 
 
 
+        //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
+
         Map<String, Object> prodtlists = new HashMap<>();
         prodtlists.put("productList", indexservice.getDaoProduct().getProductsforLandingpage());
 
+        prodtlists.put("lang", request.getLocale().getLanguage());
 
         return new ModelAndView("index", prodtlists);
     }

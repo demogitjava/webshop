@@ -7,9 +7,12 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
+
+import static org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME;
 
 
 @Configuration
@@ -27,9 +30,14 @@ public class AppConfigLocale extends WebMvcConfigurerAdapter
     }
 
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
+    public LocaleChangeInterceptor localeChangeInterceptor()
+    {
+
+
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("language");
+        //return lci;
+
         return lci;
     }
 
