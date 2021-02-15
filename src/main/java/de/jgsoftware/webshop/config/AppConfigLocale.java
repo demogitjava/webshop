@@ -16,7 +16,7 @@ import static org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE_
 
 
 @Configuration
-public class AppConfigLocale extends WebMvcConfigurerAdapter
+public class AppConfigLocale
 {
 
 
@@ -41,7 +41,7 @@ public class AppConfigLocale extends WebMvcConfigurerAdapter
         return lci;
     }
 
-    @Override
+
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
         //registry.addInterceptor(servletInterceptor_lang);
