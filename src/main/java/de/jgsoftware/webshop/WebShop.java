@@ -24,8 +24,6 @@ public class WebShop {
         public WebShop()
         {
             startH2Server();
-
-
         }
 
         public static void main(String[] args)
