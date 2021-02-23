@@ -3,16 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="fragments.html :: headerfiles">
 
-	<style>
-		.footer {
-			position: fixed;
-			left: 0;
-			bottom: 0;
-			width: 100%;
 
-			text-align: center;
-		}
-	</style>
 </head>
 	<body>
 
@@ -33,30 +24,48 @@
 			<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
 				th:text="${category.categoryName}" href="#" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
 		</div>
-
-
 			<div  th:each="product : ${productList}">
-				<div class="row col-lg-12">
-					<div class="span12">
-						<div class="row-fluid">
-							<div class="col-xs-3">
-								<img th:src="${product.image}" class="card-img-top" alt="Product Image">
+				<div class="card">
+					<div>
+							<div class="card-header">
+								<h5 th:text="${product.productName}" class="card-title"></h5>
 							</div>
-							<div class="col-xs-9">
-								<div class="card-body">
-									<h5 th:text="${product.productName}" class="card-title"></h5>
-									<p th:text="${product.productDescription}" class="card-text"></p>
-									<p th:text="'$ '+${product.productPrice}" class="card-text"></p>
-									<a href="#" th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
+
+							<div class="row">
+								<div class="col-sm-3">
+									<img th:src="${product.image}" class="card-img-top" alt="Product Image" width="500" height="350">
+								</div>
+								<div class="col-sm-9">
+									<div class="card-body">
+
+										<p th:text="${product.productDescription}" ></p>
+
+									</div>
+									<div class="card-footer">
+										<p th:text="'$ '+${product.productPrice}"></p>
+										<a href="#" th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
+									</div>
 								</div>
 							</div>
-						</div>
+
+
 					</div>
 				</div>
 			</div>
 
 
 
+	</div>
+	<div class="row">
+
+		<style>
+			.row
+			{
+				border-top: 10px;
+				padding-top: 20px;
+				margin-top: 0px;
+			}
+		</style>
 	</div>
 	<!---
 		works on firefox
@@ -86,9 +95,6 @@
 				window.location.href = '/es/';
 				break;
 
-
-
-
 			case 'de':
 
 				break;
@@ -98,12 +104,12 @@
 				break;
 
 			default:
-				window.location.href = '/en/index.html';
+				window.location.href = '/index.html';
 		}
 
 	</script>
-	-->
 
+	-->
 
 
 
