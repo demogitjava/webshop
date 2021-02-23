@@ -58,6 +58,18 @@ public class ProfileController
     {
 
 
+        String stusername = principal.getName();
+        List userlistid = user_product_list_service.getDoaUserProductList().getUserId(stusername);
+
+        de.jgsoftware.webshop.model.User usermodel = new de.jgsoftware.webshop.model.User();
+        usermodel = (User) userlistid.get(0);
+
+
+        Long userid = usermodel.getId();
+
+
+
+        user_product_list_service.getDoaUserProductList().saveuserdata(productId, userid);
 
         //return indexcontroller.index(model);
         return "redirect:/";
