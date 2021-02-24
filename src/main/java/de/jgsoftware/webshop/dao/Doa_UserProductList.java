@@ -57,6 +57,12 @@ public class Doa_UserProductList
        return userlistid;
     }
 
+    public List getUserdataafterLogin(String stusername)
+    {
+        List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(User.class));
+        return userlistid;
+    }
+
 
 }
 

@@ -17,7 +17,6 @@ public class USER_PRODUCT_LIST
 
     private long product_id;
 
-
     public int getUser_id() {
         return user_id;
     }

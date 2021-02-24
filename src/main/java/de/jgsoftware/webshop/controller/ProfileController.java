@@ -2,7 +2,9 @@ package de.jgsoftware.webshop.controller;
 
 
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.Product;
@@ -21,6 +23,7 @@ import de.jgsoftware.webshop.service.Product_Service;
 
 import de.jgsoftware.webshop.service.interfaces.User_Product_List_Interface;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @Controller
@@ -64,15 +67,23 @@ public class ProfileController
         de.jgsoftware.webshop.model.User usermodel = new de.jgsoftware.webshop.model.User();
         usermodel = (User) userlistid.get(0);
 
-
         Long userid = usermodel.getId();
-
-
 
         user_product_list_service.getDoaUserProductList().saveuserdata(productId, userid);
 
         //return indexcontroller.index(model);
         return "redirect:/";
+    }
+
+
+
+    @GetMapping({"cart-product", "/"})
+    public ModelAndView index()
+    {
+        Map<String, Object> prodtlists = new HashMap<>();
+
+        //prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
+        return new ModelAndView("/profile/cart-product.html", prodtlists);
     }
 
 }

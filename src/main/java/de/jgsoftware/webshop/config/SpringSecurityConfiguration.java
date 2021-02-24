@@ -59,6 +59,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 						"/signup.html",
 						"/login.html",
 						"/resources/**",
+						"/templates/imgproducts/**",
 						"/static/**,").permitAll()
 
 				.antMatchers("/profile/**").access("hasRole('ROLE_USER')")

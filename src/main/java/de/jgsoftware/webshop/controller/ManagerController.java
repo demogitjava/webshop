@@ -16,7 +16,7 @@ import java.util.Map;
 public class ManagerController
 {
 
-    // EN English is set by default
+
     @GetMapping({"manager", "/"})
     public ModelAndView index()
     {
