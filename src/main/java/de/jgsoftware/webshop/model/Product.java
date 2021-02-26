@@ -1,9 +1,6 @@
 package de.jgsoftware.webshop.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 public class Product
@@ -15,6 +12,7 @@ public class Product
     @Column
     private String productName;
 
+    @Lob
     private String productDescription;
 
     @Column
@@ -25,7 +23,22 @@ public class Product
 
     private String image;
 
+    private int landingpage;
 
+    @Lob
+    private String productDescription_EN;
+
+    @Lob
+    private String productDescription_ES;
+
+    @Lob
+    private String productDescription_FR;
+
+    @Lob
+    private String productDescription_IT;
+
+    @Lob
+    private String productDescription_TR;
 
 
     public long getProductId() {
@@ -74,5 +87,53 @@ public class Product
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getLandingpage() {
+        return landingpage;
+    }
+
+    public void setLandingpage(int landingpage) {
+        this.landingpage = landingpage;
+    }
+
+    public String getProductDescription_EN() {
+        return productDescription_EN;
+    }
+
+    public void setProductDescription_EN(String productDescription_EN) {
+        this.productDescription_EN = productDescription_EN;
+    }
+
+    public String getProductDescription_ES() {
+        return productDescription_ES;
+    }
+
+    public void setProductDescription_ES(String productDescription_ES) {
+        this.productDescription_ES = productDescription_ES;
+    }
+
+    public String getProductDescription_FR() {
+        return productDescription_FR;
+    }
+
+    public void setProductDescription_FR(String productDescription_FR) {
+        this.productDescription_FR = productDescription_FR;
+    }
+
+    public String getProductDescription_IT() {
+        return productDescription_IT;
+    }
+
+    public void setProductDescription_IT(String productDescription_IT) {
+        this.productDescription_IT = productDescription_IT;
+    }
+
+    public String getProductDescription_TR() {
+        return productDescription_TR;
+    }
+
+    public void setProductDescription_TR(String productDescription_TR) {
+        this.productDescription_TR = productDescription_TR;
     }
 }
