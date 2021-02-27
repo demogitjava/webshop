@@ -40,7 +40,6 @@ public class Product
     @Lob
     private String productDescription_TR;
 
-
     public long getProductId() {
         return productId;
     }
