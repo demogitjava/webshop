@@ -1,5 +1,5 @@
 
-Demo Webshop with Spring Boot + Theamleaf
+Demo Webshop with Spring Boot + Theamleaf / Bootstrap
 ============================================================
 
 You can use Netbeans to compile your own webshop from
@@ -27,13 +27,16 @@ for an other path you have to edit the application.properties file
 the languages over the h2 database are supported
 
 -de
--fr
+-en
 -es
--tk
+-fr
 -it
+-tk
 
 <br/>
 <br/>
+
+
 
 
 
