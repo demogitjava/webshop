@@ -51,6 +51,16 @@ public class DaoProduct
 
 
 
+    public List<Product> searchProductovertextfield(String searchProduct)
+    {
+
+
+        //  List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(User.class));
+
+        List<Product> productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        return productList;
+    }
+
 
 
 }

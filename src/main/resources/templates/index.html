@@ -17,7 +17,21 @@
 
 
 	<div class="container-fluid">
-		<h1 class="display-5">Product Overview</h1>
+
+
+		<div class="row">
+
+		<div class="col-sm-12">
+			<form action="#" th:action="@{/searchProduct}" method="post">
+				<div class="input-group mb-3">
+					<input name="searchProduct" type="text" class="form-control" placeholder="search your item" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
 
 		<div class="d-flex justify-content-start p-2">
 			<a class="list-group-item mr-2" href="#" th:href="@{/allProduct}">All
@@ -63,8 +77,8 @@
 		<style>
 			.row
 			{
-				border-top: 10px;
-				padding-top: 20px;
+				border-top: 2px;
+				padding-top: 2px;
 				margin-top: 0px;
 			}
 		</style>
