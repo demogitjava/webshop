@@ -45,19 +45,25 @@ public class DaoProduct
         // jtm.query("select * from USERDETAIL where username like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
         //List<Product> productList = jtm.query("select * from public.PRODUCT where product_id =" + productId, new BeanPropertyRowMapper(Product.class));
 
-
         return cartuserproduct;
     }
 
 
 
+
+    // textfield in webshop
     public List<Product> searchProductovertextfield(String searchProduct)
     {
-
-
-        //  List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(User.class));
-
         List<Product> productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        return productList;
+    }
+
+
+
+    // textfield in webshop with top 25
+    public List<Product> searchProductop25(String searchProduct)
+    {
+        List<Product> productList = jtm.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
         return productList;
     }
 
