@@ -14,65 +14,70 @@
 
 	</header>
 
-
-
-
 	<div class="container-fluid">
 
 
 		<div class="row">
 
-		<div class="col-sm-12">
-			<form action="#" th:action="@{/searchProduct}" method="post">
-				<div class="input-group mb-3">
-					<input name="searchProduct" type="text" class="form-control" placeholder="search your item" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button type="submit" class="btn btn-primary">Search</button>
+				<div class="col-sm-12">
+					<form action="#" th:action="@{/searchProduct}" method="post">
+						<div class="input-group mb-3">
+							<input name="searchProduct" type="text" class="form-control" placeholder="search your item" aria-describedby="basic-addon2">
+							<div class="input-group-append">
+								<button type="submit" class="btn btn-primary">Search</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+				<div class="d-flex justify-content-start p-2">
+					<a class="list-group-item mr-2" th:href="@{'/'}">All
+						Product</a>
+					<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
+						th:text="${category.categoryName}" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<p>dasdfds</p>
+					</div>
+					<div class="col-sm-9">
+						<div  th:each="product : ${productList}">
+							<div class="card">
+								<div>
+									<div class="card-header">
+										<h5 th:text="${product.productName}" class="card-title"></h5>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-3">
+
+											<img id="imagecardproduct" th:src="@{${product.image}}" class="card-img-top" alt="Product Image" width="400" height="250">
+										</div>
+										<div class="col-sm-9">
+											<div class="card-body">
+
+												<p th:text="${product.productDescription}" ></p>
+
+											</div>
+											<div class="card-footer">
+												<p th:text="'$ '+${product.productPrice}"></p>
+												<a th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</form>
+
+
+
 		</div>
-
-
-		<div class="d-flex justify-content-start p-2">
-			<a class="list-group-item mr-2" href="#" th:href="@{/allProduct}">All
-				Product</a> 
-			<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
-				th:text="${category.categoryName}" href="#" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
-		</div>
-			<div  th:each="product : ${productList}">
-				<div class="card">
-					<div>
-							<div class="card-header">
-								<h5 th:text="${product.productName}" class="card-title"></h5>
-							</div>
-
-							<div class="row">
-								<div class="col-sm-3">
-
-									<img id="imagecardproduct" th:src="@{${product.image}}" class="card-img-top" alt="Product Image" width="400" height="250">
-								</div>
-								<div class="col-sm-9">
-									<div class="card-body">
-
-										<p th:text="${product.productDescription}" ></p>
-
-									</div>
-									<div class="card-footer">
-										<p th:text="'$ '+${product.productPrice}"></p>
-										<a href="#" th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
-									</div>
-								</div>
-							</div>
-
-
-					</div>
-				</div>
-			</div>
-
-
-
-	</div>
 	<div class="row">
 
 		<style>
