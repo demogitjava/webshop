@@ -21,6 +21,15 @@ under ubuntu is
 for an other path you have to edit the application.properties file
 
 <br/>
+
+DemoFolder Images 
+resources/static/images/imgproducts
+
+png File w 400 h 250
+for NAS Storage or Cluster with docker you 
+habe to edit the  path in Database Table PRODCUTS
+and the index.html -> row 53
+
 <br/>
 
 
