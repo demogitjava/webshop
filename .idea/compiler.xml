@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AjcSettings">
-    <option name="ajcPath" value="/usr/share/java/aspectjtools.jar" />
-    <option name="delegateToJavac" value="true" />
-    <option name="aptOptionsEnabled" value="true" />
-  </component>
   <component name="CompilerConfiguration">
-    <option name="USE_RELEASE_OPTION" value="false" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -15,14 +9,12 @@
         <module name="webshop" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8">
-      <module name="demo_websitebuilder" target="1.8" />
+    <bytecodeTargetLevel>
       <module name="webshop" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo_websitebuilder" options="-parameters" />
       <module name="webshop" options="-parameters" />
     </option>
   </component>
