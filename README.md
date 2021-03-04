@@ -27,8 +27,11 @@ resources/static/images/imgproducts
 
 png File w 400 h 250
 for NAS Storage or Cluster with docker you 
-habe to edit the  path in Database Table PRODCUTS
-and the index.html -> row 53
+habe to edit the  path in 
+
+Database Table PRODCUTS
+index.html search "imagecardproduct" if you
+would like to edit File size w 400 h 250
 
 <br/>
 
