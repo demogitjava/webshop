@@ -39,9 +39,12 @@
 				</div>
 
 				<div class="row">
+
 					<div class="col-sm-3">
 						<p>dasdfds</p>
 					</div>
+
+
 					<div class="col-sm-9">
 						<div  th:each="product : ${productList}">
 							<div class="card">
@@ -72,13 +75,32 @@
 								</div>
 							</div>
 						</div>
+
+
 					</div>
+
+
 				</div>
+
 
 
 
 		</div>
 
+		<nav aria-label="Page navigation example">
+			<ul class="pagination pg-blue justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item" th:each="pSize: ${pageSize}">
+					<a class="page-link" th:href="'/pagination?page=' + ${pSize}" th:utext="${pSize}"></a>
+				</li>
+
+				<li class="page-item">
+					<a class="page-link">Next</a>
+				</li>
+			</ul>
+		</nav>
 		<!---
 		works on firefox
 
@@ -124,6 +146,7 @@
 	-->
 
 
+
 	</div>
 
 	<div class="row">
@@ -147,8 +170,8 @@
 
 
 	</body>
-<!--<script th:src="@{~/jquery.min.js}"></script>
 
-<script th:src="@{~/bootstrap4/js/bootstrap.min.js}"></script>
-<script th:src="@{~/bootstrap4/js/bootstrap.bundle.min.js}"></script>-->
+
+
+
 </html>

@@ -1,30 +1,33 @@
 package de.jgsoftware.webshop.dao;
 
+import de.jgsoftware.webshop.dao.interfaces.i_daoProduct;
 import de.jgsoftware.webshop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Query;
 import java.util.List;
-import java.util.Optional;
 
 
 @Repository
-public class DaoProduct
+public class DaoProduct implements i_daoProduct
 {
 
     @Autowired
     private JdbcTemplate jtm;
 
 
+    public List<Product> productList;
+
+
     public List<Product> getProductsforLandingpage()
     {
 
 
-        List<Product> productList = jtm.query("select * from public.PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm.query("select * from public.PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
 
         return productList;
     }
@@ -49,24 +52,19 @@ public class DaoProduct
     }
 
 
-
-
     // textfield in webshop
-    public List<Product> searchProductovertextfield(String searchProduct)
+    public List<Product> searchProductovertextfield(String searchProduct, Pageable pageable)
     {
-        List<Product> productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
         return productList;
     }
-
 
 
     // textfield in webshop with top 25
     public List<Product> searchProductop25(String searchProduct)
     {
-        List<Product> productList = jtm.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
         return productList;
     }
-
-
 
 }

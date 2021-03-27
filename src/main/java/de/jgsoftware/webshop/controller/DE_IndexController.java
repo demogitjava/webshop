@@ -1,18 +1,20 @@
 package de.jgsoftware.webshop.controller;
 
 
+import de.jgsoftware.webshop.model.Product;
 import de.jgsoftware.webshop.service.Index_Service;
 import de.jgsoftware.webshop.service.User_Service;
+import de.jgsoftware.webshop.service.Product_Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -27,13 +29,27 @@ public class DE_IndexController
     @Autowired
     User_Service userService;
 
+    @Autowired
+    Product_Service pservice;
+
+
+    Pageable pageable;
+
+
 
     @Autowired
     HttpServletRequest request = null;
 
+    // Container ModalAndView
     public Map<String, Object> prodtlists;
 
+    // return itemlist from query over TextField
+    private List<Product> productList;
+    public static String lang;
+    private ModelAndView mv;
 
+
+    private int page;
 
     // DE German
     @GetMapping({"de", "/"})
@@ -60,9 +76,7 @@ public class DE_IndexController
     @PostMapping("addProcducttocase")
     public ModelAndView getProduct()
     {
-        ModelAndView mv = new ModelAndView("index");
-
-
+        mv = new ModelAndView("index");
         return mv;
     }
 
@@ -108,16 +122,51 @@ public class DE_IndexController
 
 
     @PostMapping("searchProduct")
-    public ModelAndView searchProduct(@RequestParam(value = "searchProduct", required = false) String searchProduct)
+    public ModelAndView searchProduct(@RequestParam(value = "searchProduct", required = false) String searchProduct, Pageable pageable)
     {
+
+
+        lang = (String) request.getLocale().getLanguage();
+
+        productList = indexservice.getDaoProduct().searchProductovertextfield(searchProduct, pageable);
+        //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
+        prodtlists = new HashMap<>();
+
+
+
+        prodtlists.put("productList", indexservice.getpageSublist(productList, page));
+        prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
+
+        prodtlists.put("pageSize", indexservice.getdefaultSize(productList)); // size of Items from Productlist
+        prodtlists.put("lang", lang);
+
+        return new ModelAndView("index", prodtlists);
+    }
+
+
+    @GetMapping(value = "pagination")
+    public ModelAndView getEmployees(@RequestParam(value = "page", required = false) Integer page,
+                               Pageable pageable) {
+
+
+
+        lang = (String) request.getLocale().getLanguage();
 
         //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
         prodtlists = new HashMap<>();
-        prodtlists.put("productList", indexservice.getDaoProduct().searchProductovertextfield(searchProduct));
 
-        prodtlists.put("lang", request.getLocale().getLanguage());
+        prodtlists.put("productList", indexservice.getpageSublist(productList, page));  // pageable list
+        prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
+
+        prodtlists.put("pageSize", indexservice.getdefaultSize(productList)); // size of Items from Productlist
+        prodtlists.put("lang", lang);
+
 
         return new ModelAndView("index", prodtlists);
 
     }
+
+
+
+
 }
