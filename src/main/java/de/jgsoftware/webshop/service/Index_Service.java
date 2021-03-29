@@ -1,5 +1,6 @@
 package de.jgsoftware.webshop.service;
 
+import de.jgsoftware.webshop.controller.DE_IndexController;
 import de.jgsoftware.webshop.dao.DaoIndex;
 import de.jgsoftware.webshop.dao.DaoProduct;
 import de.jgsoftware.webshop.model.Product;
@@ -84,7 +85,6 @@ public class Index_Service implements I_Index_Service
     public List<Product> getpageSublist(List<Product> productList, int page)
     {
 
-
         List<Product> pagelist = null;      // create sublist
 
         if(page == 0)
@@ -107,6 +107,8 @@ public class Index_Service implements I_Index_Service
                 System.out.print("Fehler " + e);
             }
         }
+
+
 
         return pagelist;
     }

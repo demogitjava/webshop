@@ -88,19 +88,31 @@
 		</div>
 
 		<nav aria-label="Page navigation example">
-			<ul class="pagination pg-blue justify-content-center">
-				<li class="page-item disabled">
-					<a class="page-link" tabindex="-1">Previous</a>
+			<ul class="pagination pg-blue justify-content-center" th:each="pSize: ${pageSize}">
+
+				<li class="page-item">
+					<a class="page-link" th:href="'/previous?page=' + ${pSize}">Previous</a>
 				</li>
-				<li class="page-item" th:each="pSize: ${pageSize}">
+
+				<li class="page-item">
 					<a class="page-link" th:href="'/pagination?page=' + ${pSize}" th:utext="${pSize}"></a>
 				</li>
 
 				<li class="page-item">
-					<a class="page-link">Next</a>
+					<a class="page-link" th:href="'/nextpage?page=' + ${pSize}">Next</a>
 				</li>
+
+				<div class="row">
+					<a th:text="${page}">Page / </a>
+					<br>
+					<a th:text="${pageSize}"></a>
+				</div>
+
+
 			</ul>
 		</nav>
+
+
 		<!---
 		works on firefox
 

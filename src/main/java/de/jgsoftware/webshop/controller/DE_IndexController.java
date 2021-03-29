@@ -49,7 +49,8 @@ public class DE_IndexController
     private ModelAndView mv;
 
 
-    private int page;
+    static int page;
+
 
     // DE German
     @GetMapping({"de", "/"})
@@ -128,6 +129,7 @@ public class DE_IndexController
 
         lang = (String) request.getLocale().getLanguage();
 
+
         productList = indexservice.getDaoProduct().searchProductovertextfield(searchProduct, pageable);
         //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
         prodtlists = new HashMap<>();
@@ -135,9 +137,11 @@ public class DE_IndexController
 
 
         prodtlists.put("productList", indexservice.getpageSublist(productList, page));
-        prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
+       // prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
+        prodtlists.put("page", page);  // for list items pagable
 
-        prodtlists.put("pageSize", indexservice.getdefaultSize(productList)); // size of Items from Productlist
+        int pageSize = (Integer) indexservice.getdefaultSize(productList);
+        prodtlists.put("pageSize", pageSize); // size of Items from Productlist
         prodtlists.put("lang", lang);
 
         return new ModelAndView("index", prodtlists);
@@ -156,9 +160,10 @@ public class DE_IndexController
         prodtlists = new HashMap<>();
 
         prodtlists.put("productList", indexservice.getpageSublist(productList, page));  // pageable list
-        prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
+        prodtlists.put("page", page);  // for list items pagable
 
-        prodtlists.put("pageSize", indexservice.getdefaultSize(productList)); // size of Items from Productlist
+        int pageSize = (Integer) indexservice.getdefaultSize(productList);
+        prodtlists.put("pageSize", pageSize); // size of Items from Productlist
         prodtlists.put("lang", lang);
 
 
@@ -168,5 +173,51 @@ public class DE_IndexController
 
 
 
+    @GetMapping(value = "nextpage")
+    public ModelAndView getnextpage(@RequestParam(value = "page", required = false) Integer page,
+                                     Pageable pageable) {
+
+        page = page + 1;
+        lang = (String) request.getLocale().getLanguage();
+        //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
+        prodtlists = new HashMap<>();
+
+        prodtlists.put("productList", indexservice.getpageSublist(productList, page));  // pageable list
+
+
+        prodtlists.put("page", page);  // for list items pagable
+
+        int pageSize = (Integer) indexservice.getdefaultSize(productList);
+        prodtlists.put("pageSize", pageSize); // size of Items from Productlist
+        prodtlists.put("lang", lang);
+
+
+        return new ModelAndView("index", prodtlists);
+
+    }
+
+
+    @GetMapping(value = "previous")
+    public ModelAndView setprevious(@RequestParam(value = "page", required = false) Integer page,
+                                    Pageable pageable) {
+
+        page = page - 1;
+        lang = (String) request.getLocale().getLanguage();
+        //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
+        prodtlists = new HashMap<>();
+
+        prodtlists.put("productList", indexservice.getpageSublist(productList, page));  // pageable list
+
+
+        prodtlists.put("page", page);  // for list items pagable
+
+        int pageSize = (Integer) indexservice.getdefaultSize(productList);
+        prodtlists.put("pageSize", pageSize); // size of Items from Productlist
+        prodtlists.put("lang", lang);
+
+
+        return new ModelAndView("index", prodtlists);
+
+    }
 
 }
