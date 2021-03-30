@@ -171,8 +171,6 @@ public class DE_IndexController
 
     }
 
-
-
     @GetMapping(value = "nextpage")
     public ModelAndView getnextpage(@RequestParam(value = "page", required = false) Integer page,
                                      Pageable pageable) {
@@ -207,7 +205,6 @@ public class DE_IndexController
         prodtlists = new HashMap<>();
 
         prodtlists.put("productList", indexservice.getpageSublist(productList, page));  // pageable list
-
 
         prodtlists.put("page", page);  // for list items pagable
 
