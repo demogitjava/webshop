@@ -89,7 +89,7 @@ public class Index_Service implements I_Index_Service
 
         if(page == 0)
         {
-            System.out.print("list is null // 0 - 9" + "\n");
+            System.out.print("list is null // 0 - 9" + "\n" + "\n");
             pagelist = productList.subList(0, productList.size());
         }
         else

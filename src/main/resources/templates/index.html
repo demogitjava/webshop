@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:lang="${lang}"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-	<body>
-
-
-	<head th:insert="fragments.html :: headerfiles">
-	</head>
-	<head th:insert="fragments.html :: nav">
-	</head>
-
-	<div class="container-fluid">
+<body>
 
 
-		<div class="row">
+<head th:insert="fragments.html :: headerfiles">
+</head>
+<head th:insert="fragments.html :: nav">
+</head>
 
-				<div class="col-sm-12">
-					<form action="#" th:action="@{/searchProduct}" method="post">
-						<div class="input-group mb-3">
-							<input name="searchProduct" type="text" class="form-control" placeholder="search your item" aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button type="submit" class="btn btn-primary">Search</button>
-							</div>
-						</div>
-					</form>
-				</div>
+<div class="container-fluid">
 
 
-				<div class="d-flex justify-content-start p-2">
-					<a class="list-group-item mr-2" th:href="@{'/'}">All
-						Product</a>
-					<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
-						th:text="${category.categoryName}" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
-				</div>
+	<div class="row">
 
-				<div class="row">
-
-					<div class="col-sm-3">
-						<p>dasdfds</p>
-					</div>
-
-
-					<div class="col-sm-9">
-						<div  th:each="product : ${productList}">
-							<div class="card">
-								<div>
-									<div class="card-header">
-										<h5 th:text="${product.productName}" class="card-title"></h5>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-3">
-
-											<img id="imagecardproduct" th:src="@{${product.image}}" class="card-img-top" alt="Product Image" width="400" height="250">
-										</div>
-										<div class="col-sm-9">
-											<div class="card-body">
-
-												<p th:text="${product.productDescription}"></p>
-
-											</div>
-											<div class="card-footer">
-												<p th:text="'$ '+${product.productPrice}"></p>
-												<a th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
-											</div>
-										</div>
-									</div>
-
-
-								</div>
-							</div>
-						</div>
-
+		<div class="col-sm-12">
+			<form action="#" th:action="@{/searchProduct}" method="post">
+				<div class="input-group mb-3">
+					<input name="searchProduct" type="text" class="form-control" placeholder="search your item" aria-describedby="basic-addon2">
+					<div class="input-group-append">
+						<button type="submit" class="btn btn-primary">Search</button>
 					</div>
 				</div>
-
+			</form>
 		</div>
+
+
+		<div class="d-flex justify-content-start p-2">
+			<a class="list-group-item mr-2" th:href="@{'/'}">All
+				Product</a>
+			<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
+			   th:text="${category.categoryName}" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
+		</div>
+
+
+
+			<div class="col-sm-12">
+				<div class="row">
+					<div  th:each="product : ${productList}">
+						<div class="card">
+							<div>
+								<div class="card-header">
+									<h5 th:text="${product.productName}" class="card-title"></h5>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-3">
+
+										<img id="imagecardproduct" th:src="@{${product.image}}" class="card-img-top" alt="Product Image" width="400" height="250">
+									</div>
+									<div class="col-sm-9">
+										<div class="card-body">
+
+											<p th:text="${product.productDescription}"></p>
+
+										</div>
+										<div class="card-footer">
+											<p th:text="'$ '+${product.productPrice}"></p>
+											<a th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
 
 		<nav aria-label="Page navigation example">
 			<ul class="pagination pg-blue justify-content-center" th:each="pSize: ${pageSize}">
@@ -104,48 +101,48 @@
 
 
 		<!---
-		works on firefox
+        works on firefox
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 
-		var language = window.navigator.language;
+        var language = window.navigator.language;
 
-		switch (language) {
-			case 'en':
-				window.location.href = '/en/';
-				break;
+        switch (language) {
+            case 'en':
+                window.location.href = '/en/';
+                break;
 
-			case 'it':
-				window.location.href = '/it/';
-				break;
+            case 'it':
+                window.location.href = '/it/';
+                break;
 
-			case 'fr':
-				window.location.href = '/fr/';
-				break;
+            case 'fr':
+                window.location.href = '/fr/';
+                break;
 
-			case 'tr':
-				window.location.href = '/tr/';
-				break;
+            case 'tr':
+                window.location.href = '/tr/';
+                break;
 
-			case 'es':
-				window.location.href = '/es/';
-				break;
+            case 'es':
+                window.location.href = '/es/';
+                break;
 
-			case 'de':
+            case 'de':
 
-				break;
+                break;
 
-			case 'de_DE':
+            case 'de_DE':
 
-				break;
+                break;
 
-			default:
-				window.location.href = '/index.html';
-		}
+            default:
+                window.location.href = '/index.html';
+        }
 
-	</script>
+    </script>
 
-	-->
+    -->
 
 
 
@@ -171,7 +168,7 @@
 	</div>
 
 
-	</body>
+</body>
 
 
 

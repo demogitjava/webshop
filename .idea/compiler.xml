@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Eclipse" />
     <option name="BUILD_PROCESS_HEAP_SIZE" value="800" />
     <option name="USE_RELEASE_OPTION" value="false" />
     <annotationProcessing>
@@ -13,7 +12,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="webshop" target="8" />
+      <module name="webshop" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
