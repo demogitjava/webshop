@@ -8,6 +8,7 @@ import de.jgsoftware.webshop.service.Product_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.*;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -54,16 +55,37 @@ public class DE_IndexController
 
     // DE German
     @GetMapping({"de", "/"})
-    public ModelAndView index()
+    public ModelAndView index(Device device)
     {
      //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
+
 
         prodtlists = new HashMap<>();
         prodtlists.put("productList", indexservice.getDaoProduct().getProductsforLandingpage());
 
         prodtlists.put("lang", request.getLocale().getLanguage());
 
-        return new ModelAndView("index", prodtlists);
+        if (device.isMobile()) {
+
+            return new ModelAndView("mobile/index", prodtlists);
+
+        } else if (device.isTablet()) {
+            return new ModelAndView("tablet/index", prodtlists);
+
+        } else if (device.isNormal()){
+
+            return new ModelAndView("index", prodtlists);
+        }
+        else
+        {
+            return new ModelAndView("index", prodtlists);
+        }
+
+
+
+
+       // return new ModelAndView("index", prodtlists);
+
     }
 
 

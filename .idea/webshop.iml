@@ -123,5 +123,8 @@
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.200" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.2" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.mobile:spring-mobile-starter:2.0.0.M3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.mobile:spring-mobile-autoconfigure:2.0.0.M3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.mobile:spring-mobile-device:2.0.0.M3" level="project" />
   </component>
 </module>
