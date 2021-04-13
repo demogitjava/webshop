@@ -1,9 +1,14 @@
 
-Demo Webshop with Spring Boot + Theamleaf / Bootstrap
+Demo Webshop with Spring Boot + Theamleaf / Bootstrap / Onsen 
 ============================================================
 
 You can use Netbeans to compile your own webshop from
 https://netbeans.apache.org/
+
+If you use Jetbrains IDE you can set up the path 
+under settings -> Tools -> Settings Repository and
+add http://repo.maven.apache.org/maven2/ 
+and updated with invalidated and restart.
 
 the programm is testet under java java-1.8.0-openjdk-i386
 and maven repository from 
@@ -46,6 +51,12 @@ the languages over the h2 database are supported
 -tk
 
 <br/>
+
+for mobile and table view we use
+Osen UI from
+https://onsen.io/
+as Frontend
+
 <br/>
 
 

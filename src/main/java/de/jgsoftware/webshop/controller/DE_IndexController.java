@@ -48,8 +48,6 @@ public class DE_IndexController
     private List<Product> productList;
     public static String lang;
     private ModelAndView mv;
-
-
     static int page;
 
 
@@ -66,26 +64,18 @@ public class DE_IndexController
         prodtlists.put("lang", request.getLocale().getLanguage());
 
         if (device.isMobile()) {
-
             return new ModelAndView("mobile/index", prodtlists);
-
         } else if (device.isTablet()) {
             return new ModelAndView("tablet/index", prodtlists);
-
         } else if (device.isNormal()){
-
             return new ModelAndView("index", prodtlists);
         }
         else
         {
+            // desktop
+            // /resources/templates/index.html
             return new ModelAndView("index", prodtlists);
         }
-
-
-
-
-       // return new ModelAndView("index", prodtlists);
-
     }
 
 
@@ -147,16 +137,10 @@ public class DE_IndexController
     @PostMapping("searchProduct")
     public ModelAndView searchProduct(@RequestParam(value = "searchProduct", required = false) String searchProduct, Pageable pageable)
     {
-
-
         lang = (String) request.getLocale().getLanguage();
-
-
         productList = indexservice.getDaoProduct().searchProductovertextfield(searchProduct, pageable);
         //Locale locale = (Locale) WebUtils.getSessionAttribute(request, LOCALE_SESSION_ATTRIBUTE_NAME);
         prodtlists = new HashMap<>();
-
-
 
         prodtlists.put("productList", indexservice.getpageSublist(productList, page));
        // prodtlists.put("page", indexservice.getpageList(productList));  // for list items pagable
@@ -173,8 +157,6 @@ public class DE_IndexController
     @GetMapping(value = "pagination")
     public ModelAndView getEmployees(@RequestParam(value = "page", required = false) Integer page,
                                Pageable pageable) {
-
-
 
         lang = (String) request.getLocale().getLanguage();
 
