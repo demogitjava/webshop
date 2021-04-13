@@ -52,13 +52,6 @@ the languages over the h2 database are supported
 
 <br/>
 
-for mobile and table view we use
-Osen UI from
-https://onsen.io/
-as Frontend
-
-<br/>
-
 
 
 
