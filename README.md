@@ -1,5 +1,5 @@
 
-Demo Webshop with Spring Boot + Theamleaf / Bootstrap / Onsen 
+Demo Webshop with Spring Boot + Theamleaf / Bootstrap 
 ============================================================
 
 You can use Netbeans to compile your own webshop from
