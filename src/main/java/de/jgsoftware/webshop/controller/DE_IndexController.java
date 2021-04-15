@@ -135,7 +135,7 @@ public class DE_IndexController
 
 
     @PostMapping("searchProduct")
-    public ModelAndView searchProduct(@RequestParam(value = "searchProduct", required = false) String searchProduct, Pageable pageable)
+    public ModelAndView searchProduct(@RequestParam(value = "searchProduct", required = false) String searchProduct, Pageable pageable, Device device)
     {
         lang = (String) request.getLocale().getLanguage();
         productList = indexservice.getDaoProduct().searchProductovertextfield(searchProduct, pageable);
@@ -150,7 +150,19 @@ public class DE_IndexController
         prodtlists.put("pageSize", pageSize); // size of Items from Productlist
         prodtlists.put("lang", lang);
 
-        return new ModelAndView("index", prodtlists);
+        if (device.isMobile()) {
+            return new ModelAndView("mobile/index", prodtlists);
+        } else if (device.isTablet()) {
+            return new ModelAndView("tablet/index", prodtlists);
+        } else if (device.isNormal()){
+            return new ModelAndView("index", prodtlists);
+        }
+        else
+        {
+            // desktop
+            // /resources/templates/index.html
+            return new ModelAndView("index", prodtlists);
+        }
     }
 
 

@@ -1,0 +1,12 @@
+
+.input-group
+{
+    height: 150px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+.form-control{
+    height: 150px;
+    font-size: 16px;
+}

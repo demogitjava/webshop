@@ -34,9 +34,7 @@
 			   th:text="${category.categoryName}" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
 		</div>
 
-
-
-			<div class="col-sm-12">
+		<div class="col-sm-12">
 				<div class="row">
 					<div  th:each="product : ${productList}">
 						<div class="card">
@@ -70,9 +68,6 @@
 				</div>
 
 			</div>
-
-
-
 
 		<nav aria-label="Page navigation example">
 			<ul class="pagination pg-blue justify-content-center" th:each="pSize: ${pageSize}">
