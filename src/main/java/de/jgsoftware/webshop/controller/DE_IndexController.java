@@ -168,7 +168,7 @@ public class DE_IndexController
 
     @GetMapping(value = "pagination")
     public ModelAndView getEmployees(@RequestParam(value = "page", required = false) Integer page,
-                               Pageable pageable) {
+                               Pageable pageable, Device device) {
 
         lang = (String) request.getLocale().getLanguage();
 
@@ -183,13 +183,25 @@ public class DE_IndexController
         prodtlists.put("lang", lang);
 
 
-        return new ModelAndView("index", prodtlists);
+        if (device.isMobile()) {
+            return new ModelAndView("mobile/index", prodtlists);
+        } else if (device.isTablet()) {
+            return new ModelAndView("tablet/index", prodtlists);
+        } else if (device.isNormal()){
+            return new ModelAndView("index", prodtlists);
+        }
+        else
+        {
+            // desktop
+            // /resources/templates/index.html
+            return new ModelAndView("index", prodtlists);
+        }
 
     }
 
     @GetMapping(value = "nextpage")
     public ModelAndView getnextpage(@RequestParam(value = "page", required = false) Integer page,
-                                     Pageable pageable) {
+                                     Pageable pageable, Device device) {
 
         page = page + 1;
         lang = (String) request.getLocale().getLanguage();
@@ -206,14 +218,26 @@ public class DE_IndexController
         prodtlists.put("lang", lang);
 
 
-        return new ModelAndView("index", prodtlists);
+        if (device.isMobile()) {
+            return new ModelAndView("mobile/index", prodtlists);
+        } else if (device.isTablet()) {
+            return new ModelAndView("tablet/index", prodtlists);
+        } else if (device.isNormal()){
+            return new ModelAndView("index", prodtlists);
+        }
+        else
+        {
+            // desktop
+            // /resources/templates/index.html
+            return new ModelAndView("index", prodtlists);
+        }
 
     }
 
 
     @GetMapping(value = "previous")
     public ModelAndView setprevious(@RequestParam(value = "page", required = false) Integer page,
-                                    Pageable pageable) {
+                                    Pageable pageable, Device device) {
 
         page = page - 1;
         lang = (String) request.getLocale().getLanguage();
@@ -229,7 +253,19 @@ public class DE_IndexController
         prodtlists.put("lang", lang);
 
 
-        return new ModelAndView("index", prodtlists);
+        if (device.isMobile()) {
+            return new ModelAndView("mobile/index", prodtlists);
+        } else if (device.isTablet()) {
+            return new ModelAndView("tablet/index", prodtlists);
+        } else if (device.isNormal()){
+            return new ModelAndView("index", prodtlists);
+        }
+        else
+        {
+            // desktop
+            // /resources/templates/index.html
+            return new ModelAndView("index", prodtlists);
+        }
 
     }
 
