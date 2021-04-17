@@ -64,6 +64,7 @@ public class DE_IndexController
         prodtlists.put("lang", request.getLocale().getLanguage());
 
         if (device.isMobile()) {
+            System.out.print("mobile page" + "\n");
             return new ModelAndView("mobile/index", prodtlists);
         } else if (device.isTablet()) {
             return new ModelAndView("tablet/index", prodtlists);
@@ -184,7 +185,10 @@ public class DE_IndexController
 
 
         if (device.isMobile()) {
+
+            System.out.print("mobile page "+ "\n");
             return new ModelAndView("mobile/index", prodtlists);
+
         } else if (device.isTablet()) {
             return new ModelAndView("tablet/index", prodtlists);
         } else if (device.isNormal()){
