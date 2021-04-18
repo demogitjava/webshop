@@ -2,7 +2,7 @@
 Demo Webshop with Spring Boot + Theamleaf / Bootstrap 
 ============================================================
 
-You can use Netbeans to compile your own webshop from
+You can use Netbeans IDE to compile your own webshop from
 https://netbeans.apache.org/
 
 If you use Jetbrains IDE you can set up the path 
@@ -35,7 +35,9 @@ for NAS Storage or Cluster with docker you
 have to edit the  path in 
 
 Database Table PRODCUTS
-index.html search "imagecardproduct" if you
+-> column // IMAGE
+
+in index.html search "imagecardproduct" if you
 would like to edit File size w 400 h 250
 
 <br/>

@@ -1,7 +1,4 @@
-html
-{
-    font-size: 48px;
-}
+/*
 
 
 .input-group
@@ -13,5 +10,23 @@ html
 
 .form-control{
     height: 150px;
+}
 
+
+
+.max-lines {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 650px;
+    line-height: 48px;
+}
+ */
+
+
+
+p2
+{
+    height: auto;
 }
