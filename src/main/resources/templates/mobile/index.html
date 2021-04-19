@@ -4,7 +4,7 @@
       th:lang="${#locale.language}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Bootstrap Mobile WebShop </title>
     <link th:href="@{~/bootstrap4/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{~/bootstrap4/css/bootstrap-grid.min.css}" rel="stylesheet">
@@ -13,10 +13,6 @@
 
     <link th:href="@{~/defaultTheme/mobiledefault.css}" rel="stylesheet">
 
-
-    <script th:src="@{~/jquery_mobile/jquery.mobile-1.4.5.min.css}"></script>
-    <script th:src="@{~/jquery.min.js}"></script>
-    <script th:src="@{~/jquery_mobile/jquery.mobile-1.4.5.min.js}"></script>
 
     <script th:src="@{~/bootstrap4/js/bootstrap.js}"></script>
 
@@ -66,23 +62,18 @@
 
                         <div class="row" >
                             <div class="col-sm-3">
-
                                 <img id="imagecardproduct" th:src="@{${product.image}}" class="card-img-top" alt="Product Image" width="400" height="250">
                             </div>
                             <div class="col-sm-9">
 
                                 <div>
-                                    <p th:text="${product.productDescription}"></p>
+                                    <p th:utext="${product.productDescription}"></p>
                                 </div>
-
 
                                 <div class="card-footer">
                                     <p th:text="'$ '+${product.productPrice}"></p>
                                     <a th:href="@{'~/profile/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
                                 </div>
-
-
-
 
                             </div>
                         </div>
@@ -118,52 +109,6 @@
 
         </ul>
     </nav>
-
-
-    <!---
-    works on firefox
-
-<script type="text/javascript">
-
-    var language = window.navigator.language;
-
-    switch (language) {
-        case 'en':
-            window.location.href = '/en/';
-            break;
-
-        case 'it':
-            window.location.href = '/it/';
-            break;
-
-        case 'fr':
-            window.location.href = '/fr/';
-            break;
-
-        case 'tr':
-            window.location.href = '/tr/';
-            break;
-
-        case 'es':
-            window.location.href = '/es/';
-            break;
-
-        case 'de':
-
-            break;
-
-        case 'de_DE':
-
-            break;
-
-        default:
-            window.location.href = '/index.html';
-    }
-
-</script>
-
--->
-
 
 
 </div>
