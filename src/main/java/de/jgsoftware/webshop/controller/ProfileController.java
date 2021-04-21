@@ -6,15 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import de.jgsoftware.webshop.model.Kundenstamm;
-import de.jgsoftware.webshop.model.Product;
+import de.jgsoftware.webshop.model.Users;
 import de.jgsoftware.webshop.service.Index_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import de.jgsoftware.webshop.model.User;
 import de.jgsoftware.webshop.dao.DaoProduct;
 
 import de.jgsoftware.webshop.service.User_Service;
@@ -64,8 +62,8 @@ public class ProfileController
         String stusername = principal.getName();
         List userlistid = user_product_list_service.getDoaUserProductList().getUserId(stusername);
 
-        de.jgsoftware.webshop.model.User usermodel = new de.jgsoftware.webshop.model.User();
-        usermodel = (User) userlistid.get(0);
+        Users usermodel = new Users();
+        usermodel = (Users) userlistid.get(0);
 
         Long userid = usermodel.getId();
 

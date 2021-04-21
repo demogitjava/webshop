@@ -53,18 +53,24 @@ public class WebShop {
 
         }
 
+
         // second jdbc session to save fibu data  NOT OVER JDBC TEMPLATE
         @Bean
         @Primary
         @ConfigurationProperties(prefix="spring.datasource")
         public DataSource datasource(){
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
+
             dataSource.setDriverClassName("org.h2.Driver");
             dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/shopdb");
             dataSource.setUsername( "admin" );
             dataSource.setPassword( "jj78mvpr52k1" );
             return dataSource;
+
+
         }
+
+
 
 
 

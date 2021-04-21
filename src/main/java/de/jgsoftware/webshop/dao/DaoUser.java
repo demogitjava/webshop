@@ -2,7 +2,7 @@ package de.jgsoftware.webshop.dao;
 
 
 import de.jgsoftware.webshop.model.Kundenstamm;
-import de.jgsoftware.webshop.model.User;
+import de.jgsoftware.webshop.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,7 +18,7 @@ public class DaoUser
     @Autowired
     private JdbcTemplate jtm;
 
-    public User user;
+    public Users users;
 
     public List<Kundenstamm> userlogin;
 
@@ -29,7 +29,7 @@ public class DaoUser
 
 
         System.out.print("Find User by Email --------Query" + "\n" + "\n");
-        userlogin = jtm.query("select * from kundenstamm where email like " + "'" + email + "'", new BeanPropertyRowMapper(de.jgsoftware.webshop.model.User.class));
+        userlogin = jtm.query("select * from kundenstamm where email like " + "'" + email + "'", new BeanPropertyRowMapper(Users.class));
 
        /*
              List<Desktoplayout> loginentry = jtm.query("select * from desktoplayout where framename like " + "'" + result + "'", new BeanPropertyRowMapper(Desktoplayout.class));
@@ -38,12 +38,12 @@ public class DaoUser
         return (Kundenstamm) userlogin;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public List<Kundenstamm> getUserlogin() {

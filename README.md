@@ -18,7 +18,7 @@ http://repo.maven.apache.org/maven2/
 make sure that h2 demodatabases are installed.
 https://github.com/demogitjava/demodatabase.git
 
-The default path is your user directory as root
+The default path is your users directory as root
 under ubuntu is
 <br/>
 /root

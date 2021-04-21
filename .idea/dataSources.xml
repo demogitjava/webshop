@@ -7,5 +7,11 @@
       <jdbc-driver>org.h2.Driver</jdbc-driver>
       <jdbc-url>jdbc:h2:tcp://localhost:9092/~/shopdb</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="jdbc:h2:tcp://localhost:9092/~/demodb" uuid="92959f8b-33e8-4c7a-9873-0d75fa4028a6">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:tcp://localhost:9092/~/demodb</jdbc-url>
+    </data-source>
   </component>
 </project>

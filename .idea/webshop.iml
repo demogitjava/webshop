@@ -4,9 +4,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="Hibernate" />
+        <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="9aaa377a-6150-41ee-b7a1-621c475a4753" />
           <factory-entry name="webshop" />
         </datasource-mapping>
         <naming-strategy-map />

@@ -2,14 +2,12 @@ package de.jgsoftware.webshop.dao;
 
 
 import de.jgsoftware.webshop.model.USER_PRODUCT_LIST;
-import de.jgsoftware.webshop.model.User;
+import de.jgsoftware.webshop.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.security.Principal;
 import java.util.List;
 
 @Repository
@@ -43,23 +41,31 @@ public class Doa_UserProductList
 
         int prorid = Integer.parseInt(productId);
 
-        jtm.update("INSERT INTO user_product_list (user_id, product_id, id) VALUES (?, ?, ?)", userid, prorid, prorid);
 
-        return "";
+        try {
+            jtm.update("INSERT INTO user_product_list (user_id, product_id, id) VALUES (?, ?, ?)", userid, prorid, prorid);
+
+        } catch(Exception e)
+        {
+            // User Product exist in Product Table
+
+            System.out.print("product exist");
+        }
+        return "userproduct_saved";
     }
 
 
     public List getUserId(String stusername)
     {
 
-       List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(User.class));
+       List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(Users.class));
 
        return userlistid;
     }
 
     public List getUserdataafterLogin(String stusername)
     {
-        List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(User.class));
+        List userlistid = jtm.query("select * from users where username like " + "'" + stusername + "'", new BeanPropertyRowMapper(Users.class));
         return userlistid;
     }
 
