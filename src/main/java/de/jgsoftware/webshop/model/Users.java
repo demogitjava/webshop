@@ -3,7 +3,7 @@ package de.jgsoftware.webshop.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USERS", schema = "PUBLIC", catalog = "SHOPDB")
 public class Users {
 
 	@Id

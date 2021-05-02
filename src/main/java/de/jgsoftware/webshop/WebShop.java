@@ -4,14 +4,19 @@ import org.h2.tools.Server;
 
 import java.sql.SQLException;
 
+import org.hibernate.SessionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
@@ -21,14 +26,14 @@ public class WebShop {
 
 
 
-
-        // handle for language servlet reqeust
+    // handle for language servlet reqeust
         public Object object;
 
         public WebShop()
         {
+
             startH2Server();
-        }
+          }
 
         public static void main(String[] args)
         {
@@ -58,6 +63,7 @@ public class WebShop {
         }
 
 
+
         // second jdbc session to save fibu data  NOT OVER JDBC TEMPLATE
         @Bean
         @Primary
@@ -72,7 +78,9 @@ public class WebShop {
             dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/shopdb");
             dataSource.setUsername("admin");
             dataSource.setPassword("jj78mvpr52k1");
+
             */
+
 
             return dataSource;
         }

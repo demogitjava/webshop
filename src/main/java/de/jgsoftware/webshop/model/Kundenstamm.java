@@ -13,10 +13,9 @@ import java.util.Set;
 import javax.persistence.Id;
 
 @Entity
-@Table(name = "KUNDENSTAMM")
+@Table(name = "KUNDENSTAMM", schema = "PUBLIC", catalog = "SHOPDB")
 public class Kundenstamm
 {
-
 
     private long kundennummer;
 
@@ -242,4 +241,5 @@ public class Kundenstamm
     public void setUmsatz_ldf_jahr(Float umsatz_ldf_jahr) {
         this.umsatz_ldf_jahr = umsatz_ldf_jahr;
     }
+
 }

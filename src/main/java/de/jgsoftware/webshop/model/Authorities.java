@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "AUTHORITIES")
+@Table(name = "AUTHORITIES", schema = "PUBLIC", catalog = "SHOPDB")
 public class Authorities
 {
     @Id

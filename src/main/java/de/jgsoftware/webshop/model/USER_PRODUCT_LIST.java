@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.List;
 
 @Entity
-@Table(name = "USER_PRODUCT_LIST")
+@Table(name = "USER_PRODUCT_LIST", schema = "PUBLIC", catalog = "SHOPDB")
 public class USER_PRODUCT_LIST
 {
 
