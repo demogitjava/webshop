@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.persistence.EntityManager;
@@ -22,7 +23,8 @@ import javax.sql.DataSource;
 
 
 @SpringBootApplication
-public class WebShop {
+public class WebShop
+{
 
 
 
@@ -71,8 +73,6 @@ public class WebShop {
         public DataSource datasource()
         {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-
             /*
             dataSource.setDriverClassName("org.h2.Driver");
             dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/shopdb");
@@ -80,9 +80,22 @@ public class WebShop {
             dataSource.setPassword("jj78mvpr52k1");
 
             */
-
-
             return dataSource;
+        }
+
+        @Bean
+        public EntityManagerFactory entityManagerFactory(DataSource dataSource)
+        {
+
+            HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+            vendorAdapter.setDatabase(Database.H2);
+            LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+
+            factory.setJpaVendorAdapter(vendorAdapter);
+            factory.setPackagesToScan("de.jgsoftware.webshop.model");
+            factory.setDataSource(dataSource);
+            factory.afterPropertiesSet();
+            return factory.getObject();
         }
 
 }
