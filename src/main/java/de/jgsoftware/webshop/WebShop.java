@@ -26,7 +26,7 @@ public class WebShop {
 
 
 
-    // handle for language servlet reqeust
+        // handle for language servlet reqeust
         public Object object;
 
         public WebShop()
@@ -84,13 +84,5 @@ public class WebShop {
 
             return dataSource;
         }
-
-
-
-
-
-
-
-
 
 }
