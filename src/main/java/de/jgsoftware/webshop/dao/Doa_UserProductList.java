@@ -1,6 +1,7 @@
 package de.jgsoftware.webshop.dao;
 
 
+import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.USER_PRODUCT_LIST;
 import de.jgsoftware.webshop.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,11 @@ public class Doa_UserProductList
         return userlistid;
     }
 
+    public List getCustomerdataoveremail(String stemail)
+    {
+        List customeroveremail = jtm.query("select * from kundenstamm where email like " + "'" + stemail + "'", new BeanPropertyRowMapper(Kundenstamm.class));
+        return customeroveremail;
+    }
 
 }
 

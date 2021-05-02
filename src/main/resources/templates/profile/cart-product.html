@@ -15,52 +15,118 @@
 	<link href="@{~/bootstrap4/css/form-validation.css}" rel="stylesheet">
 </header>
 
-		<body>
+<body>
+<header th:insert="fragments.html :: headerfiles">
+</header>
+<header th:insert="fragments.html :: nav">
+</header>
 
-		<div class="row">
 
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div>
-							<label>Vorname</label>
-						</div>
-						<div>
-							<input type="text" name="vorname">
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div>
-							<label>Nachname</label>
-						</div>
-						<div>
-							<input type="text" name="nachname">
-						</div>
-					</li>
-				</ul>
-			</div>
 
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div>
-							<h6 class="my-0">Product name</h6>
-							<small class="text">Brief description</small>
+<div class="container-fluid">
+
+	<ul class="breadcrumb">
+		<li><a href="#">Home</a> <span class="divider">/</span></li>
+		<li><a href="#">Checkout</a> <span class="divider">/</span></li>
+		<li class="active">Cart-Product</li>
+	</ul>
+
+
+	<div class="row">
+
+		<div class="col-md-8">
+			<ul class="list-group">
+
+				<li class="list-group-item">
+
+					<div class="form-group">
+						<div class="row">
+							<label class="form-control">Firmenname</label>
+							<input class="input-group-text col-12" type="text" name="frimenname">
+
+
 						</div>
-						<span class="text">€12</span>
-					</li>
-					<li class="list-group-item">
-						<span>Total (USD)</span>
-						<strong>€20</strong>
-					</li>
-				</ul>
-			</div>
+					</div>
+
+				</li>
+
+				<li class="list-group-item">
+
+					<div class="form-group">
+						<div class="row">
+							<label class="form-control">Vorname / Nachname </label>
+							<input class="input-group-text col-6" type="text" name="vorname">
+
+
+							<input class="input-group-text col-6" type="text" name="nachname">
+						</div>
+					</div>
+
+				</li>
+
+				<li class="list-group-item">
+
+					<div class="form-group">
+						<div class="row">
+							<label class="form-control">Strasse / Hausnummer</label>
+							<input class="input-group-text col-12" type="text" name="strasse">
+						</div>
+					</div>
+
+				</li>
+
+				<li class="list-group-item">
+
+					<div class="form-group">
+						<div class="row">
+							<label class="form-control">Plz / Ort</label>
+							<input class="input-group-text col-4" type="text" name="plz">
+							<input class="input-group-text col-8" type="text" name="ort">
+						</div>
+					</div>
+				</li>
+
+				<li class="list-group-item">
+
+					<div class="form-group">
+						<div class="row">
+							<label class="form-control">Telefon</label>
+							<input class="input-group-text col-12" type="text" name="plz">
+						</div>
+					</div>
+
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="col-md-4">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div>
+						<h6 class="my-0">Warenkorb</h6>
+						<small class="text">Brief description</small>
+					</div>
+					<span class="text">€12</span>
+				</li>
+
+				<li class="list-group-item">
+					<span>Total (€)</span>
+					<strong>€ 20</strong>
+				</li>
+
+			</ul>
+
 
 		</div>
 
+	</div>
+
+
+</div>
 
 
 
 
-		</body>
+</body>
 </html>

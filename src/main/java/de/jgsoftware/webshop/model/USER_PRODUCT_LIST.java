@@ -2,10 +2,12 @@ package de.jgsoftware.webshop.model;
 
 
 import javax.persistence.*;
+import javax.persistence.Id;
 
+import java.util.List;
 
 @Entity
-@Table(name = "user_product_list")
+@Table(name = "USER_PRODUCT_LIST")
 public class USER_PRODUCT_LIST
 {
 
@@ -16,6 +18,7 @@ public class USER_PRODUCT_LIST
     private int user_id;
 
     private long product_id;
+
 
     public int getUser_id() {
         return user_id;

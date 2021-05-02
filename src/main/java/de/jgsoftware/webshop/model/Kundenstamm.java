@@ -1,15 +1,23 @@
 package de.jgsoftware.webshop.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
+import javax.persistence.*;
+import javax.security.auth.Subject;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "KUNDENSTAMM")
 public class Kundenstamm
 {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long kundennummer;
 
     private String ansprechpartner;
@@ -34,6 +42,21 @@ public class Kundenstamm
     private Float umsatz_jahr_1;
     private Float umsatz_jahr_2;
     private Float umsatz_ldf_jahr;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
 
     public long getKundennummer() {

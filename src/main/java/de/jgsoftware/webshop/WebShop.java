@@ -11,11 +11,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 
 @SpringBootApplication
 public class WebShop {
+
+
 
 
         // handle for language servlet reqeust
@@ -58,17 +62,23 @@ public class WebShop {
         @Bean
         @Primary
         @ConfigurationProperties(prefix="spring.datasource")
-        public DataSource datasource(){
+        public DataSource datasource()
+        {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
+
+            /*
             dataSource.setDriverClassName("org.h2.Driver");
             dataSource.setUrl("jdbc:h2:tcp://localhost:9092/~/shopdb");
-            dataSource.setUsername( "admin" );
-            dataSource.setPassword( "jj78mvpr52k1" );
+            dataSource.setUsername("admin");
+            dataSource.setPassword("jj78mvpr52k1");
+            */
+
             return dataSource;
-
-
         }
+
+
+
 
 
 

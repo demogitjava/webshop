@@ -1,10 +1,10 @@
 package de.jgsoftware.webshop.model;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "AUTHORITIES")
 public class Authorities
 {
     @Id
