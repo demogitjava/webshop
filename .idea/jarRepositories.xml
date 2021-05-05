@@ -7,11 +7,6 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="maven-snapshots" />
-      <option name="name" value="maven-snapshots" />
-      <option name="url" value="http://repo.maven.apache.org/maven2/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="spring-milestones" />
       <option name="name" value="Spring Milestones" />
       <option name="url" value="http://repo.spring.io/milestone" />
@@ -20,11 +15,6 @@
       <option name="id" value="spring-milestones" />
       <option name="name" value="Spring Milestones" />
       <option name="url" value="https://repo.spring.io/libs-milestone" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="spring-libs-snapshot" />
-      <option name="name" value="spring-libs-snapshot" />
-      <option name="url" value="https://repo.spring.io/libs-milestone/" />
     </remote-repository>
   </component>
 </project>

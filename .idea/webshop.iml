@@ -7,7 +7,7 @@
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
           <factory-entry name="entityManagerFactory" value="9aaa377a-6150-41ee-b7a1-621c475a4753" />
-          <factory-entry name="webshop" />
+          <factory-entry name="webshop" value="8431c5b8-73b9-43fe-ac73-249fa23fa12d" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
