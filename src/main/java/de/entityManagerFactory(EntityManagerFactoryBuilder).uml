@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Persistence</ID>
+  <OriginalElement>JavaeeElement:/e27796aa/entityManagerFactory/webshop/jpa/JPA/PersistenceModel</OriginalElement>
+  <nodes>
+    <node x="0.0" y="299.0">Kundenstamm#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/Kundenstamm.java</node>
+    <node x="0.0" y="103.0">AbstractAuditable#jar:///root/.m2/repository/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class</node>
+    <node x="154.0" y="299.0">Authorities#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/Authorities.java</node>
+    <node x="231.0" y="201.0">USER_PRODUCT_LIST#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/USER_PRODUCT_LIST.java</node>
+    <node x="0.0" y="201.0">PRODUCT_CHECK_OUT_TEXT#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/PRODUCT_CHECK_OUT_TEXT.java</node>
+    <node x="13.75" y="0.0">null#null</node>
+    <node x="47.75" y="0.0">AbstractPersistable#jar:///root/.m2/repository/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class</node>
+    <node x="-332.8169440242057" y="750.5370650529501">Users#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/Users.java</node>
+    <node x="308.0" y="299.0">Product#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/Product.java</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="AbstractAuditable#jar:///root/.m2/repository/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="AbstractPersistable#jar:///root/.m2/repository/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class">
+      <point x="37.75" y="-26.5" />
+      <point x="113.25" y="78.0" />
+      <point x="130.25" y="78.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="AbstractAuditable#jar:///root/.m2/repository/org/springframework/data/spring-data-jpa/2.1.8.RELEASE/spring-data-jpa-2.1.8.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="null#null">
+      <point x="-37.75" y="-26.5" />
+      <point x="37.75" y="78.0" />
+      <point x="20.75" y="78.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.772196261682243" x="99.0" y="796.5" />
+  <SelectedNodes>
+    <node>Users#file:///root/IdeaProjects/webshop/src/main/java/de/jgsoftware/webshop/model/Users.java</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Embeddables</Category>
+    <Category>Superclasses</Category>
+  </Categories>
+</Diagram>
+

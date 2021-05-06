@@ -45,9 +45,8 @@ public class Kundenstamm
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="kdstamm_id")
     private Integer id;
-
-
 
     public Integer getId() {
         return id;
@@ -56,7 +55,6 @@ public class Kundenstamm
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public long getKundennummer() {
         return kundennummer;

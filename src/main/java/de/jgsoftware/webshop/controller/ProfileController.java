@@ -94,15 +94,31 @@ public class ProfileController
     {
         Map<String, Object> prodtlists = new HashMap<>();
 
-
+ /*
+                get customer data from table kundenstamm
+                over email from loginsession
+         */
         String stemail = principal.getName();
-
+        List<Kundenstamm> kdstamm = user_product_list_service.getDoaUserProductList().getCustomerdataoveremail(stemail);
         /*
                 userdata from table Kundenstamm over
                 email address query
          */
-        prodtlists.put("customerdata", user_product_list_service.getDoaUserProductList().getCustomerdataoveremail(stemail));
+        prodtlists.put("customerdata", kdstamm);
+
         //prodtlists.put("userproduct", );
+
+        /*
+                retuns over id
+                query
+                kundenstamm all
+                -> User_productlist all / -> get Products from user // customer chart
+                -> Product_check_out_text all / -> get Products text over id for display in
+                                                   customer chart on html
+
+         */
+        Integer kundennummer_id = (Integer) kdstamm.get(0).getId();
+        prodtlists.put("kstammdata", user_product_list_service.getDoaUserProductList().getCheckoutdata(kundennummer_id));
 
 
 

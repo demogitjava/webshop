@@ -2,7 +2,9 @@ package de.jgsoftware.webshop.dao;
 
 
 import de.jgsoftware.webshop.model.Kundenstamm;
+import de.jgsoftware.webshop.model.PRODUCT_CHECK_OUT_TEXT;
 import de.jgsoftware.webshop.model.USER_PRODUCT_LIST;
+
 import de.jgsoftware.webshop.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -10,6 +12,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+
 
 @Repository
 public class Doa_UserProductList
@@ -76,6 +80,24 @@ public class Doa_UserProductList
 
         return customeroveremail;
     }
+
+    public List getCheckoutdata(Integer id_kundernumber)
+    {
+        /*
+        select * from KUNDENSTAMM
+                  left join USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_PRODUCT_LIST.USER_ID
+                  left outer join PRODUCT_CHECK_OUT_TEXT on PRODUCT_ID = ID_PRODUCTS;
+         */
+
+
+        //select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like '1';
+
+        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(Kundenstamm.class));
+
+
+        return customercheckout;
+    }
+
 
 }
 

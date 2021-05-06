@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.persistence.Id;
 
 import java.util.List;
+import de.jgsoftware.webshop.model.Kundenstamm;
 
 @Entity
 @Table(name = "USER_PRODUCT_LIST", schema = "PUBLIC", catalog = "SHOPDB")
@@ -18,7 +19,6 @@ public class USER_PRODUCT_LIST
     private int user_id;
 
     private long product_id;
-
 
     public int getUser_id() {
         return user_id;
@@ -43,4 +43,5 @@ public class USER_PRODUCT_LIST
     public void setProduct_id(long product_id) {
         this.product_id = product_id;
     }
+
 }
