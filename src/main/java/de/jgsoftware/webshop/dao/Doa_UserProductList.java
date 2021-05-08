@@ -113,9 +113,15 @@ rows = query.list();
 
          */
 
+        BeanPropertyRowMapper beanPropertyRowMapper = new BeanPropertyRowMapper();
+
+        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(beanPropertyRowMapper.getMappedClass()));
 
 
-        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(kdstamm.getClass()));
+        /*
+        .addEntity("e",Employee.class)
+		.addJoin("a","e.address");
+         */
 
 
         return customercheckout;
