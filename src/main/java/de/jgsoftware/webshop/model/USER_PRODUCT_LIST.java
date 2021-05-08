@@ -19,10 +19,6 @@ public class USER_PRODUCT_LIST
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    private Kundenstamm userkundenstamm;
-
-
 
     @Column(name = "user_id")
     private int user_id;
@@ -30,6 +26,10 @@ public class USER_PRODUCT_LIST
     @Column(name = "product_id")
     private long product_id;
 
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "ID", nullable=false)
+    private Kundenstamm customer;
 
     public int getUser_id() {
         return user_id;

@@ -44,13 +44,8 @@ public class Kundenstamm
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    Set<USER_PRODUCT_LIST> userProductList;
-
-    public Collection<USER_PRODUCT_LIST> getUserProductList() {
-        return userProductList;
-    }
-
+    @OneToOne(mappedBy="customer")
+    private USER_PRODUCT_LIST order;
 
 
     public Integer getId() {
