@@ -4,8 +4,9 @@ package de.jgsoftware.webshop.model;
 import javax.persistence.*;
 import javax.persistence.Id;
 
+import java.util.Collection;
 import java.util.List;
-import de.jgsoftware.webshop.model.Kundenstamm;
+import java.util.Set;
 
 @Entity
 @Table(name = "USER_PRODUCT_LIST", schema = "PUBLIC", catalog = "SHOPDB")
@@ -16,9 +17,19 @@ public class USER_PRODUCT_LIST
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    private Kundenstamm userkundenstamm;
+
+
+
+    @Column(name = "user_id")
     private int user_id;
 
+    @Column(name = "product_id")
     private long product_id;
+
 
     public int getUser_id() {
         return user_id;
@@ -43,5 +54,4 @@ public class USER_PRODUCT_LIST
     public void setProduct_id(long product_id) {
         this.product_id = product_id;
     }
-
 }

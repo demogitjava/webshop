@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.management.Query;
 import java.util.List;
 
 
@@ -92,7 +93,29 @@ public class Doa_UserProductList
 
         //select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like '1';
 
-        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(Kundenstamm.class));
+        Kundenstamm kdstamm = new Kundenstamm();
+
+
+        /*
+        Query query = em.createNativeQuery("SELECT u.name,s.something FROM user u, someTable s WHERE s.user_id = u.id");
+        List list = query.getResultList();
+         */
+
+        /*
+        query = session.createSQLQuery("select {e.*}, {a.*} from Employee e join Address a ON e.emp_id=a.emp_id")
+		.addEntity("e",Employee.class)
+		.addJoin("a","e.address");
+rows = query.list();
+
+
+
+ List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(kdstamm.getClass()));
+
+         */
+
+
+
+        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(kdstamm.getClass()));
 
 
         return customercheckout;

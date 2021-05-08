@@ -6,10 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.security.auth.Subject;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import javax.persistence.Id;
 
 @Entity
@@ -45,8 +42,16 @@ public class Kundenstamm
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="kdstamm_id")
     private Integer id;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    Set<USER_PRODUCT_LIST> userProductList;
+
+    public Collection<USER_PRODUCT_LIST> getUserProductList() {
+        return userProductList;
+    }
+
+
 
     public Integer getId() {
         return id;
@@ -55,6 +60,7 @@ public class Kundenstamm
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     public long getKundennummer() {
         return kundennummer;
