@@ -12,8 +12,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.management.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
-
+import java.util.Map;
 
 
 @Repository
@@ -24,6 +26,9 @@ public class Doa_UserProductList
     @Autowired
     private JdbcTemplate jtm;
 
+
+    @PersistenceContext
+    private EntityManager em;
 
 
 
@@ -84,11 +89,7 @@ public class Doa_UserProductList
 
     public List getCheckoutdata(Integer id_kundernumber)
     {
-        /*
-        select * from KUNDENSTAMM
-                  left join USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_PRODUCT_LIST.USER_ID
-                  left outer join PRODUCT_CHECK_OUT_TEXT on PRODUCT_ID = ID_PRODUCTS;
-         */
+
 
 
         //select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like '1';
@@ -97,29 +98,12 @@ public class Doa_UserProductList
 
 
         /*
-        Query query = em.createNativeQuery("SELECT u.name,s.something FROM user u, someTable s WHERE s.user_id = u.id");
-        List list = query.getResultList();
+                 List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(kdstamm.getClass()));
          */
 
-        /*
-        query = session.createSQLQuery("select {e.*}, {a.*} from Employee e join Address a ON e.emp_id=a.emp_id")
-		.addEntity("e",Employee.class)
-		.addJoin("a","e.address");
-rows = query.list();
+        String sql = "select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'";
+        List<Map<String, Object>> customercheckout = (List<Map<String, Object>>) jtm.queryForList(sql);
 
-
-
- List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(kdstamm.getClass()));
-
-         */
-
-        List customercheckout = (List) jtm.query("select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'", new BeanPropertyRowMapper(Kundenstamm.class));
-
-
-        /*
-        .addEntity("e",Employee.class)
-		.addJoin("a","e.address");
-         */
 
 
         return customercheckout;
