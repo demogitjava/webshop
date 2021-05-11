@@ -168,27 +168,16 @@
 
 
     <build>
-
         <plugins>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.0.RELEASE</version>
-
+                <configuration>
+                    <mainClass>de.jgsoftware.webshop.WebShop</mainClass>
+                </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-            </plugin>
-
         </plugins>
-
-
     </build>
-
 
 
 </project>
