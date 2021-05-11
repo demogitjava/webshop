@@ -4,11 +4,28 @@ Demo Webshop with Spring Boot + Theamleaf / Bootstrap
 
 You can use Netbeans IDE to compile your own webshop from
 https://netbeans.apache.org/
+from here you can start as jar.
+
 
 If you use Jetbrains IDE you can set up the path 
 under settings -> Tools -> Settings Repository and
 add http://repo.maven.apache.org/maven2/ 
 and updated with invalidated and restart.
+
+To start the build over maven 
+-> go to directory 
+and type:
+
+	mvn spring-boot:run
+
+an run the applcation with maven repository over
+terminal.
+You can install maven from here:
+https://maven.apache.org/download.cgi
+
+
+
+
 
 the programm is testet under java java-1.8.0-openjdk-i386
 and maven repository from 
