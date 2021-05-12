@@ -59,6 +59,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 						"/signup.html",
 						"/login.html",
 						"/resources/**",
+						"/h2/**",
 						"/templates/imgproducts/**",
 						"/static/**,").permitAll()
 
@@ -78,6 +79,10 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 				//.rememberMe().tokenValiditySeconds(30000).key("keytoken!")
 				//.rememberMeParameter("checkRememberMe");
 				.rememberMe().disable();
+
+		http.authorizeRequests().antMatchers("/h2/**").permitAll()
+				.and().csrf().ignoringAntMatchers("/h2/**")
+				.and().headers().frameOptions().sameOrigin();
 
 
 
