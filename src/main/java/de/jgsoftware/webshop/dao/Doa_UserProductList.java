@@ -104,9 +104,18 @@ public class Doa_UserProductList
         String sql = "select * from KUNDENSTAMM JOIN USER_PRODUCT_LIST on KUNDENSTAMM.ID = USER_ID join PRODUCT_CHECK_OUT_TEXT on USER_PRODUCT_LIST.PRODUCT_ID = PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS where KUNDENSTAMM.ID like " + "'" + id_kundernumber + "'";
         List<Map<String, Object>> customercheckout = (List<Map<String, Object>>) jtm.queryForList(sql);
 
-
-
         return customercheckout;
+    }
+
+
+    public List getCustomercheckoutproductswithprice(Integer id_kundernumber)
+    {
+
+        String pid = new String("productId");
+        String sql = "Select * from USER_PRODUCT_LIST join PRODUCT_CHECK_OUT_TEXT on PRODUCT_CHECK_OUT_TEXT.ID_PRODUCTS = USER_PRODUCT_LIST.PRODUCT_ID join PRODUCTS on \"productId\" = USER_PRODUCT_LIST.PRODUCT_ID where USER_ID like  + 1";
+        List<Map<String, Object>> pdcheckout = (List<Map<String, Object>>) jtm.queryForList(sql);
+
+        return pdcheckout;
     }
 
 

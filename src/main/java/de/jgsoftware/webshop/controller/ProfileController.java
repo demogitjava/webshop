@@ -121,9 +121,12 @@ public class ProfileController
         prodtlists.put("kstammdata", user_product_list_service.getDoaUserProductList().getCheckoutdata(kundennummer_id));
 
 
+        prodtlists.put("productswithtext", user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id));
 
         //prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
         return new ModelAndView("/profile/cart-product.html", prodtlists);
     }
+
+
 
 }

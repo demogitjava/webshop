@@ -39,6 +39,10 @@ public class Kundenstamm
     private Float umsatz_jahr_2;
     private Float umsatz_ldf_jahr;
 
+    private String firmenname;
+
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -47,6 +51,22 @@ public class Kundenstamm
     @OneToOne(mappedBy="customer")
     private USER_PRODUCT_LIST order;
 
+
+    public String getFirmenname() {
+        return firmenname;
+    }
+
+    public void setFirmenname(String firmenname) {
+        this.firmenname = firmenname;
+    }
+
+    public USER_PRODUCT_LIST getOrder() {
+        return order;
+    }
+
+    public void setOrder(USER_PRODUCT_LIST order) {
+        this.order = order;
+    }
 
     public Integer getId() {
         return id;
