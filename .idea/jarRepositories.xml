@@ -14,12 +14,12 @@
     <remote-repository>
       <option name="id" value="spring-milestones" />
       <option name="name" value="Spring Milestones" />
-      <option name="url" value="http://repo.spring.io/milestone" />
+      <option name="url" value="https://repo.spring.io/libs-milestone" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="spring-milestones" />
       <option name="name" value="Spring Milestones" />
-      <option name="url" value="https://repo.spring.io/libs-milestone" />
+      <option name="url" value="http://repo.spring.io/milestone" />
     </remote-repository>
   </component>
 </project>

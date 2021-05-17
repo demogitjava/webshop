@@ -20,4 +20,11 @@ public class User_Product_List_Service implements User_Product_List_Interface
     public void setDoaUserProductList(Doa_UserProductList doaUserProductList) {
         this.doaUserProductList = doaUserProductList;
     }
+
+    public double priceshoppingchart(Double shoppingpriceitem)
+    {
+        double shopinngprice = 0;
+
+        return shopinngprice;
+    }
 }

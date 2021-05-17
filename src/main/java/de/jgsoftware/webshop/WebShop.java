@@ -28,8 +28,7 @@ public class WebShop
 
 
 
-        // handle for language servlet reqeust
-        public Object object;
+
 
         public WebShop()
         {

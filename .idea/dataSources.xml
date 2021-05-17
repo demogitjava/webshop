@@ -13,5 +13,13 @@
       <jdbc-driver>org.h2.Driver</jdbc-driver>
       <jdbc-url>jdbc:h2:tcp://localhost:9092/~/demodb</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="webshop/Hibernate" uuid="3e55258b-3aec-4442-a217-a4adb4d97201">
+      <driver-ref>cassandra</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.dbschema.CassandraJdbcDriver</jdbc-driver>
+      <jdbc-url>jdbc:h2:tcp://localhost:9092/~/shopdb</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -10,4 +10,6 @@ public interface User_Product_List_Interface
     public Doa_UserProductList getDoaUserProductList();
     public void setDoaUserProductList(Doa_UserProductList doaUserProductList);
 
+    public double priceshoppingchart(Double shoppingpriceitem);
+
 }

@@ -123,7 +123,23 @@ public class ProfileController
 
         prodtlists.put("productswithtext", user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id));
 
-        //prodtlists.put("lang", java.util.Locale.getDefault().getCountry());
+
+
+        /*
+
+                add price to
+                shopping chart items
+
+
+         */
+
+        double shoppingpriceitem = 0;
+
+
+        prodtlists.put("shoppingchartpriceall", user_product_list_service.priceshoppingchart(shoppingpriceitem));
+
+
+
         return new ModelAndView("/profile/cart-product.html", prodtlists);
     }
 
