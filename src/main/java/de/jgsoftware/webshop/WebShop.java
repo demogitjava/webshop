@@ -2,6 +2,7 @@ package de.jgsoftware.webshop;
 
 import org.h2.tools.Server;
 
+import java.io.File;
 import java.sql.SQLException;
 
 import org.hibernate.SessionFactory;
@@ -32,7 +33,6 @@ public class WebShop
 
         public WebShop()
         {
-
             startH2Server();
           }
 
@@ -42,6 +42,32 @@ public class WebShop
             SpringApplication.run(WebShop.class, args);
         }
 
+
+        /*
+                command line runner
+                install maven and h2 to
+                target directory over
+                console command
+
+
+                --> apache-maven-3.8.1
+
+
+         */
+        public void run(String... args) throws Exception
+        {
+            System.out.println("------------------------");
+            System.out.println(" maven exitst ? --------");
+
+            File mavenfilder = null;
+            try
+            {
+
+            } catch (Exception e)
+            {
+
+            }
+        }
 
         // start h2 database server
         private static void startH2Server()

@@ -134,5 +134,25 @@
     <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.lz4:lz4-java:1.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-starter:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-core:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-validation:2.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.jline:jline:3.4.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jline:jline-terminal-jna:3.4.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.dev.jna:jna:4.5.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jline:jline-terminal:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-standard:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-standard-commands:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-shell1-adapter:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-jcommander-adapter:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.shell:spring-shell-table:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-zip:1.0.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-file:5.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-core:5.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.zeroturnaround:zt-zip:1.14" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.0" level="project" />
   </component>
 </module>
