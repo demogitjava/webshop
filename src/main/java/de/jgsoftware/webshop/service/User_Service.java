@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import de.jgsoftware.webshop.dao.DaoUser;
 
+import java.util.List;
+
 @Service
 public class User_Service
 {
@@ -22,6 +24,7 @@ public class User_Service
     public void setDaoUser(DaoUser daoUser) {
         this.daoUser = daoUser;
     }
+
 
 
 

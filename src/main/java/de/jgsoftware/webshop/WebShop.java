@@ -53,7 +53,7 @@ public class WebShop
                 --> apache-maven-3.8.1
 
 
-         */
+
         public void run(String... args) throws Exception
         {
             System.out.println("------------------------");
@@ -68,6 +68,7 @@ public class WebShop
 
             }
         }
+          */
 
         // start h2 database server
         private static void startH2Server()

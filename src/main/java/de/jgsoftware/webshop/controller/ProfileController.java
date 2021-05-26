@@ -2,9 +2,7 @@ package de.jgsoftware.webshop.controller;
 
 
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.Users;
@@ -12,6 +10,7 @@ import de.jgsoftware.webshop.service.Index_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedCaseInsensitiveMap;
 import org.springframework.web.bind.annotation.*;
 
 import de.jgsoftware.webshop.dao.DaoProduct;
@@ -121,7 +120,8 @@ public class ProfileController
         prodtlists.put("kstammdata", user_product_list_service.getDoaUserProductList().getCheckoutdata(kundennummer_id));
 
 
-        prodtlists.put("productswithtext", user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id));
+        List productswithtextandprice = (ArrayList) user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id);
+        prodtlists.put("productswithtext", productswithtextandprice);
 
 
 
@@ -132,11 +132,11 @@ public class ProfileController
 
 
          */
-
         double shoppingpriceitem = 0;
 
-
-        prodtlists.put("shoppingchartpriceall", user_product_list_service.priceshoppingchart(shoppingpriceitem));
+        // shopping price total
+        double dobletotal = user_product_list_service.priceshoppingchart(shoppingpriceitem, productswithtextandprice);
+        prodtlists.put("shoppingchartpricetotal", dobletotal);
 
 
 

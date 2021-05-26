@@ -1,5 +1,7 @@
 package de.jgsoftware.webshop.model;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,8 @@ public class Product
     @Lob
     private String productDescription;
 
-    @Column
+    @Column(precision=16, scale=2)
+    @NumberFormat(pattern="#0.00000")
     private int productPrice;
 
     @Column
