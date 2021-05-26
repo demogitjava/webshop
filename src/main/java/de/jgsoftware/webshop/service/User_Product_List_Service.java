@@ -7,6 +7,7 @@ import de.jgsoftware.webshop.service.interfaces.User_Product_List_Interface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedCaseInsensitiveMap;
+import org.springframework.util.StringUtils;
 
 import javax.swing.*;
 import java.util.*;
@@ -43,11 +44,16 @@ public class User_Product_List_Service implements User_Product_List_Interface
         {
             System.out.print("die row ist" + i + "\n");
 
-            objprice = ((LinkedCaseInsensitiveMap) productswithtextandprice.get(i)).entrySet().toArray()[14];
+            objprice = ((LinkedCaseInsensitiveMap) productswithtextandprice.get(i)).entrySet().toArray()[14].toString();
+
+
+            String result[] = ((String) objprice).split("=");
+            String returnValue = result[result.length - 1]; //equals "ghfj.doc"
+
+            shopinngprice = shopinngprice + Double.parseDouble(returnValue);
 
 
         }
-
 
        return shopinngprice;
     }
