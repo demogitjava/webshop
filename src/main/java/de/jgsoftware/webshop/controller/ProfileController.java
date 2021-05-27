@@ -8,6 +8,8 @@ import de.jgsoftware.webshop.model.Kundenstamm;
 import de.jgsoftware.webshop.model.Users;
 import de.jgsoftware.webshop.service.Index_Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedCaseInsensitiveMap;
@@ -30,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("profile")
@@ -45,8 +47,9 @@ public class ProfileController
     @Autowired
     DaoProduct dproduct;
 
+    List<Kundenstamm> kdstamm;
 
-
+    Double shoppingpriceitem = Double.valueOf(1.00);
 
     @Autowired
     Product_Service product_service;
@@ -93,7 +96,7 @@ public class ProfileController
     {
         Map<String, Object> prodtlists = new HashMap<>();
 
- /*
+        /*
                 get customer data from table kundenstamm
                 over email from loginsession
          */
@@ -132,16 +135,86 @@ public class ProfileController
 
 
          */
-        double shoppingpriceitem = 0;
 
+        double shoppingpriceitem = 0;
+        if(shoppingpriceitem == 0.00)
+        {
+            System.out.print("shpping item is 0");
+            shoppingpriceitem = Double.valueOf(1.00);
+        }
         // shopping price total
         double dobletotal = user_product_list_service.priceshoppingchart(shoppingpriceitem, productswithtextandprice);
         prodtlists.put("shoppingchartpricetotal", dobletotal);
 
 
+        prodtlists.put("itemchart", shoppingpriceitem);
 
         return new ModelAndView("/profile/cart-product.html", prodtlists);
     }
+
+    @PostMapping("updatechart")
+    public ModelAndView updatechart(@RequestParam(value = "updatechart", required = false) String updatechart, Integer id, Integer shoppingpriceitem, Principal principal) {
+
+
+        if(shoppingpriceitem == 0)
+        {
+            System.out.print("shpping item is 0");
+            shoppingpriceitem = 1;
+        }
+
+        Map<String, Object> prodtlists = new HashMap<>();
+
+        /*
+                get customer data from table kundenstamm
+                over email from loginsession
+         */
+        String stemail = principal.getName();
+        List<Kundenstamm> kdstamm = user_product_list_service.getDoaUserProductList().getCustomerdataoveremail(stemail);
+        /*
+                userdata from table Kundenstamm over
+                email address query
+         */
+        prodtlists.put("customerdata", kdstamm);
+
+        //prodtlists.put("userproduct", );
+
+        /*
+                retuns over id
+                query
+                kundenstamm all
+                -> User_productlist all / -> get Products from user // customer chart
+                -> Product_check_out_text all / -> get Products text over id for display in
+                                                   customer chart on html
+
+         */
+        Integer kundennummer_id = (Integer) kdstamm.get(0).getId();
+        prodtlists.put("kstammdata", user_product_list_service.getDoaUserProductList().getCheckoutdata(kundennummer_id));
+
+
+        List productswithtextandprice = (ArrayList) user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id);
+        prodtlists.put("productswithtext", productswithtextandprice);
+
+
+
+        /*
+
+                add price to
+                shopping chart items
+
+
+         */
+       // shoppingpriceitem = shoppingpriceitem;
+
+        // shopping price total
+        double dobletotal = user_product_list_service.priceshoppingchart(Double.valueOf(shoppingpriceitem), productswithtextandprice);
+        prodtlists.put("shoppingchartpricetotal", dobletotal);
+
+        prodtlists.put("itemchart", shoppingpriceitem);
+
+        return new ModelAndView("/profile/cart-product.html", prodtlists);
+
+    }
+
 
 
 

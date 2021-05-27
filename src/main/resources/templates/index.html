@@ -34,8 +34,7 @@
 
 
 		<div class="d-flex justify-content-start p-2">
-			<a class="list-group-item mr-2" th:href="@{'/'}">All
-				Product</a>
+			<a class="list-group-item mr-2" th:href="@{'/'}">All Product</a>
 			<a class="list-group-item mr-2"	th:each="category : ${categoryList}"
 			   th:text="${category.categoryName}" th:href="@{'/getProducts/' + ${category.categoryId}}"></a>
 		</div>

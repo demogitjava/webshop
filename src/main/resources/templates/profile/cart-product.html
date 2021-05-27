@@ -120,26 +120,28 @@
 
 				</li>
 
-				<li class="list-group-item">
-					<span class="text" th:text="${pwithtext.product_name_de}"></span>
-					<input class="input-group-text col-12" type='number' name="anzahl" value="1" placeholder='0.00'>
 
+				<form th:action="@{/profile/updatechart}" method="post">
 
-					<input type="input-group-text col-12" th:value="${#numbers.formatDecimal(pwithtext.productPrice,2,2)}"  class="form-control currency" id="productprice" style="text-align:center" readonly/>
+						<li class="list-group-item">
 
-				</li>
+							<span class="text" th:text="${pwithtext.product_name_de}"></span>
+							<input class="input-group-text col-12" type='number' name="shoppingpriceitem" th:value="${itemchart}" />
+							<input type="input-group-text col-12" th:value="${#numbers.formatDecimal(pwithtext.productPrice,2,2)}"  class="form-control currency" id="${pwithtext.id}" style="text-align:center" readonly/>
 
-				<li class="list-group-item">
-					<button sec:authorize="isAuthenticated()"
-							class="btn my-2 my-sm-0 btn-sm" type="submit">Update Products</button>
-				</li>
+						</li>
 
+						<li class="list-group-item">
+							<button sec:authorize="isAuthenticated()"
+									class="btn my-2 my-sm-0 btn-sm" type="submit">Update Products</button>
+						</li>
+
+				</form>
 
 				<li class="list-group-item">
 					<span>Total (€)</span>
 					<strong>
 						<input type="input-group-text col-12" th:value="${#numbers.formatDecimal(shoppingchartpricetotal,2,2)}" style="text-align:center" class="form-control currency" readonly/>
-
 					</strong>
 				</li>
 			</ul>

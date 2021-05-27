@@ -31,8 +31,13 @@ public class User_Product_List_Service implements User_Product_List_Interface
 
     public double priceshoppingchart(Double shoppingpriceitem, List productswithtextandprice)
     {
-        double shopinngprice = 0;
+        double shopinngprice = 0.00;
 
+        if(shoppingpriceitem == 0.00)
+        {
+            System.out.print("shpping item is 0");
+            shoppingpriceitem = Double.valueOf(1);
+        }
 
         Object objprice;
         //  String agentCode = (String)((Map) productswithtextandpric.next()).get("AGENTSURROGATECODE");
@@ -50,7 +55,7 @@ public class User_Product_List_Service implements User_Product_List_Interface
             String result[] = ((String) objprice).split("=");
             String returnValue = result[result.length - 1]; //equals "ghfj.doc"
 
-            shopinngprice = shopinngprice + Double.parseDouble(returnValue);
+            shopinngprice = shoppingpriceitem * Double.parseDouble(returnValue);
 
 
         }
@@ -58,5 +63,11 @@ public class User_Product_List_Service implements User_Product_List_Interface
        return shopinngprice;
     }
 
+
+    public Integer customercount()
+    {
+
+        return customercount();
+    }
 
 }
