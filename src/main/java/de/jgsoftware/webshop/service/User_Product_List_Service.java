@@ -64,10 +64,13 @@ public class User_Product_List_Service implements User_Product_List_Interface
     }
 
 
-    public Integer customercount()
+    public Double getUSTChart(double dobletotal)
     {
+        dobletotal = dobletotal / 100 * 19;
 
-        return customercount();
+        Double ustchart = dobletotal;
+
+        return ustchart;
     }
 
 }

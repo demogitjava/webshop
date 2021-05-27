@@ -50,6 +50,8 @@ public class ProfileController
     List<Kundenstamm> kdstamm;
 
     Double shoppingpriceitem = Double.valueOf(1.00);
+    Double ustproductchart = null;
+
 
     @Autowired
     Product_Service product_service;
@@ -147,6 +149,9 @@ public class ProfileController
         prodtlists.put("shoppingchartpricetotal", dobletotal);
 
 
+        // ustproductchart
+        double ustchart = user_product_list_service.getUSTChart(dobletotal);
+        prodtlists.put("ustproductchart", ustchart);
         prodtlists.put("itemchart", shoppingpriceitem);
 
         return new ModelAndView("/profile/cart-product.html", prodtlists);
@@ -209,6 +214,10 @@ public class ProfileController
         double dobletotal = user_product_list_service.priceshoppingchart(Double.valueOf(shoppingpriceitem), productswithtextandprice);
         prodtlists.put("shoppingchartpricetotal", dobletotal);
 
+
+        // ustproductchart
+        double ustchart = user_product_list_service.getUSTChart(dobletotal);
+        prodtlists.put("ustproductchart", ustchart);
         prodtlists.put("itemchart", shoppingpriceitem);
 
         return new ModelAndView("/profile/cart-product.html", prodtlists);

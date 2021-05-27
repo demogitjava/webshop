@@ -140,6 +140,12 @@
 
 				<li class="list-group-item">
 					<span>Total (€)</span>
+
+
+					<strong>
+						<label>UST</label>
+						<input type="input-group-text col-12" th:value="${#numbers.formatDecimal(ustproductchart,2,2)}" style="text-align:center" class="form-control currency" readonly/>
+					</strong>
 					<strong>
 						<input type="input-group-text col-12" th:value="${#numbers.formatDecimal(shoppingchartpricetotal,2,2)}" style="text-align:center" class="form-control currency" readonly/>
 					</strong>
