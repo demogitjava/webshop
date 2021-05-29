@@ -166,6 +166,15 @@ public class ProfileController
             System.out.print("shpping item is 0");
             shoppingpriceitem = 1;
         }
+        else if (shoppingpriceitem > 0)
+        {
+            System.out.println("Number is positive");
+        }
+        else
+        {
+            System.out.println("Number is negative");
+            shoppingpriceitem = 1;  // set to 1
+        }
 
         Map<String, Object> prodtlists = new HashMap<>();
 
@@ -197,6 +206,7 @@ public class ProfileController
 
 
         List productswithtextandprice = (ArrayList) user_product_list_service.getDoaUserProductList().getCustomercheckoutproductswithprice(kundennummer_id);
+
         prodtlists.put("productswithtext", productswithtextandprice);
 
 

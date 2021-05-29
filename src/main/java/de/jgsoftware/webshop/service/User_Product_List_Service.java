@@ -39,6 +39,12 @@ public class User_Product_List_Service implements User_Product_List_Interface
             shoppingpriceitem = Double.valueOf(1);
         }
 
+        else if(shoppingpriceitem < 0.00)
+        {
+            System.out.print("shpping item is 0");
+            shoppingpriceitem = Double.valueOf(1);
+        }
+
         Object objprice;
         //  String agentCode = (String)((Map) productswithtextandpric.next()).get("AGENTSURROGATECODE");
         // ((org.springframework.util.LinkedCaseInsensitiveMap)productswithtextandprice.get(0)).entrySet().toArray()[14]
@@ -66,6 +72,10 @@ public class User_Product_List_Service implements User_Product_List_Interface
 
     public Double getUSTChart(double dobletotal)
     {
+
+
+
+
         dobletotal = dobletotal / 100 * 19;
 
         Double ustchart = dobletotal;
