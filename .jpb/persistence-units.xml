@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default">
+        <packages>
+          <package value="de.jgsoftware.webshop,model" />
+        </packages>
+        <entities>
+          <entity value="de.jgsoftware.webshop.model.Product" />
+          <entity value="de.jgsoftware.webshop.model.PRODUCT_CHECK_OUT_TEXT" />
+          <entity value="de.jgsoftware.webshop.model.Kundenstamm" />
+          <entity value="de.jgsoftware.webshop.model.Users" />
+          <entity value="de.jgsoftware.webshop.model.USER_PRODUCT_LIST" />
+        </entities>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>
