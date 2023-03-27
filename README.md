@@ -15,3 +15,10 @@ server.port=443
 server.servlet.context-path=/
 
 
+login 
+admin
+jj78mvpr52k1
+
+then the shoppingchart is availble
+
+
