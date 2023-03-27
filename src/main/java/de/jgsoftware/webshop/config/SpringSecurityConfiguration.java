@@ -50,7 +50,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 				.authorizeRequests()
 				.antMatchers(
 						"/index.html",
-						"/about.html",
+						"/about",
 						"/contact.html",
 						"/service.html",
 						"/admin.html",
