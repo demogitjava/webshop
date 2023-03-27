@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  webshop:
+    image: de_webshop:latest
+    container_name: de_webshop
+    ports:
+      - "127.0.0.1:443:443"
+    networks:
+      192.168.178.0:
+        ipv4_address: 192.168.178.5
+
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+
+    environment:
+      - TZ=Europe/Berlin
+    dns:
+      - 192.168.178.3
+      - 8.8.8.8
+      - 8.8.4.4
+
+networks:
+  192.168.178.0:
+    external: true
+
+
+
