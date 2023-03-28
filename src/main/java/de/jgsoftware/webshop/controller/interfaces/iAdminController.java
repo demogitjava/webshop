@@ -12,4 +12,9 @@ public interface iAdminController
     @GetMapping({"admin", "/de"})
     ModelAndView adminde();
 
+
+    @GetMapping({"admin", "/ebayuserprofile"})
+    ModelAndView ebayuserprofile();
+
 }
+

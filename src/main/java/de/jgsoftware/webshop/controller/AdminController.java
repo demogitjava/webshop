@@ -46,4 +46,13 @@ public class AdminController implements iAdminController
         return mv;
     }
 
+    @Override
+    public ModelAndView ebayuserprofile()
+    {
+        mv = new ModelAndView("ebayuserprofile");
+
+
+        mv.addObject("ebaytext", "testtext");
+        return mv;
+    }
 }
