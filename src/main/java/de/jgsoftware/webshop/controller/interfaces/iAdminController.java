@@ -23,5 +23,8 @@ public interface iAdminController
     @PostMapping("/ebayuserprofile/appid")
     String appid(String appid);
 
+
+    @PostMapping("/ebayuserprofile/ebaytoken")
+    String ebaytoken(String ebaytk);
 }
 

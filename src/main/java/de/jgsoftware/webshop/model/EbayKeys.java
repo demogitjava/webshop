@@ -20,7 +20,7 @@ public class EbayKeys
     }
 
     public void setEbaytoken(String ebaytoken) {
-        this.ebaytoken = ebaytoken;
+        this.ebaytoken = EbayKeys.ebaytoken;
     }
 
     public String getCertid() {

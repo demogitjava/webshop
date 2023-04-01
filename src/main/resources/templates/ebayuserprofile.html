@@ -284,13 +284,24 @@
 
                                 </form>
 
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="utoken">User Token
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="utoken" name="utoken" class="form-control">
+                                <form role="form" id="ebaytoken" th:action="@{/admin/ebayuserprofile/ebaytoken}" method="post">
+
+                                    <div class="col-sm-6 form-group">
+                                        <label for="appid">
+                                            Ebay Token</label>
+                                        <input type="text" class="form-control" id="ebaytk" name="ebaytk" required="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group">
+                                            <button type="submit" class="btn btn-primary btn-lg">Send</button>
                                         </div>
                                     </div>
+
+                                </form>
+
+
+
+
                                     <div class="item form-group">
                                         <label for="certid" class="col-form-label col-md-3 col-sm-3 label-align">Certid</label>
                                         <div class="col-md-6 col-sm-6 ">

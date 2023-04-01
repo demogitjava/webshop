@@ -67,9 +67,16 @@ public class AdminController implements iAdminController
     {
 
         // String appid - ebay_appid
-
-        System.out.print("the appid is " + appid + "\n");
         service_admin.getiDaoAdmin().hold_ebayappkeyinmemory(appid);
+        return "admin";
+    }
+
+
+    @Override
+    public String ebaytoken(String ebaytk)
+    {
+        System.out.print("This is the ebay token " + ebaytk + "\n");
+        service_admin.getiDaoAdmin().hold_ebaytokeninmemory(ebaytk);
         return "admin";
     }
 }
