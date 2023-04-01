@@ -302,17 +302,19 @@
 
                                 <form role="form" id="certid" th:action="@{/admin/ebayuserprofile/certid}" method="post">
 
-                                    <div class="item form-group">
-                                        <label for="certid" class="col-form-label col-md-3 col-sm-3 label-align">Certid</label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input id="certid" class="form-control" type="text" name="certid">
-                                        </div>
+
+                                    <div class="col-sm-6 form-group">
+                                        <label for="appid">
+                                            Certid</label>
+                                        <input type="text" class="form-control" id="certid" name="certid" required="">
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 form-group">
                                             <button type="submit" class="btn btn-primary btn-lg">Send</button>
                                         </div>
                                     </div>
+
+
 
                                 </form>
 
