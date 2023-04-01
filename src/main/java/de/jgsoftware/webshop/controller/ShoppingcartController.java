@@ -16,6 +16,11 @@ import de.jgsoftware.webshop.model.shoppingcart;
 
 import de.jgsoftware.webshop.serivce.interfaces.i_shoppingcart_service;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Controller
 public class ShoppingcartController implements i_shoppingcart
 {

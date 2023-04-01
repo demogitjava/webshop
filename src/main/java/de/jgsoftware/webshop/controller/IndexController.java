@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.HashMap;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Controller
 public class IndexController implements de.jgsoftware.webshop.controller.interfaces.IndexController {
 

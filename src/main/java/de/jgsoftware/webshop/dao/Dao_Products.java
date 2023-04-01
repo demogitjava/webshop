@@ -17,8 +17,9 @@ import java.util.List;
 
 /**
  *
- * @author root
+ * @author hoscho
  */
+
 @Repository
 public class Dao_Products implements i_dao_products
 {

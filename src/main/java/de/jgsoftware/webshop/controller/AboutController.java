@@ -8,6 +8,12 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import java.security.Principal;
 
+
+/**
+ *
+ * @author hoscho
+ */
+
 @Controller
 public class AboutController implements i_about
 {

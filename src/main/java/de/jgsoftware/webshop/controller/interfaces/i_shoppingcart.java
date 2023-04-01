@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
+
+/**
+ *
+ * @author hoscho
+ */
 @RequestMapping("shoppingcart")
 @PreAuthorize("hasAuthority('ROLE_ADMIN','ROLE_USER')")
 public interface i_shoppingcart

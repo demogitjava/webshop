@@ -9,6 +9,10 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
+/**
+ *
+ * @author hoscho
+ */
 
 @Controller
 public class Userprofile implements i_userprofile

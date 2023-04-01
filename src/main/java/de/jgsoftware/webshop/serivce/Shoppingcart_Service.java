@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_shoppingcart;
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ * @author hoscho
+ */
 
 @Service
 public class Shoppingcart_Service implements i_shoppingcart_service

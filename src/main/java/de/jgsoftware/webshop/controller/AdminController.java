@@ -12,6 +12,11 @@ import java.security.Principal;
 
 import de.jgsoftware.webshop.serivce.interfaces.i_service_admin;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Controller
 public class AdminController implements iAdminController
 {

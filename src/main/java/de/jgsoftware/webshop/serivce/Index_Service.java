@@ -6,6 +6,11 @@ import de.jgsoftware.webshop.serivce.interfaces.i_index_service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Service
 public class Index_Service implements i_index_service
 {

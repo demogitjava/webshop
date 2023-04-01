@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 
 import de.jgsoftware.webshop.serivce.interfaces.i_service_userprofile;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Service
 public class Service_Userprofile implements i_service_userprofile
 {

@@ -14,6 +14,11 @@ import java.util.Locale;
 import java.util.TimeZone;
 //import org.springframework.cloud.config.server.EnableConfigServer;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @SpringBootApplication
 public interface i_webShop
 {

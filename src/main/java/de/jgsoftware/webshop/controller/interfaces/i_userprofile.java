@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @RequestMapping("userprofile")
 @PreAuthorize("hasAuthority('ROLE_ADMIN','ROLE_USER')")
 public interface i_userprofile

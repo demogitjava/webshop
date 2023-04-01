@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import de.jgsoftware.webshop.serivce.interfaces.i_service_admin;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_admin;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Service
 public class Service_Admin implements i_service_admin
 {
