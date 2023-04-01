@@ -5,6 +5,11 @@ import org.springframework.stereotype.Service;
 
 
 
+/**
+ *
+ * @author hoscho
+ */
+
 public interface i_shoppingcart_service
 {
     i_dao_shoppingcart getShcart();

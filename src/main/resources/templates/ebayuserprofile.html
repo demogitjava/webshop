@@ -267,15 +267,23 @@
                             </div>
                             <div class="x_content">
                                 <br>
-                                <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
-                                    <div class="item form-group">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="appid">Appid
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                            <input type="text" id="appid" class="form-control ">
+
+                                <form role="form" id="reused_form" th:action="@{/admin/ebayuserprofile/appid}" method="post">
+
+                                    <div class="col-sm-6 form-group">
+                                        <label for="appid">
+                                           Ebay Appid</label>
+                                        <input type="text" class="form-control" id="appid" name="appid" required="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group">
+                                            <button type="submit" class="btn btn-primary btn-lg">Send</button>
                                         </div>
                                     </div>
+
+                                </form>
+
                                     <div class="item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="utoken">User Token
                                         </label>
@@ -307,7 +315,7 @@
                                         </div>
                                     </div>
 
-                                </form>
+
                             </div>
                         </div>
                     </div>

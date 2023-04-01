@@ -2,6 +2,12 @@ package de.jgsoftware.webshop.serivce.interfaces;
 
 import de.jgsoftware.webshop.dao.interfaces.shop.i_Index_Dao;
 
+
+
+/**
+ *
+ * @author hoscho
+ */
 public interface i_index_service
 {
 

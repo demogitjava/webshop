@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author root
+ * @author hoscho
  */
 public interface i_dao_products 
 {

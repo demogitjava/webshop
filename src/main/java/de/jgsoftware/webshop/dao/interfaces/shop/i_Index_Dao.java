@@ -5,6 +5,11 @@ import de.jgsoftware.webshop.model.m_webtextlayout;
 
 import java.util.List;
 
+
+/**
+ *
+ * @author hoscho
+ */
 public interface i_Index_Dao
 {
     

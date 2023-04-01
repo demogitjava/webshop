@@ -8,7 +8,7 @@ import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
 
 /**
  *
- * @author root
+ * @author hoscho
  */
 public interface i_service_products 
 {

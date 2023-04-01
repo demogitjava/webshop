@@ -10,6 +10,8 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
+import de.jgsoftware.webshop.serivce.interfaces.i_service_admin;
+
 @Controller
 public class AdminController implements iAdminController
 {
@@ -18,6 +20,9 @@ public class AdminController implements iAdminController
 
     ModelAndView mv;
 
+
+    @Autowired
+    i_service_admin service_admin;
 
 
     @Override
@@ -55,5 +60,16 @@ public class AdminController implements iAdminController
 
         mv.addObject("ebaytext", "testtext");
         return mv;
+    }
+
+    @Override
+    public String appid(String appid)
+    {
+
+        // String appid - ebay_appid
+
+        System.out.print("the appid is " + appid + "\n");
+        service_admin.getiDaoAdmin().hold_ebayappkeyinmemory(appid);
+        return "admin";
     }
 }

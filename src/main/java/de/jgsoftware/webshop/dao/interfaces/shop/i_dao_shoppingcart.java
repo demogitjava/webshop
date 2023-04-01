@@ -5,6 +5,11 @@ import org.springframework.data.repository.CrudRepository;
 import de.jgsoftware.webshop.model.shoppingcart;
 import java.util.List;
 
+
+/**
+ *
+ * @author hoscho
+ */
 public interface i_dao_shoppingcart
 {
 
