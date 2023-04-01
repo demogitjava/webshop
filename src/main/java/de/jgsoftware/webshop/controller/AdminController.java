@@ -80,8 +80,8 @@ public class AdminController implements iAdminController
     @Override
     public String ebaytoken(String ebaytk)
     {
+        // String ebaytk - ebaytk
         service_admin.getiDaoAdmin().hold_ebaytokeninmemory(ebaytk);
-
         return "admin";
     }
 
@@ -92,8 +92,8 @@ public class AdminController implements iAdminController
     @Override
     public String certid(String certid)
     {
-        System.out.print("this is the certid string " + certid + "\n");
 
+        // String certid - certid
         service_admin.getiDaoAdmin().hold_certidinmemory(certid);
         return "admin";
     }
