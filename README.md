@@ -16,11 +16,23 @@ and amazon
 
 
 
-run the application with docker:
+# For Docker
 
-     -p 217.160.255.254:443:443 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop --network 192.168.178.0
+============================================================  
+start docker container with line
 
-The used database are the
+to build the image type:
+
+    -p 217.160.255.254:80:80 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop
+    
+    over terminal:
+    docker build -f Dockerfile -t landingpage .
+
+  
+docker for windows are available on [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
+
+
+**The used database are the**
 
 demodb
 mawidb
