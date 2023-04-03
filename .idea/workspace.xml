@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4971a9bb-a1c2-441f-9eb6-d2cd591a8f07" name="Changes" comment="edit README.md">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4971a9bb-a1c2-441f-9eb6-d2cd591a8f07" name="Changes" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +173,7 @@
       <workItem from="1680524395943" duration="106000" />
       <workItem from="1680524514840" duration="254000" />
       <workItem from="1680525081974" duration="119000" />
-      <workItem from="1680525216098" duration="977000" />
+      <workItem from="1680525216098" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="edit README.md">
       <created>1680167385756</created>
@@ -282,7 +280,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680435796071</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="edit pom.xml .idea">
+      <created>1680526455063</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680526455063</updated>
+    </task>
+    <task id="LOCAL-00017" summary=".">
+      <created>1680526501182</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680526501182</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,14 +321,15 @@
     <MESSAGE value="edit ebayuserprofile.html&#10;&#10;save ebay User Token to memory &#10;over html from to &#10;url /admin/ebayuserprofile/ebaytoken" />
     <MESSAGE value="update comments" />
     <MESSAGE value="save ebay certid to memory" />
-    <MESSAGE value="." />
     <MESSAGE value="update model EBayKeys" />
     <MESSAGE value="edit ebayuserprofile.html&#10;with css" />
     <MESSAGE value="add auth from bing and google &#10;edit keyword for the index in google&#10;and bing" />
     <MESSAGE value="add robot.txt" />
     <MESSAGE value="add meta tags to de.html" />
     <MESSAGE value="edit README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit README.md" />
+    <MESSAGE value="edit pom.xml .idea" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
