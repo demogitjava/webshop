@@ -6,7 +6,7 @@ ENV HOSTNAME webshop
 
 ENV TZ=Europe/Berlin
 
-ENV HTTP_PROXY="http://93.90.201.167:80"
+ENV HTTP_PROXY="http://217.160.255.254:443"
 
 # locale to german
 ENV LANG=de_DE.ISO-8859-1

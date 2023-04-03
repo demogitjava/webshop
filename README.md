@@ -23,10 +23,10 @@ start docker container with line
 
 to build the image type:
 
-    -p 217.160.255.254:80:80 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop
+    -p 217.160.255.254:443:443 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop
     
     over terminal:
-    docker build -f Dockerfile -t landingpage .
+    docker build -f Dockerfile -t webshop .
 
   
 docker for windows are available on [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
