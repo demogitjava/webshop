@@ -23,7 +23,7 @@ http://maven.apache.org/POM/4.0.0 ">
         <argLine>-Duser.timezone=Europe/Berlin</argLine>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
         <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
 
