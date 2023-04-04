@@ -23,7 +23,7 @@ start docker container with line
 
 to build the image type:
 
-    -p 217.160.255.254:443:443 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop
+    -p 217.160.255.254:443:443 --dns 8.8.8.8 --dns 8.8.4.4 --name webshop --network 192.168.178.0
     
     over terminal:
     docker build -f Dockerfile -t webshop .
