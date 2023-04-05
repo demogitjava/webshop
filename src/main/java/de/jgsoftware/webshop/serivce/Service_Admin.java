@@ -49,13 +49,5 @@ public class Service_Admin implements i_service_admin
     }
 
 
-    public void startEbayClient()
-    {
-        ebayoauth = new OAuth2Api();
 
-        ebaycredentialutil = new CredentialUtil();
-        ebayaccesstoken = new AccessToken();
-
-
-    }
 }
