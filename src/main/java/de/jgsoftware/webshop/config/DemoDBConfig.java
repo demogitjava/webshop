@@ -23,6 +23,12 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+
+/**
+ *
+ * @author hoscho
+ */
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces",
