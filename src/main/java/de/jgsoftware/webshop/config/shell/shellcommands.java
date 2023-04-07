@@ -11,6 +11,11 @@ import java.util.zip.ZipInputStream;
 
 import static org.h2.util.IOUtils.copy;
 
+/**
+ *
+ * @author hoscho
+ */
+
 @ShellComponent
 public class shellcommands implements i_shellcommands
 {
