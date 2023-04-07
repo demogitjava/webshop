@@ -9,7 +9,10 @@ package de.jgsoftware.webshop.model;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
-
+/**
+ *
+ * @author hoscho
+ */
 @Entity
 @Table(name = "PRODUCTS", schema = "PUBLIC", catalog = "SHOPDB")
 public class Product

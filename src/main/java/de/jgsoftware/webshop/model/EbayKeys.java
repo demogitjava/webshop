@@ -1,5 +1,10 @@
 package de.jgsoftware.webshop.model;
 
+
+/**
+ *
+ * @author hoscho
+ */
 public class EbayKeys
 {
     public static String ebayappid;

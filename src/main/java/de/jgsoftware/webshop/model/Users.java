@@ -2,7 +2,10 @@ package de.jgsoftware.webshop.model;
 
 
 import javax.persistence.*;
-
+/**
+ *
+ * @author hoscho
+ */
 @Entity
 @Table(name = "USERS", schema = "PUBLIC", catalog = "SHOPDB")
 public class Users {

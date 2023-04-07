@@ -4,6 +4,11 @@ package de.jgsoftware.webshop.model;
 import javax.persistence.*;
 
 
+/**
+ *
+ * @author hoscho
+ */
+
 @Entity
 @Table(name = "bootstrap_components")
 public class m_bootstrap_components
