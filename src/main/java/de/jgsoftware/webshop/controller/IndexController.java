@@ -1,6 +1,7 @@
 package de.jgsoftware.webshop.controller;
 
 
+import de.jgsoftware.webshop.model.useragent;
 import de.jgsoftware.webshop.serivce.interfaces.i_index_service;
 import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,11 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Date;
 import java.util.HashMap;
 
+import ua_parser.Parser;
+import ua_parser.Client;
 /**
  *
  * @author hoscho
@@ -23,6 +27,7 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
     java.util.Locale locale;
 
     HashMap prodtlists;
+
     @Autowired
     i_service_products iserviceproducts;
     
@@ -34,6 +39,9 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
     @Autowired
     i_index_service index_service;
 
+    String languagestr;
+
+    Principal principal;
 
     /*
         load products and items
@@ -42,11 +50,64 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
     @Override
     public ModelAndView index()
     {
+        /*
+
+            save header form useragent to
+            table USERAGENT
+
+         */
+
+        // ip address client
+        String ipAddress = request.getRemoteAddr();
+
+        String stuseragent = request.getHeader("user-agent");
+
+        Parser uaParser = new Parser();
+        Client c = uaParser.parse(stuseragent);
+
+        String stbrowser = c.userAgent.family; // browser
+        String stbrowserversion = c.userAgent.family; // browser version
+        String stsystem = c.os.family; // operation system
+
+        /*
+        System.out.println(c.userAgent.family); // => browser
+        System.out.println(c.userAgent.major);  // => browser version
+        System.out.println(c.userAgent.minor);  // => "1"
+        System.out.println(c.os.family);        // => operation system
+           */
+
+        // browser language like "de"
+        languagestr = RequestContextUtils.getLocale(request).getLanguage();
+
+        Date date = new Date();
+
+        useragent muagent = new useragent();
+        muagent.setIpAddress(ipAddress);
+        muagent.setStbrowser(stbrowser);
+        muagent.setStbrowserversion(stbrowserversion);
+        muagent.setStsystem(stsystem);
+        muagent.setStlanguage(languagestr);
+        muagent.setDate(date);
+        //=======================================
+
+
+        /*
+                save pojo
+              de.jgsoftware.webshop.model.useragent
+         */
+        index_service.getI_index_dao().saveuseragent(muagent);
+
+
+        /*
+
+                begin MVC Controller de
+
+         */
 
         mv = new ModelAndView("index");
 
-        String languagestr = RequestContextUtils.getLocale(request).getLanguage();
-        Principal principal = request.getUserPrincipal();
+        languagestr = RequestContextUtils.getLocale(request).getLanguage();
+        principal = request.getUserPrincipal();
         mv = new ModelAndView("de");
 
 

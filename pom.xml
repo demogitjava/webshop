@@ -154,8 +154,11 @@ http://maven.apache.org/POM/4.0.0 ">
             <artifactId>ebay-oauth-java-client</artifactId>
             <version>1.1.8</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.github.ua-parser</groupId>
+            <artifactId>uap-java</artifactId>
+            <version>1.5.3</version>
+        </dependency>
 
 
     </dependencies>
