@@ -214,4 +214,10 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
     }
 
 
+    @Override
+    public String usernotloggedin()
+    {
+        return "redirect:/usernotloggedin/";
+    }
+
 }

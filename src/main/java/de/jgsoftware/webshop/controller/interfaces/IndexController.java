@@ -33,4 +33,8 @@ public interface IndexController
 
     @GetMapping("/admin")
     public String admin();
+
+
+    @GetMapping("/usernotloggedin")
+    String usernotloggedin();
 }
