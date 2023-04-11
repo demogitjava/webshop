@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.mawi",
+@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shop",
         entityManagerFactoryRef = "mawiEntityManagerFactory",
         transactionManagerRef = "mawiTransactionManager")
 public class MaWiDBConfig extends HikariConfig
