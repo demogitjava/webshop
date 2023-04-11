@@ -13,6 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 public interface i_usernotloggendin {
 
 
-    @GetMapping({"usernotloggedin", "/usernotloggedin"})
+    @GetMapping({"/", "/usernotloggedin"})
     ModelAndView usernotloggedin();
 }

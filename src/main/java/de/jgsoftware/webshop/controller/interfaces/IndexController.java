@@ -35,6 +35,4 @@ public interface IndexController
     public String admin();
 
 
-    @GetMapping("/usernotloggedin")
-    String usernotloggedin();
 }
