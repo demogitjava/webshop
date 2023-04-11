@@ -108,6 +108,8 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
 
         languagestr = RequestContextUtils.getLocale(request).getLanguage();
         principal = request.getUserPrincipal();
+
+
         mv = new ModelAndView("de");
 
 

@@ -23,11 +23,14 @@ public class Dao_shoppingcart implements i_dao_shoppingcart
 
 
 
-    final
-    JdbcTemplate jtm;
-
-    final
+    @Autowired
+    @Qualifier(value = "shopJdbcTemplate")
     JdbcTemplate jtm2;
+
+    // demodb
+    @Autowired
+    @Qualifier(value = "defaultJdbcTemplate")
+    JdbcTemplate jtm;
 
     public Dao_shoppingcart(@Qualifier(value = "defaultJdbcTemplate") JdbcTemplate jtm,
                             @Qualifier(value = "shopJdbcTemplate") JdbcTemplate jtm2) {
