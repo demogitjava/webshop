@@ -45,94 +45,99 @@
 </header>
 <body>
 
+<!-- Fixed navbar -->
+<nav class="navbar navbar-dark navbar-fixed-top">
+  <!--
 
+         user is not loggedin
+     -->
+  <div sec:authorize="!isAuthenticated()">
+
+    <nav id="navigationbootstrap" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#" >Simple Demo Webshop page</a> <!-- Company Name -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" >  HOME <!-- Home -->
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about" >About</a>  <!-- about -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact" >Contact</a>  <!-- Contact -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>  <!-- Login -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+  <!--
+
+          user is loggedin
+  -->
+  <div sec:authorize="isAuthenticated()">
+
+    <nav id="navigationbootstraplogin" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#" th:text="${webtextcomp[0].de}"></a> <!-- Company Name -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsivelogin">
+
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">admin</a>  <!-- admin -->
+            </li>
+
+
+
+
+
+            <li class="nav-item">
+              <a class="nav-link" th:text="${lgusername}" href="/profile"></a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="/userprofile/">Benutzerprofil</a>  <!-- Webpagebuilder -->
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>  <!-- Logout -->
+            </li>
+
+          </ul>
+        </div>
+
+
+      </div>
+    </nav>
+
+  </div>
+
+</nav>
 
 <div class="container">
 
-        <!--
-
-          user is not loggedin
-        -->
-        <div sec:authorize="!isAuthenticated()">
-
-          <nav id="navigationbootstrap" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-              <a class="navbar-brand" href="#" >Simple Demo Webshop page</a> <!-- Company Name -->
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#" >  HOME <!-- Home -->
-                      <span class="sr-only">(current)</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/about" >About</a>  <!-- about -->
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/contact" >Contact</a>  <!-- Contact -->
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>  <!-- Login -->
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-
-        </div>
-
-        <!--
-
-                user is loggedin
-        -->
-        <div sec:authorize="isAuthenticated()">
-
-          <nav id="navigationbootstraplogin" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-              <a class="navbar-brand" href="#" th:text="${webtextcomp[0].de}"></a> <!-- Company Name -->
-
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarResponsivelogin">
-
-                <ul class="navbar-nav ml-auto">
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="/admin">admin</a>  <!-- admin -->
-                  </li>
-
-
-
-
-
-                  <li class="nav-item">
-                    <a class="nav-link" th:text="${lgusername}" href="/profile"></a>
-                  </li>
-
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="/userprofile/">Benutzerprofil</a>  <!-- Webpagebuilder -->
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>  <!-- Logout -->
-                  </li>
-
-                </ul>
-              </div>
-
-
-            </div>
-          </nav>
-
-        </div>
-
+     <div>
+        <p>register user</p>
+     </div>
 
 
 
