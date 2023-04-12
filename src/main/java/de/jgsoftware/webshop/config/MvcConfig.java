@@ -28,7 +28,9 @@ public class MvcConfig implements WebMvcConfigurer
         registry.addViewController("/admin").setViewName("admin");
         registry.addViewController("/userprofile").setViewName("userprofile");
         registry.addViewController("/about").setViewName("about");
-       
+
+        registry.addViewController("/createuser").setViewName("createuser");
+        registry.addViewController("/registeruser").setViewName("registeruser");
     }
 
     public AppConfigLocale getAppConfigLocale() {

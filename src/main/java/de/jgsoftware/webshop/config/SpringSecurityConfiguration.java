@@ -60,6 +60,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 						"/service.html",
 						"/admin.html",
 						"/userprofile.html",
+						"/createuser.html",
+						"/registeruser.html",
 						"/signup.html",
 						"/h2-console/**",
 						"/resources/**",

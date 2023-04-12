@@ -52,6 +52,10 @@ public class ShoppingcartController implements i_shoppingcart
 
             System.out.print("user is not loggedin " + "\n");
 
+            /*
+                user is not loggedin
+             */
+            createuser();
 
         }
         else
@@ -91,5 +95,14 @@ public class ShoppingcartController implements i_shoppingcart
 
         return "redirect:/";
     }
+
+
+
+    private String createuser()
+    {
+        return "redirect:/createuser/";
+    }
+
+
 
 }

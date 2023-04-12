@@ -21,4 +21,6 @@ public interface i_shoppingcart
 
     @GetMapping("addToCart/{productId}")
     String addToCart(@PathVariable("productId") String productId, Principal principal, Model model);
+
+
 }
