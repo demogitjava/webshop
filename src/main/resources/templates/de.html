@@ -5,8 +5,6 @@
     <title>Demo Git Webshop</title>
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta charset="ISO-8859-1">
-    <title>Demo Git Webshop</title>
 
     <meta name="description" content="demogitjava webshop">
     <meta name="description" content="demogit java webshop">
@@ -194,7 +192,9 @@
                                                 </div>
                                                 <div class="card-footer">
 
-                                                    <p th:text="'$ '+${product.productPrice}"></p>
+                                                    <p th:text="'EUR '+${product.productPrice}">
+
+                                                    </p>
                                                     <a th:href="@{'~/shoppingcart/addToCart/' + ${product.productId}}" class="btn btn-primary">AddToCart</a>
 
                                                 </div>
