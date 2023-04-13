@@ -33,7 +33,7 @@
 
 <body class="nav-md">
 
-<div sec:authorize="!isAuthenticated()">
+<div sec:authorize="!isAuthenticated()" class="fixed-top">
 
     <nav id="navigationbootstrap" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -58,38 +58,9 @@
     <p>you are not logged in</p>
 </div>
 
-<div sec:authorize="isAuthenticated()">
+<div sec:authorize="isAuthenticated()" class="fixed-top">
 
-    <nav id="navigationbootstrap" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#" >Simple Demo Webshop page</a> <!-- Company Name -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" >  HOME <!-- Home -->
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about" >about</a>  <!-- about -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/service" >Serivce</a>  <!-- Service -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact" >contact</a>  <!-- Contact -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">login</a>  <!-- Login -->
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col">
@@ -125,7 +96,7 @@
             </div>
 
             <!-- top navigation -->
-            <div class="top_nav">
+            <div class="top_nav fixed-top">
                 <div class="nav_menu">
                     <div class="nav toggle">
                         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
@@ -143,7 +114,7 @@
                                         <span>Settings</span>
                                     </a>
                                     <a class="dropdown-item"  href="javascript:;">Help</a>
-                                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <a class="dropdown-item"  href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
                             </li>
 
@@ -233,16 +204,14 @@
             <div class="right_col" role="main">
                 <div class="row" style="display: inline-block;">
 
-
-
-
                 </div>
                 <br/>
-
-
-             <!--
-                    ebay keys here
-             -->
+                <!--
+                       ebay keys here
+                -->
+                <div class="row">
+                    <p></p>
+                </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12 ">
                         <div class="x_panel">
@@ -273,7 +242,7 @@
 
                                     <div class="col-sm-6 form-group">
                                         <label for="appid">
-                                           Ebay Appid</label>
+                                            Ebay Appid</label>
                                         <input type="text" class="form-control" id="appid" name="appid" required="">
                                     </div>
                                     <div class="row">
