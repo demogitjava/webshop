@@ -5,7 +5,7 @@ services:
     image: de_webshop:latest
     container_name: de_webshop
     ports:
-      - "127.0.0.1:443:443"
+      - "217.160.255.254:443:443"
     networks:
       192.168.178.0:
         ipv4_address: 192.168.178.5
