@@ -2,6 +2,7 @@ package de.jgsoftware.webshop.config;
 
 
 import com.zaxxer.hikari.HikariConfig;
+import org.h2.tools.CreateCluster;
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,6 +52,8 @@ public class DemoDBConfig extends HikariConfig
     {
         try
         {
+
+
             org.h2.tools.Server h2Server = Server.createTcpServer("-tcpPort", "9092", "-tcpAllowOthers").start();
             org.h2.tools.Server webh2Server = Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
 
@@ -66,6 +69,7 @@ public class DemoDBConfig extends HikariConfig
         } catch (SQLException e) {
             throw new RuntimeException("Failed to start H2 server: " + e + "\n");
         }
+
 
     }
 
@@ -106,4 +110,6 @@ public class DemoDBConfig extends HikariConfig
         jtm.setDataSource(demodb);
         return jtm;
     }
+
+
 }

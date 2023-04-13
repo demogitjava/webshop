@@ -18,6 +18,10 @@ EXPOSE 5005
 EXPOSE 8082
 EXPOSE 9092
 
+# ports for clustering h2 database
+EXPOSE 9101
+EXPOSE 9102
+
 # add h2 database to root folder
 ADD https://github.com/demogitjava/demodatabase/raw/master/demodb.mv.db /root/demodb.mv.db
 ADD https://github.com/demogitjava/demodatabase/raw/master/mawi.mv.db /root/mawi.mv.db
