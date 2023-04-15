@@ -27,3 +27,5 @@ ADD https://github.com/demogitjava/demodatabase/raw/master/demodb.mv.db /root/de
 ADD https://github.com/demogitjava/demodatabase/raw/master/mawi.mv.db /root/mawi.mv.db
 ADD https://github.com/demogitjava/demodatabase/raw/master/shopdb.mv.db /root/shopdb.mv.db
 
+
+
