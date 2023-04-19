@@ -91,4 +91,45 @@ public class shellcommands
     }
 
 
+
+    @ShellMethod("startsourceserver")
+    public String startsourceserver() {
+
+
+        // java org.h2.tools.Server
+        //    -tcp -tcpPort 9101
+        //    -baseDir server1
+
+        String userdir = System.getProperty("user.home");
+        Server h2Server;
+
+        try {
+            h2Server = Server.createPgServer("-tcp", "-tcpPort", "9101", "-baseDir", userdir);
+            h2Server.start();
+            String h2status = (String) h2Server.getStatus();
+            Integer h2port = (Integer) h2Server.getPort();
+            System.out.print("Directory is " + userdir + "\n");
+
+            if (h2Server.isRunning(true)) {
+                System.out.print("H2 Clustering startet as server1." + "\n");
+
+
+            } else {
+
+                throw new RuntimeException("Could not start H2 server." + "\n");
+            }
+
+
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to start H2 server: " + e + "\n");
+        }
+
+
+        return "server status " + h2Server.getStatus();
+
+    }
+
 }
