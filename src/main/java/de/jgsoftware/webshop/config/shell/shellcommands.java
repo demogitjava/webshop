@@ -118,11 +118,6 @@ public class shellcommands
 
                 throw new RuntimeException("Could not start H2 server." + "\n");
             }
-
-
-
-
-
         } catch (SQLException e) {
             throw new RuntimeException("Failed to start H2 server: " + e + "\n");
         }
