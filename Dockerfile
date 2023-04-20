@@ -30,3 +30,8 @@ ADD https://github.com/demogitjava/demodatabase/raw/master/shopdb.mv.db /root/sh
 # add networks conig file
 ADD https://github.com/demogitjava/demodatabase/raw/master/db_webshop/networks /etc/networks
 
+
+# add jar to maschine
+#COPY target/webshop-0.0.1-SNAPSHOT.jar /root/webshop-0.0.1-SNAPSHOT.jar
+
+#ENTRYPOINT ["java", "-jar", "/root/webshop-0.0.1-SNAPSHOT.jar"]
