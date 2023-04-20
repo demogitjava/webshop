@@ -98,20 +98,20 @@ public class shellcommands
 
         // java org.h2.tools.Server
         //    -tcp -tcpPort 9101
-        //    -baseDir server1
+        //    -baseDir server2
 
         String userdir = System.getProperty("user.home");
-        Server h2Server;
+        org.h2.tools.Server h2Servertarget;
 
         try {
-            h2Server = Server.createPgServer("-tcp", "-tcpPort", "9101", "-baseDir", userdir);
-            h2Server.start();
-            String h2status = (String) h2Server.getStatus();
-            Integer h2port = (Integer) h2Server.getPort();
+            h2Servertarget = org.h2.tools.Server.createPgServer("-tcp", "-tcpPort", "9101", "-baseDir", userdir);
+            h2Servertarget.start();
+            String h2status = (String) h2Servertarget.getStatus();
+            Integer h2port = (Integer) h2Servertarget.getPort();
             System.out.print("Directory is " + userdir + "\n");
 
-            if (h2Server.isRunning(true)) {
-                System.out.print("H2 Clustering startet as server1." + "\n");
+            if (h2Servertarget.isRunning(true)) {
+                System.out.print("H2 Clustering startet as server2." + "\n");
 
 
             } else {
@@ -123,7 +123,7 @@ public class shellcommands
         }
 
 
-        return "server status " + h2Server.getStatus();
+        return "server status " + h2Servertarget.getStatus();
 
     }
 
