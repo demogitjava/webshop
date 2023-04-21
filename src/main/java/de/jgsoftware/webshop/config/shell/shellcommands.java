@@ -17,6 +17,8 @@ import org.springframework.shell.standard.ShellMethod;
 public class shellcommands
 {
 
+    org.h2.tools.Server h2Servertarget;
+
     @ShellMethod("helpcluster")
     public String helpcluster()
     {
@@ -91,6 +93,35 @@ public class shellcommands
     }
 
 
+    @ShellMethod("stopsourceserver")
+    public String stopsourceserver()
+    {
+
+        try
+        {
+
+            h2Servertarget.stop();
+        } catch(Exception e)
+        {
+            System.out.print("Fehler " +e);
+        }
+
+        return "server is stopped " + h2Servertarget.getStatus();
+    }
+
+    @ShellMethod("statussourceserver")
+    public String statussourceserver()
+    {
+
+        try
+        {
+            System.out.print("status of h2sourceserver" + h2Servertarget.getStatus() + "\n");
+        } catch(Exception e)
+        {
+            System.out.print("Fehler " + e);
+        }
+        return h2Servertarget.getStatus();
+    }
 
     @ShellMethod("startsourceserver")
     public String startsourceserver() {
@@ -101,7 +132,7 @@ public class shellcommands
         //    -baseDir server2
 
         String userdir = System.getProperty("user.home");
-        org.h2.tools.Server h2Servertarget;
+
 
         try {
 
