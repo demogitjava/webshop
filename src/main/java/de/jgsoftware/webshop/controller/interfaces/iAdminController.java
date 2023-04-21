@@ -24,6 +24,9 @@ public interface iAdminController
     @GetMapping({"admin", "/ebayuserprofile"})
     ModelAndView ebayuserprofile();
 
+    @GetMapping({"admin", "/ebayaddproduct"})
+    ModelAndView ebayaddproduct();
+
     @PostMapping("/ebayuserprofile/appid")
     String appid(String appid);
 

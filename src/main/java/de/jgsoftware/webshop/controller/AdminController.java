@@ -57,6 +57,14 @@ public class AdminController implements iAdminController
     }
 
 
+
+    /*
+
+        Site
+        ebayuserprofile.html
+
+     */
+
     @Override
     public ModelAndView ebayuserprofile()
     {
@@ -64,6 +72,18 @@ public class AdminController implements iAdminController
 
 
         mv.addObject("ebaytext", "testtext");
+        return mv;
+    }
+
+
+    @Override
+    public ModelAndView ebayaddproduct()
+    {
+
+        mv = new ModelAndView("ebayaddproduct");
+
+
+
         return mv;
     }
 
@@ -84,9 +104,6 @@ public class AdminController implements iAdminController
         service_admin.getiDaoAdmin().hold_ebaytokeninmemory(ebaytk);
         return "admin";
     }
-
-
-
 
 
     @Override
