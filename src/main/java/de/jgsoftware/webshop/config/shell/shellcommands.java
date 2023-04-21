@@ -32,11 +32,11 @@ public class shellcommands
         System.out.print("-urlTarget jdbc:h2:tcp://localhost:9102/~/demodb" + "\n");
         System.out.print("-user root" + "\n");
         System.out.print("-password jj78mvpr52k1" + "\n");
-        System.out.print("-serverList 192.168.178.5:9101,192.168.178.6:9102" + "\n");
+        System.out.print("-serverList 192.168.178.6:9101,192.168.178.7:9102" + "\n");
 
         System.out.print("------------------------" + "\n");
-        System.out.print("192.168.178.5 -> webshop" + "\n");
-        System.out.print("192.168.178.6 -> target h2 container" + "\n");
+        System.out.print("192.168.178.6 -> webshop" + "\n");
+        System.out.print("192.168.178.7 -> target h2 container" + "\n");
 
         System.out.print("the url: http://www.h2database.com/html/advanced.html#clustering" + "\n");
 
