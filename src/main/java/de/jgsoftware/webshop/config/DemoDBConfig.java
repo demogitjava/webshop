@@ -24,6 +24,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import org.h2.tools.*;
 
 /**
  *
@@ -57,7 +58,7 @@ public class DemoDBConfig extends HikariConfig
             org.h2.tools.Server h2Server = Server.createTcpServer("-tcpPort", "9092", "-tcpAllowOthers").start();
             org.h2.tools.Server webh2Server = Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
 
-            //org.h2.tools.Server h2Server = Server.createTcpServer().start();
+
             if (h2Server.isRunning(true))
             {
                 System.out.print("H2 server was started and is running." + "\n");

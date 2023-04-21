@@ -112,7 +112,6 @@ public class shellcommands
     @ShellMethod("statussourceserver")
     public String statussourceserver()
     {
-
         try
         {
             System.out.print("status of h2sourceserver" + h2Servertarget.getStatus() + "\n");
@@ -125,15 +124,11 @@ public class shellcommands
 
     @ShellMethod("startsourceserver")
     public String startsourceserver() {
-
-
         // java org.h2.tools.Server
         //    -tcp -tcpPort 9101
         //    -baseDir server2
 
         String userdir = System.getProperty("user.home");
-
-
         try {
 
             h2Servertarget = org.h2.tools.Server.createPgServer("-pgAllowOthers");
@@ -144,19 +139,13 @@ public class shellcommands
 
             if (h2Servertarget.isRunning(true)) {
                 System.out.print("H2 Clustering startet as server2." + "\n");
-
-
             } else {
-
                 throw new RuntimeException("Could not start H2 server." + "\n");
             }
         } catch (SQLException e) {
             throw new RuntimeException("Failed to start H2 server: " + e + "\n");
         }
-
-
         return "server status " + h2Servertarget.getStatus();
-
     }
 
 }

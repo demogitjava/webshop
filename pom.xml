@@ -86,8 +86,6 @@ http://maven.apache.org/POM/4.0.0 ">
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.199</version>
-            <scope>compile</scope>
-
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -158,6 +156,11 @@ http://maven.apache.org/POM/4.0.0 ">
             <groupId>com.github.ua-parser</groupId>
             <artifactId>uap-java</artifactId>
             <version>1.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.199</version>
         </dependency>
 
 
