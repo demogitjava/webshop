@@ -74,10 +74,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 		//.rememberMe().tokenValiditySeconds(30000).key("keytoken!")
 		//.rememberMeParameter("checkRememberMe");
-
-
-
-
 	}
 
 }
