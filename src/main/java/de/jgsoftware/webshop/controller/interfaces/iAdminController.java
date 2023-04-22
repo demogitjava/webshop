@@ -35,5 +35,9 @@ public interface iAdminController
 
     @PostMapping("/ebayuserprofile/certid")
     String certid(String certid);
+
+    @GetMapping("/addproducttoebay")
+    String addproducttoebay();
+
 }
 

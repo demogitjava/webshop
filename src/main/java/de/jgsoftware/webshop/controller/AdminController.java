@@ -114,4 +114,13 @@ public class AdminController implements iAdminController
         service_admin.getiDaoAdmin().hold_certidinmemory(certid);
         return "admin";
     }
+
+    @Override
+    public String addproducttoebay()
+    {
+
+        return "redirect:/admin/";
+    }
+
+
 }
