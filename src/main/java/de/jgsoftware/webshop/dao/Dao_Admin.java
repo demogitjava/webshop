@@ -1,7 +1,9 @@
 package de.jgsoftware.webshop.dao;
 
 
+import de.jgsoftware.webshop.config.EBayConfig;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_admin;
+import de.jgsoftware.webshop.i_webShop;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -18,42 +20,21 @@ public class Dao_Admin implements i_dao_admin
     @Override
     public void hold_ebayappkeyinmemory(String appid)
     {
-        // load EbayKeys model
-        de.jgsoftware.webshop.model.EbayKeys ebaykeys = new de.jgsoftware.webshop.model.EbayKeys();
-
-        String ebayappid = new String(appid);
-        ebaykeys.setEbayappid(ebayappid);
+        EBayConfig.listebaykeys.put("appid", appid);
     }
 
 
     @Override
     public void hold_ebaytokeninmemory(String ebaytk)
     {
-
-
-        String ebaytoken = null;
-
-        // load EbayKeys model
-        de.jgsoftware.webshop.model.EbayKeys ebaykeys = new de.jgsoftware.webshop.model.EbayKeys();
-
-        ebaytoken = new String(ebaytk);
-        ebaykeys.setEbaytoken(ebaytoken);
-
+        EBayConfig.listebaykeys.put("ebaytk", ebaytk);
     }
 
 
     @Override
     public void hold_certidinmemory(String certid)
     {
-
-        String stcrtid = null;
-
-        // load EbayKeys model
-        de.jgsoftware.webshop.model.EbayKeys ebaykeys = new de.jgsoftware.webshop.model.EbayKeys();
-
-        stcrtid = new String(certid);
-        ebaykeys.setCertid(stcrtid);
-
+        EBayConfig.listebaykeys.put("certid", certid);
     }
 
 

@@ -1,6 +1,7 @@
 package de.jgsoftware.webshop.controller;
 
 
+import de.jgsoftware.webshop.config.EBayConfig;
 import de.jgsoftware.webshop.controller.interfaces.iAdminController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,20 +32,18 @@ public class AdminController implements iAdminController
 
 
     @Override
-    public ModelAndView admin()
-    {
+    public ModelAndView admin() {
 
         mv = new ModelAndView("admin");
 
         String languagestr = RequestContextUtils.getLocale(request).getLanguage();
         Principal principal = request.getUserPrincipal();
 
-
-
+        mv.addObject("ebaytk", EBayConfig.listebaykeys.get("ebaytk"));
+        System.out.print("der ebaytoken ist " + EBayConfig.listebaykeys.get("ebaytk"));
 
         return mv;
     }
-
 
     @Override
     public ModelAndView adminde()
@@ -93,7 +92,7 @@ public class AdminController implements iAdminController
 
         // String appid - ebay_appid
         service_admin.getiDaoAdmin().hold_ebayappkeyinmemory(appid);
-        return "admin";
+        return "redirect:/";
     }
 
 
@@ -102,24 +101,23 @@ public class AdminController implements iAdminController
     {
         // String ebaytk - ebaytk
         service_admin.getiDaoAdmin().hold_ebaytokeninmemory(ebaytk);
-        return "admin";
+        return "redirect:/";
     }
 
 
     @Override
     public String certid(String certid)
     {
-
         // String certid - certid
         service_admin.getiDaoAdmin().hold_certidinmemory(certid);
-        return "admin";
+        return "redirect:/";
     }
 
     @Override
     public String addproducttoebay()
     {
 
-        return "redirect:/admin/";
+        return "redirect:../admin/";
     }
 
 

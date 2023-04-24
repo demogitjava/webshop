@@ -1,17 +1,14 @@
 package de.jgsoftware.webshop;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.util.ArrayList;
 //import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
@@ -25,8 +22,11 @@ public interface i_webShop
 
 
 
+
     static void main(String[] args)
     {
+
+
 
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Berlin"));
         //ZonedDateTime now = ZonedDateTime.now();
@@ -40,6 +40,14 @@ public interface i_webShop
         System.out.println("TimeZone ->" + now + "\n" + "--------------" + "\n");
         System.out.println("TimeZone location time ->" + timestamp + "\n" + "--------------" + "\n");
         System.out.println("set TimeZone to -> " + timestamp2 + "\n" + "--------------" + "\n");
+
+
+
+
+
+
+
+
 
         SpringApplication.run(WebshopApplication.class, args);
     }

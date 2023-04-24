@@ -3,6 +3,9 @@ package de.jgsoftware.webshop.config;
 
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 /**
  *
@@ -12,17 +15,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EBayConfig
 {
+    public static HashMap<String, String> listebaykeys = new HashMap<String, String>();
 
-
-    /*
-
-        Sandbox Gateway URL (endpoint):
-        https://api.sandbox.ebay.com/wsapi
-
-        Production Gateway URL (endpoint):
-        https://api.ebay.com/wsapi
-
-     */
     public static String ebayserverurl = null;
 
     public EBayConfig()
@@ -69,5 +63,12 @@ public class EBayConfig
         return ebayserverurl;
     }
 
-    
+
+
+
+
+
+
+
+
 }
