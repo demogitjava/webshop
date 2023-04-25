@@ -2,6 +2,9 @@ package de.jgsoftware.webshop.config.shell;
 
 import org.springframework.shell.standard.ShellComponent;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import static org.h2.util.IOUtils.copy;
@@ -50,7 +53,7 @@ public class shellcommands
     {
         System.out.print("\n");
         System.out.print("cluster h2 database -> helpcluster" + "\n");
-        System.out.print("create a h2 cluster -> startcluster ->  urlsource urltarget user password serverlocal servertaget" + "\n");
+        System.out.print("create a h2 cluster -> startcluster h2 ->  urlsource urltarget user password serverlocal servertaget" + "\n");
 
 
         return "----------------------";
@@ -147,5 +150,52 @@ public class shellcommands
         }
         return "server status " + h2Servertarget.getStatus();
     }
+
+    // 192.168.178.6	de_webshop
+    @ShellMethod("install hosts ---> ihost")
+    public String ihosts()
+    {
+
+        String stresolv = new String("host installed");
+
+        File f = new File("/etc/hosts");
+        try
+        {
+
+            FileWriter fileWriter = new FileWriter(f);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print("192.168.178.6 de_webshop" + "\n");
+
+            printWriter.close();
+        } catch (Exception e)
+        {
+            System.out.print("Fehler " + e);
+        }
+        return stresolv;
+    }
+
+    @ShellMethod("install resolvconf ---> iresolvconf")
+    public String iresolvconf()
+    {
+        String stresolv = new String("resolvconf installed");
+
+        File f = new File("/etc/resolv.conf");
+        try
+        {
+
+            FileWriter fileWriter = new FileWriter(f);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            printWriter.print("search demogitjava freewebshop" + "\n");
+            printWriter.print("nameserver 8.8.8.8 8.8.4.4" + "\n");
+            printWriter.print("options ndots:0" + "\n");
+
+            printWriter.close();
+        } catch (Exception e)
+        {
+            System.out.print("Fehler " + e);
+        }
+        return stresolv;
+    }
+
 
 }
