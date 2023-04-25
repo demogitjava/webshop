@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RemoteTargetsManager">
+    <option name="projectDefaultTargetUuid" value="759db64d-98d9-4bf7-91d9-b5b22d01df51" />
     <targets>
       <target name="de_webshop:latest" type="docker" uuid="759db64d-98d9-4bf7-91d9-b5b22d01df51">
         <config>

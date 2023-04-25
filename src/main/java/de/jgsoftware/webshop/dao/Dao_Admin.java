@@ -3,7 +3,6 @@ package de.jgsoftware.webshop.dao;
 
 import de.jgsoftware.webshop.config.EBayConfig;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_admin;
-import de.jgsoftware.webshop.i_webShop;
 import org.springframework.stereotype.Repository;
 
 /**
