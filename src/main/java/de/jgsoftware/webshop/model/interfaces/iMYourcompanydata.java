@@ -5,39 +5,39 @@ package de.jgsoftware.webshop.model.interfaces;
  */
 public interface iMYourcompanydata
 {
-    public Integer getId();
-    public void setId(Integer id);
-    public String getFirmenname();
-    public void setFirmenname(String firmenname);
-    public String getStrasse();
-    public void setStrasse(String strasse);
-    public Integer getPlz();
-    public void setPlz(Integer plz);
-    public String getOrt();
-    public void setOrt(String ort);
-    public String getTelefon();
-    public void setTelefon(String telefon);
-    public String getEmail();
-    public void setEmail(String email);
+    Integer getId();
+    void setId(Integer id);
+    String getFirmenname();
+    void setFirmenname(String firmenname);
+    String getStrasse();
+    void setStrasse(String strasse);
+    Integer getPlz();
+    void setPlz(Integer plz);
+    String getOrt();
+    void setOrt(String ort);
+    String getTelefon();
+    void setTelefon(String telefon);
+    String getEmail();
+    void setEmail(String email);
 
 
-    public String getSteuernummer();
-    public void setSteuernummer(String steuernummer);
-    public String getUstIdNr();
-    public void setUstIdNr(String ustIdNr);
+    String getSteuernummer();
+    void setSteuernummer(String steuernummer);
+    String getUstIdNr();
+    void setUstIdNr(String ustIdNr);
 
-    public String getGeschfhr();
-    public void setGeschfhr(String geschfhr);
+    String getGeschfhr();
+    void setGeschfhr(String geschfhr);
 
-    public String getAmtsgericht();
-    public void setAmtsgericht(String amtsgericht);
-    public String getBank();
-    public void setBank(String bank);
-    public String getKontoinhaber();
-    public void setKontoinhaber(String kontoinhaber);
-    public String getIban();
-    public void setIban(String iban);
+    String getAmtsgericht();
+    void setAmtsgericht(String amtsgericht);
+    String getBank();
+    void setBank(String bank);
+    String getKontoinhaber();
+    void setKontoinhaber(String kontoinhaber);
+    String getIban();
+    void setIban(String iban);
 
-    public Integer getFirmennummer();
-    public void setFirmennummer(Integer firmennummer);
+    Integer getFirmennummer();
+    void setFirmennummer(Integer firmennummer);
 }
