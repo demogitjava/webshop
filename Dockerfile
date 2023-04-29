@@ -23,6 +23,7 @@ ADD https://github.com/demogitjava/demodatabase/raw/master/demodb.mv.db /root/de
 ADD https://github.com/demogitjava/demodatabase/raw/master/mawi.mv.db /root/mawi.mv.db
 ADD https://github.com/demogitjava/demodatabase/raw/master/shopdb.mv.db /root/shopdb.mv.db
 
-COPY target/webshop-0.0.1-SNAPSHOT.jar webshop.jar
+ADD /target/webshop-0.0.1-SNAPSHOT.jar /root/webshop.jar
 
-ENTRYPOINT ["java", "-jar", "webshop.jar"]
+
+ENTRYPOINT ["java", "-jar", "/root/webshop.jar"]
