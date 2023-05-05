@@ -1,5 +1,4 @@
-# jgsoftwares/jgsoftwares:linuxgraalvmce
-FROM jgsoftwares/jgsoftwares:linuxgraalvmce
+FROM jgsoftwares/graalce11
 
 #hostname
 ENV HOSTNAME webshop
