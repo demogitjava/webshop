@@ -12,10 +12,27 @@ ENV LANG=de_DE.ISO-8859-1
 ENV LANGUAGE de_DE:de
 ENV LC_ALL de_DE.ISO-8859-1
 
+# web
 EXPOSE 80
+EXPOSE 443
+
+
+# optional for debug
 EXPOSE 5005
+
+# optional for h2 database
+# web console
 EXPOSE 8082
+
+# optional
+# tcp server
 EXPOSE 9092
+
+# optional
+# for h2 cluster
+EXPOSE 9101
+EXPOSE 9102
+
 
 # add h2 database to root folder
 ADD https://github.com/demogitjava/demodatabase/raw/master/demodb.mv.db /root/demodb.mv.db
