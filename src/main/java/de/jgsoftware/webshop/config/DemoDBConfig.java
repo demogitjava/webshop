@@ -48,7 +48,7 @@ public class DemoDBConfig extends HikariConfig
 
 
 
-        startH2Server();
+       // startH2Server();
     }
 
     // start h2 database server
