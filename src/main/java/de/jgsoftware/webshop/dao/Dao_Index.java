@@ -1,6 +1,7 @@
 package de.jgsoftware.webshop.dao;
 
 
+import de.jgsoftware.landingpage.model.jpa.demodb.Webtextlayout;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_Index_Dao;
 import de.jgsoftware.webshop.model.m_webtextlayout;
 import de.jgsoftware.webshop.model.useragent;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout;
 
 import java.util.List;
 
@@ -30,11 +33,19 @@ public class Dao_Index implements i_Index_Dao
     @Qualifier(value = "defaultJdbcTemplate")
     JdbcTemplate jtm;
     
+    
+    @Autowired
+    i_jpa_webtextlayout jpawebtextlayout;
+    
+    
      // returns all entriys from Table
     @Override
-    public List<m_webtextlayout> getPageLanguageText()
+    public List<Webtextlayout> getPageLanguageText()
     {
-        List<m_webtextlayout> webtextlayouts = jtm2.query("select * from webtextlayout", new BeanPropertyRowMapper(m_webtextlayout.class));
+        
+        //List<m_webtextlayout> webtextlayouts = jtm2.query("select * from webtextlayout", new BeanPropertyRowMapper(m_webtextlayout.class));
+        List<Webtextlayout> webtextlayouts = (List) jpawebtextlayout.findAll();
+        
         return webtextlayouts;
     }
 
