@@ -2,7 +2,9 @@ package de.jgsoftware.webshop;
 
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import java.sql.Timestamp;
 import java.time.ZoneId;
@@ -42,12 +44,34 @@ public interface i_webShop
 
 
 
+        String operationsytem = System.getProperty("os.name").toLowerCase();
+        if (operationsytem.contains("win")){
+            //Betriebssystem = Windows
+            operationsytem = "Windows";
+
+        }
+        else if (operationsytem.contains("osx")){
+            //Betriebssystem = OSX von Apple
+            operationsytem = "OSX Apple";
+        }
+        else if (operationsytem.contains("nix") || operationsytem.contains("aix") || operationsytem.contains("nux")){
+            //Betriebssystem = Unix bzw. Linux basiert
+            operationsytem = "unix-linux";
+        }
+        System.out.print(operationsytem + "\n");
+
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(WebshopApplication.class);
+        builder
+                // none
+                // reactive
+                // servlet
+                .web(WebApplicationType.SERVLET)
+               .headless(true).run();
 
 
 
 
-
-        SpringApplication.run(WebshopApplication.class, args);
+        //SpringApplication.run(WebshopApplication.class, args);
     }
 
 }
