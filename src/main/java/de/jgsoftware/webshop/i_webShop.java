@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.sql.Timestamp;
 import java.time.ZoneId;
@@ -17,6 +18,7 @@ import java.time.ZonedDateTime;
  */
 
 @SpringBootApplication
+@EnableTransactionManagement
 public interface i_webShop
 {
 
