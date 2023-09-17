@@ -1,10 +1,15 @@
 package de.jgsoftware.webshop.config;
 
 
+
+import java.sql.SQLException;
+import java.util.HashMap;
+
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 import com.zaxxer.hikari.HikariConfig;
-import org.h2.tools.CreateCluster;
 import org.h2.tools.Server;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -18,22 +23,25 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.HashMap;
-
-import org.h2.tools.*;
-
-/**
- *
- * @author hoscho
- */
+import java.util.Map;
 
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shop",
+//@EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.demodb",
         entityManagerFactoryRef = "entityManagerFactory",
         transactionManagerRef = "transactionManager")
 public class DemoDBConfig extends HikariConfig
@@ -45,10 +53,7 @@ public class DemoDBConfig extends HikariConfig
 
     public DemoDBConfig()
     {
-
-
-
-       // startH2Server();
+        //startH2Server();
     }
 
     // start h2 database server
@@ -57,9 +62,7 @@ public class DemoDBConfig extends HikariConfig
         try
         {
             org.h2.tools.Server h2Server = Server.createTcpServer("-tcpPort", "9092", "-tcpAllowOthers").start();
-            org.h2.tools.Server webh2Server = Server.createWebServer("-web", "-webAllowOthers", "-webPort", "8082").start();
-
-
+            //org.h2.tools.Server h2Server = Server.createTcpServer().start();
             if (h2Server.isRunning(true))
             {
                 System.out.print("H2 server was started and is running." + "\n");
@@ -71,7 +74,6 @@ public class DemoDBConfig extends HikariConfig
         } catch (SQLException e) {
             throw new RuntimeException("Failed to start H2 server: " + e + "\n");
         }
-
 
     }
 
@@ -89,11 +91,11 @@ public class DemoDBConfig extends HikariConfig
     @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
                                                                        @Qualifier("demodb") DataSource dataSource) {
-      HashMap<String, Object> properties = new HashMap<>();
+        HashMap<String, Object> properties = new HashMap<>();
 
-        properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
         return builder.dataSource(dataSource).properties(properties)
-                .packages("de.jgsoftware.webshop.model").persistenceUnit("DemoDb").build();
+                .packages("de.jgsoftware.landingpage.model.jpa.demodb").persistenceUnit("derbydemodb").build();
 
     }
 
@@ -112,6 +114,4 @@ public class DemoDBConfig extends HikariConfig
         jtm.setDataSource(demodb);
         return jtm;
     }
-
-
 }

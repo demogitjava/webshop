@@ -1,4 +1,5 @@
-package de.jgsoftware.landingpage.model.jpa.mawi;
+package de.jgsoftware.webshop.model.jpa.mawi;
+
 
 import javax.persistence.*;
 import java.util.Date;

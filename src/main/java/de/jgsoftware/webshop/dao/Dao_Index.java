@@ -1,7 +1,6 @@
 package de.jgsoftware.webshop.dao;
 
 
-import de.jgsoftware.landingpage.model.jpa.demodb.Webtextlayout;
 import de.jgsoftware.webshop.dao.interfaces.shop.i_Index_Dao;
 import de.jgsoftware.webshop.model.m_webtextlayout;
 import de.jgsoftware.webshop.model.useragent;
@@ -12,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout;
+import de.jgsoftware.webshop.model.jpa.shopdb.Webtextlayout;
 
 import java.util.List;
 

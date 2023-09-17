@@ -19,15 +19,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.HashMap;
-
-/**
- *
- * @author hoscho
- */
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shop",
+//@EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shopdb",
         entityManagerFactoryRef = "shopEntityManagerFactory",
         transactionManagerRef = "shopTransactionManager")
 public class ShopDBConfig extends HikariConfig
@@ -37,8 +33,9 @@ public class ShopDBConfig extends HikariConfig
     JdbcTemplate jtm2;
 
 
+
     @Autowired
-    DataSource dataSource1;
+    DataSource dataSource2;
 
 
 
@@ -60,12 +57,12 @@ public class ShopDBConfig extends HikariConfig
 
     @Bean(name = "shopEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean shopEntityManagerFactory(EntityManagerFactoryBuilder builder,
-                                                                           @Qualifier("shopdb") DataSource dataSource1) {
+                                                                           @Qualifier("shopdb") DataSource dataSource2) {
         HashMap<String, Object> properties = new HashMap<>();
 
-        properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        return builder.dataSource(dataSource1).properties(properties)
-                .packages("de.jgsoftware.webshop.model").persistenceUnit("Shop").build();
+        properties.put("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
+        return builder.dataSource(dataSource2).properties(properties)
+                .packages("de.jgsoftware.landingpage.model.jpa.shopdb").persistenceUnit("derbyshopdb").build();
     }
 
     @Bean(name = "shopTransactionManager")
@@ -75,11 +72,21 @@ public class ShopDBConfig extends HikariConfig
     }
 
     @Bean(name = "shopJdbcTemplate")
-    public JdbcTemplate jdbcTemplate(@Qualifier("ds3") DataSource dataSource1)
+    public JdbcTemplate jdbcTemplate(@Qualifier("ds3") DataSource dataSource2)
     {
 
-        return new JdbcTemplate(dataSource1);
+        return new JdbcTemplate(dataSource2);
     }
+
+    public DataSource getDataSource2() {
+        return dataSource2;
+    }
+
+    public void setDataSource2(DataSource dataSource2) {
+        this.dataSource2 = dataSource2;
+    }
+    
+    
 
 
 

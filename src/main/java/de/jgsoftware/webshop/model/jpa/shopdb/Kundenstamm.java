@@ -1,4 +1,4 @@
-package de.jgsoftware.landingpage.model.jpa.shopdb;
+package de.jgsoftware.webshop.model.jpa.shopdb;
 
 
 import javax.persistence.Entity;

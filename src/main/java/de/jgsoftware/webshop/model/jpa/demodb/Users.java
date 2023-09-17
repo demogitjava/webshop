@@ -1,4 +1,5 @@
-package de.jgsoftware.landingpage.model.jpa.demodb;
+package de.jgsoftware.webshop.model.jpa.demodb;
+
 
 import javax.persistence.*;
 
