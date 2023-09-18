@@ -14,6 +14,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import de.jgsoftware.webshop.dao.interfaces.demodb.i_jpa_useragent;
+import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_products;
+import de.jgsoftware.webshop.model.jpa.shopdb.Products;
 
 /**
  *
@@ -30,29 +33,36 @@ public class Dao_Products implements i_dao_products
 
     public List<Product> productList;
 
+    i_jpa_products jpashopprodcuts;
+    
 
     @Override
-    public List<Product> getProductsforLandingpage()
+    public List<Products> getProductsforLandingpage()
     {
 
+        /*
+            manuel query over
+            JDBC Tempalte 
+            edit form demodb to shopdb
+        */
+        //productList = jtm.query("select * from PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
 
-        productList = jtm.query("select * from public.PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
-
+        List<Products> productList = (List) jpashopprodcuts.allactiveprodcuts();
         return productList;
     }
 
 
 
     @Override
-    public Product getProductById(long productId)
+    public Products getProductById(long productId)
     {
         de.jgsoftware.webshop.model.Product cartuserproduct = new de.jgsoftware.webshop.model.Product();
 
 
 
         // select * from public.PRODUCT where product_id = 1;
-        String sql = "select * from public.PRODUCTS where product_id = " + productId;
-        cartuserproduct = (Product) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
+        String sql = "select * from PRODUCTS where product_id = " + productId;
+        cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
 
 
         // jtm.query("select * from USERDETAIL where username like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
