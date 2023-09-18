@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.config;
 
-
 import com.zaxxer.hikari.HikariConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,7 +22,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shopdb",
+@EnableJpaRepositories(basePackages = "de.jgsoftware.landingpage.dao.interfaces.shopdb",
         entityManagerFactoryRef = "shopEntityManagerFactory",
         transactionManagerRef = "shopTransactionManager")
 public class ShopDBConfig extends HikariConfig
