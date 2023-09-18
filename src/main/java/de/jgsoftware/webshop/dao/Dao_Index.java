@@ -34,8 +34,8 @@ public class Dao_Index implements i_Index_Dao
     JdbcTemplate jtm;
     
     
-    @Autowired
-    i_jpa_webtextlayout jpawebtextlayout;
+   
+    de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout jpawebtextlayout;
     
     
      // returns all entriys from Table
