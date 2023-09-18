@@ -14,6 +14,7 @@ import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout;
 import de.jgsoftware.webshop.model.jpa.shopdb.Webtextlayout;
 
 import java.util.List;
+import de.jgsoftware.webshop.dao.interfaces.demodb.i_jpa_useragent;
 
 /**
  *
@@ -33,18 +34,21 @@ public class Dao_Index implements i_Index_Dao
     @Qualifier(value = "defaultJdbcTemplate")
     JdbcTemplate jtm;
     
+    /*
     
-   
-    de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout jpawebtextlayout;
+        demodb
     
+    */
+    i_jpa_useragent jpauseragent;
+  
     
      // returns all entriys from Table
     @Override
-    public List<Webtextlayout> getPageLanguageText()
+    public List<m_webtextlayout> getPageLanguageText()
     {
         
-        //List<m_webtextlayout> webtextlayouts = jtm2.query("select * from webtextlayout", new BeanPropertyRowMapper(m_webtextlayout.class));
-        List<Webtextlayout> webtextlayouts = (List) jpawebtextlayout.findAll();
+        List<m_webtextlayout> webtextlayouts = jtm2.query("select * from webtextlayout", new BeanPropertyRowMapper(m_webtextlayout.class));
+        //List<Webtextlayout> webtextlayouts = (List) jpawebtextlayout.findAll();
         
         return webtextlayouts;
     }
@@ -55,8 +59,10 @@ public class Dao_Index implements i_Index_Dao
     {
 
 
-        Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
+        //Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
 
+        Long countid = (Long) jpauseragent.count();
+        
         if(countid == 0)
         {
             countid = Long.valueOf(1);
