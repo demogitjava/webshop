@@ -1,14 +1,14 @@
 package de.jgsoftware.webshop.model.jpa.shopdb;
 
 
-import javax.persistence.Entity;
-
+//import javax.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.Table;
 
 /**
  *
