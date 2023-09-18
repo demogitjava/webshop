@@ -1,8 +1,11 @@
 package de.jgsoftware.webshop.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+
+import jakarta.persistence.*;
+
 /**
  *
  * @author hoscho
