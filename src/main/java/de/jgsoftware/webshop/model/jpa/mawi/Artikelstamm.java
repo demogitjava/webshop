@@ -1,9 +1,9 @@
 package de.jgsoftware.webshop.model.jpa.mawi;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
-
+import jakarta.persistence.*;
 
 /**
  *
