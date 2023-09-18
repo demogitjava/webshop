@@ -56,14 +56,17 @@ public class Dao_Products implements i_dao_products
     @Override
     public Products getProductById(long productId)
     {
-        de.jgsoftware.webshop.model.Product cartuserproduct = new de.jgsoftware.webshop.model.Product();
+        de.jgsoftware.webshop.model.jpa.shopdb.Products cartuserproduct = new  de.jgsoftware.webshop.model.jpa.shopdb.Products();
 
 
 
         // select * from public.PRODUCT where product_id = 1;
-        String sql = "select * from PRODUCTS where product_id = " + productId;
-        cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
-
+        //String sql = "select * from PRODUCTS where product_id = " + productId;
+        
+        // select count(u.stbrowser) as count from useragent u where YEAR(u.datum) = :year
+        //cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
+ 
+        cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
 
         // jtm.query("select * from USERDETAIL where username like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
         //List<Product> productList = jtm.query("select * from public.PRODUCT where product_id =" + productId, new BeanPropertyRowMapper(Product.class));
