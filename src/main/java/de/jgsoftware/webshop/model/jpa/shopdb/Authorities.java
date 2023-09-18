@@ -1,6 +1,8 @@
 package de.jgsoftware.webshop.model.jpa.shopdb;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+//import javax.persistence.*;
 
 /**
  *
