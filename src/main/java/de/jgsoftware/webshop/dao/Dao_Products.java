@@ -28,10 +28,11 @@ public class Dao_Products implements i_dao_products
 {
     @Autowired
     @Qualifier(value = "shopJdbcTemplate")
-    private JdbcTemplate jtm;
+    private JdbcTemplate jtm2;
 
+    
 
-    public List<Product> productList;
+    public List<Products> productList;
 
     i_jpa_products jpashopprodcuts;
     
@@ -81,16 +82,16 @@ public class Dao_Products implements i_dao_products
     @Override
     public List<Products> searchProductovertextfield(String searchProduct, Pageable pageable)
     {
-        productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm2.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Products.class));
         return productList;
     }
 
 
     // textfield in webshop with top 25
     @Override
-    public List<Product> searchProductop25(String searchProduct)
+    public List<Products> searchProductop25(String searchProduct)
     {
-        productList = jtm.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm2.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Products.class));
         return productList;
     }
 
