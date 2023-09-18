@@ -16,6 +16,6 @@ import java.util.List;
 public interface i_Index_Dao
 {
     
-   List<Webtextlayout> getPageLanguageText();
+   List<m_webtextlayout> getPageLanguageText();
    useragent saveuseragent(useragent muagent);
 }

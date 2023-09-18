@@ -15,6 +15,8 @@ import de.jgsoftware.webshop.model.jpa.shopdb.Webtextlayout;
 
 import java.util.List;
 import de.jgsoftware.webshop.dao.interfaces.demodb.i_jpa_useragent;
+import org.springframework.context.annotation.Bean;
+import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
 
 /**
  *
