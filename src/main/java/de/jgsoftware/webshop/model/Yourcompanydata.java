@@ -1,9 +1,10 @@
 package de.jgsoftware.webshop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.Table;
 import de.jgsoftware.webshop.model.interfaces.iMYourcompanydata;
+import jakarta.persistence.*;
 
 
 /**
