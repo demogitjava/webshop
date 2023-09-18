@@ -3,8 +3,8 @@ package de.jgsoftware.webshop.model.jpa.demodb;
 import java.io.Serializable;
 import javax.persistence.Entity;
 
-
-import javax.persistence.*;
+import jakarta.persistence.*;
+//import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -16,7 +16,7 @@ import java.util.Date;
 
 @Entity
 //@Table(name = "Useragent")
-public class Useragent implements Serializable
+public class Useragent
 {
 
     @Id
