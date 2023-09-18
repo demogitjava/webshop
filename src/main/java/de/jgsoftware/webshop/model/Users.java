@@ -1,7 +1,10 @@
 package de.jgsoftware.webshop.model;
 
 
-import javax.persistence.*;
+//import javax.persistence.*;
+
+import jakarta.persistence.*;
+
 /**
  *
  * @author hoscho
