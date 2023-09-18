@@ -6,10 +6,12 @@ package de.jgsoftware.webshop.dao.interfaces.shop;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import de.jgsoftware.webshop.model.jpa.shopdb.Products;
+import org.springframework.stereotype.Repository;
 /**
  *
  * @author hoscho
  */
+@Repository
 public interface i_jpa_products extends JpaRepository<Products, Integer>
 {
     
