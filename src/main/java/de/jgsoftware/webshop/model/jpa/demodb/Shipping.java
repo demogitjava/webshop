@@ -1,8 +1,10 @@
 package de.jgsoftware.webshop.model.jpa.demodb;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+
+import jakarta.persistence.*;
 
 /**
  *
