@@ -3,9 +3,11 @@ package de.jgsoftware.webshop.model;
 
 
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "useragent")
