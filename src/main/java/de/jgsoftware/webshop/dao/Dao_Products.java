@@ -59,11 +59,13 @@ public class Dao_Products implements i_dao_products
         de.jgsoftware.webshop.model.jpa.shopdb.Products cartuserproduct = new  de.jgsoftware.webshop.model.jpa.shopdb.Products();
 
 
-
+        
+        /*
+        
+            manuel query over jtm jdbc template
+        */
         // select * from public.PRODUCT where product_id = 1;
         //String sql = "select * from PRODUCTS where product_id = " + productId;
-        
-        // select count(u.stbrowser) as count from useragent u where YEAR(u.datum) = :year
         //cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
  
         cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
@@ -77,7 +79,7 @@ public class Dao_Products implements i_dao_products
 
     // textfield in webshop
     @Override
-    public List<Product> searchProductovertextfield(String searchProduct, Pageable pageable)
+    public List<Products> searchProductovertextfield(String searchProduct, Pageable pageable)
     {
         productList = jtm.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Product.class));
         return productList;
