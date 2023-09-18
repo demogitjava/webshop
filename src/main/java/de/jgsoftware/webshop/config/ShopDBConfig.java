@@ -22,7 +22,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //@EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "de.jgsoftware.landingpage.dao.interfaces.shopdb",
+@EnableJpaRepositories(basePackages = "de.jgsoftware.webshop.dao.interfaces.shop",
         entityManagerFactoryRef = "shopEntityManagerFactory",
         transactionManagerRef = "shopTransactionManager")
 public class ShopDBConfig extends HikariConfig
