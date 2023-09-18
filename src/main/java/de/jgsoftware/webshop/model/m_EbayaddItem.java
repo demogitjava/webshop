@@ -1,7 +1,7 @@
 package de.jgsoftware.webshop.model;
 
 import java.util.Date;
-
+import jakarta.persistence.*;
 /**
  *
  * @author hoscho
