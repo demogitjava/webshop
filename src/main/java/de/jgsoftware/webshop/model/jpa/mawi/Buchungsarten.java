@@ -1,7 +1,7 @@
 package de.jgsoftware.webshop.model.jpa.mawi;
 
-import javax.persistence.*;
-
+//import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  *
