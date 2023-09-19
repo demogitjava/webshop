@@ -10,11 +10,11 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_webtextlayout;
+
 import de.jgsoftware.webshop.model.jpa.shopdb.Webtextlayout;
 
 import java.util.List;
-import de.jgsoftware.webshop.dao.interfaces.demodb.i_jpa_useragent;
+
 import org.springframework.context.annotation.Bean;
 import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
 
@@ -41,7 +41,7 @@ public class Dao_Index implements i_Index_Dao
         demodb
     
     */
-    i_jpa_useragent jpauseragent;
+    //i_jpa_useragent jpauseragent;
   
     
      // returns all entriys from Table
@@ -61,9 +61,9 @@ public class Dao_Index implements i_Index_Dao
     {
 
 
-        //Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
+        Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
 
-        Long countid = (Long) jpauseragent.count();
+        //Long countid = (Long) jpauseragent.count();
         
         if(countid == 0)
         {

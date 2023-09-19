@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 import ua_parser.Parser;
 import ua_parser.Client;
+
 /**
  *
  * @author hoscho

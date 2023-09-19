@@ -14,8 +14,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import de.jgsoftware.webshop.dao.interfaces.demodb.i_jpa_useragent;
-import de.jgsoftware.webshop.dao.interfaces.shop.i_jpa_products;
+
+
 import de.jgsoftware.webshop.model.jpa.shopdb.Products;
 
 /**
@@ -26,15 +26,19 @@ import de.jgsoftware.webshop.model.jpa.shopdb.Products;
 @Repository
 public class Dao_Products implements i_dao_products
 {
-    @Autowired
+      @Autowired
     @Qualifier(value = "shopJdbcTemplate")
-    private JdbcTemplate jtm2;
+    JdbcTemplate jtm2;
 
+
+    @Autowired
+    @Qualifier(value = "defaultJdbcTemplate")
+    JdbcTemplate jtm;
     
 
     public List<Products> productList;
 
-    i_jpa_products jpashopprodcuts;
+
     
 
     @Override
@@ -46,9 +50,9 @@ public class Dao_Products implements i_dao_products
             JDBC Tempalte 
             edit form demodb to shopdb
         */
-        //productList = jtm.query("select * from PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
+        productList = jtm.query("select * from PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
 
-        List<Products> productList = (List) jpashopprodcuts.allactiveprodcuts();
+        //List<Products> productList = (List) jpashopprodcuts.allactiveprodcuts();
         return productList;
     }
 
@@ -66,10 +70,10 @@ public class Dao_Products implements i_dao_products
             manuel query over jtm jdbc template
         */
         // select * from public.PRODUCT where product_id = 1;
-        //String sql = "select * from PRODUCTS where product_id = " + productId;
-        //cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
+        String sql = "select * from PRODUCTS where product_id = " + productId;
+        cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
  
-        cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
+        //cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
 
         // jtm.query("select * from USERDETAIL where username like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
         //List<Product> productList = jtm.query("select * from public.PRODUCT where product_id =" + productId, new BeanPropertyRowMapper(Product.class));

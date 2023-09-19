@@ -1,17 +1,22 @@
 package de.jgsoftware.webshop;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+// de.jgsoftware.websitebuilder.DemoWebsitebuilderApplication
+
+
 
 /**
  *
  * @author hoscho
  */
+
 
 @SpringBootApplication
 //@EnableJpaRepositories(basePackages = "de.jgsoftware.landingpage.dao.interfaces.*") 

@@ -5,11 +5,12 @@ package de.jgsoftware.webshop.model.jpa.demodb;
 import java.sql.Timestamp;
 import java.util.Date;
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "useragent")
-public class Useragent
+public class Useragent implements Serializable
 {
 
     @Id
