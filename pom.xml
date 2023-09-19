@@ -215,7 +215,7 @@ http://maven.apache.org/POM/4.0.0 ">
                         </goals>
                         <configuration>
                             <classifier>spring-boot</classifier>
-                            <mainClass>de.jgsoftware.webshop.i_webShop</mainClass>
+                            <mainClass>de.jgsoftware.webshop.WebshopApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
