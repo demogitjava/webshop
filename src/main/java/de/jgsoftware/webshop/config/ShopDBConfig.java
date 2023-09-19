@@ -61,7 +61,7 @@ public class ShopDBConfig extends HikariConfig
 
         properties.put("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
         return builder.dataSource(dataSource2).properties(properties)
-                .packages("de.jgsoftware.landingpage.model.jpa.shopdb").persistenceUnit("derbyshopdb").build();
+                .packages("de.jgsoftware.webshop.model.jpa.shopdb").persistenceUnit("derbyshopdb").build();
     }
 
     @Bean(name = "shopTransactionManager")
