@@ -1,7 +1,7 @@
 package de.jgsoftware.webshop.model.jpa.demodb;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
 
 import jakarta.persistence.*;
 //import javax.persistence.*;
