@@ -1,30 +1,20 @@
 package de.jgsoftware.webshop.model.jpa.demodb;
 
-import java.io.Serializable;
-//import javax.persistence.Entity;
 
-import jakarta.persistence.*;
 //import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import jakarta.persistence.*;
 
-
-/**
- *
- * @author hoscho
- */
 
 @Entity
-//@Table(name = "Useragent")
+@Table(name = "useragent")
 public class Useragent
 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Integer id;
-    
-       
+    private long id;
 
     private String ipAddress;
 
@@ -34,21 +24,17 @@ public class Useragent
 
     private String stlanguage;
 
-    private Date datum;
+    private Date date;
 
     private Timestamp timestamp;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
-
-    
-
-  
 
     public String getIpAddress() {
         return ipAddress;
@@ -90,15 +76,14 @@ public class Useragent
         this.stlanguage = stlanguage;
     }
 
-    public Date getDatum() {
-        return datum;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDatum(Date datum) {
-        this.datum = datum;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-   
     public Timestamp getTimestamp() {
         return timestamp;
     }
