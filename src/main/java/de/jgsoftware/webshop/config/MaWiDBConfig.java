@@ -65,7 +65,7 @@ public class MaWiDBConfig extends HikariConfig
 
         properties.put("hibernate.dialect", "org.hibernate.dialect.DerbyDialect");
         return builder.dataSource(dataSource1).properties(properties)
-                .packages("de.jgsoftware.landingpage.model.jpa.mawi").persistenceUnit("derbymawi").build();
+                .packages("de.jgsoftware.webshop.model.jpa.mawi").persistenceUnit("derbymawi").build();
     }
 
     @Bean(name = "mawiTransactionManager")
