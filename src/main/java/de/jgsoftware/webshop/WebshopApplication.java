@@ -4,9 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.Timestamp;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import org.springframework.boot.WebApplicationType;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 // de.jgsoftware.websitebuilder.DemoWebsitebuilderApplication
 
@@ -20,7 +22,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 //@EnableJpaRepositories(basePackages = "de.jgsoftware.landingpage.dao.interfaces.*") 
-@EnableTransactionManagement
+ @EnableJpaRepositories("de.jgsoftware.webshop.dao.interfaces.*")
+
+ @EntityScan("de.jgsoftware.webshop.model.jpa.*")  
 public class WebshopApplication
 {
 

@@ -2,21 +2,20 @@ package de.jgsoftware.webshop.dao;
 
 
 import de.jgsoftware.webshop.dao.interfaces.shop.i_Index_Dao;
-import de.jgsoftware.webshop.model.m_webtextlayout;
-import de.jgsoftware.webshop.model.useragent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 
+
+import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
 import de.jgsoftware.webshop.model.jpa.shopdb.Webtextlayout;
+import de.jgsoftware.webshop.model.m_webtextlayout;
 
 import java.util.List;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
-import org.springframework.context.annotation.Bean;
-import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
 
 /**
  *
@@ -36,13 +35,12 @@ public class Dao_Index implements i_Index_Dao
     @Qualifier(value = "defaultJdbcTemplate")
     JdbcTemplate jtm;
     
-    /*
+
+   
     
-        demodb
+   
     
-    */
-    //i_jpa_useragent jpauseragent;
-  
+    
     
      // returns all entriys from Table
     @Override
@@ -50,18 +48,22 @@ public class Dao_Index implements i_Index_Dao
     {
         
         List<m_webtextlayout> webtextlayouts = jtm2.query("select * from webtextlayout", new BeanPropertyRowMapper(m_webtextlayout.class));
-        //List<Webtextlayout> webtextlayouts = (List) jpawebtextlayout.findAll();
+        //List<Webtextlayout> webtextlayouts = (List) jpashopdbwebtextlayout.findAll();
         
         return webtextlayouts;
     }
 
-
+    /**
+     *
+     * @param muagent
+     * @return
+     */
     @Override
-    public useragent saveuseragent(useragent muagent)
+    public Useragent saveuseragent(Useragent muagent)
     {
 
 
-        Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
+       Long countid = jtm.queryForObject("SELECT COUNT (*) FROM useragent", Long.class);
 
         //Long countid = (Long) jpauseragent.count();
         

@@ -1,7 +1,7 @@
 package de.jgsoftware.webshop.controller;
 
 
-import de.jgsoftware.webshop.model.useragent;
+import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
 import de.jgsoftware.webshop.serivce.interfaces.i_index_service;
 import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,7 +82,7 @@ public class IndexController implements de.jgsoftware.webshop.controller.interfa
 
         Date date = new Date();
 
-        useragent muagent = new useragent();
+        Useragent muagent = new Useragent();
         muagent.setIpAddress(ipAddress);
         muagent.setStbrowser(stbrowser);
         muagent.setStbrowserversion(stbrowserversion);

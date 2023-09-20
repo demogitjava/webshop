@@ -9,8 +9,8 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name = "useragent")
-public class Useragent implements Serializable
+//@Table(name = "useragent")
+public class Useragent
 {
 
     @Id
