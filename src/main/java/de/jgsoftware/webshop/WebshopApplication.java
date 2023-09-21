@@ -22,9 +22,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 //@EnableJpaRepositories(basePackages = "de.jgsoftware.landingpage.dao.interfaces.*") 
- @EnableJpaRepositories("de.jgsoftware.webshop.dao.interfaces.*")
+@EnableJpaRepositories
 
- @EntityScan("de.jgsoftware.webshop.model.jpa.*")  
 public class WebshopApplication
 {
 
