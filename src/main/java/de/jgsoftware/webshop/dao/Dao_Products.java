@@ -4,8 +4,6 @@
  */
 package de.jgsoftware.webshop.dao;
 
-import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
-import de.jgsoftware.webshop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
+import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
+import de.jgsoftware.webshop.model.Product;
 import de.jgsoftware.webshop.model.jpa.shopdb.Products;
 
 /**
@@ -24,79 +23,66 @@ import de.jgsoftware.webshop.model.jpa.shopdb.Products;
  */
 
 @Repository
-public class Dao_Products implements i_dao_products
-{
-      @Autowired
-    @Qualifier(value = "shopJdbcTemplate")
-    JdbcTemplate jtm2;
+public class Dao_Products implements i_dao_products {
+	@Autowired
+	@Qualifier(value = "shopJdbcTemplate")
+	JdbcTemplate jtm2;
 
+	@Autowired
+	@Qualifier(value = "defaultJdbcTemplate")
+	JdbcTemplate jtm;
 
-    @Autowired
-    @Qualifier(value = "defaultJdbcTemplate")
-    JdbcTemplate jtm;
-    
+	public List<Products> productList;
 
-    public List<Products> productList;
+	@Override
+	public List<Products> getProductsforLandingpage() {
 
+		/*
+		 * manuel query over JDBC Tempalte edit form demodb to shopdb
+		 */
+		productList = jtm.query("select * from PRODUCTS where LANDINGPAGE like '1'",
+				new BeanPropertyRowMapper(Product.class));
 
-    
+		// List<Products> productList = (List) jpashopprodcuts.allactiveprodcuts();
+		return productList;
+	}
 
-    @Override
-    public List<Products> getProductsforLandingpage()
-    {
+	@Override
+	public Products getProductById(long productId) {
+		de.jgsoftware.webshop.model.jpa.shopdb.Products cartuserproduct = new de.jgsoftware.webshop.model.jpa.shopdb.Products();
 
-        /*
-            manuel query over
-            JDBC Tempalte 
-            edit form demodb to shopdb
-        */
-        productList = jtm.query("select * from PRODUCTS where LANDINGPAGE like '1'", new BeanPropertyRowMapper(Product.class));
+		/*
+		 * 
+		 * manuel query over jtm jdbc template
+		 */
+		// select * from public.PRODUCT where product_id = 1;
+		String sql = "select * from PRODUCTS where product_id = " + productId;
+		cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
 
-        //List<Products> productList = (List) jpashopprodcuts.allactiveprodcuts();
-        return productList;
-    }
+		// cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
 
+		// jtm.query("select * from USERDETAIL where username like " + "'" + result +
+		// "'", new BeanPropertyRowMapper(User.class));
+		// List<Product> productList = jtm.query("select * from public.PRODUCT where
+		// product_id =" + productId, new BeanPropertyRowMapper(Product.class));
 
+		return cartuserproduct;
+	}
 
-    @Override
-    public Products getProductById(long productId)
-    {
-        de.jgsoftware.webshop.model.jpa.shopdb.Products cartuserproduct = new  de.jgsoftware.webshop.model.jpa.shopdb.Products();
+	// textfield in webshop
+	@Override
+	public List<Products> searchProductovertextfield(String searchProduct, Pageable pageable) {
+		productList = jtm2.query("select * from Products where productname like " + "'" + searchProduct + "'",
+				new BeanPropertyRowMapper(Products.class));
+		return productList;
+	}
 
-
-        
-        /*
-        
-            manuel query over jtm jdbc template
-        */
-        // select * from public.PRODUCT where product_id = 1;
-        String sql = "select * from PRODUCTS where product_id = " + productId;
-        cartuserproduct = (Products) jtm.queryForObject(sql, new BeanPropertyRowMapper(Product.class));
- 
-        //cartuserproduct = (Products) jpashopprodcuts.getselectedproduct();
-
-        // jtm.query("select * from USERDETAIL where username like " + "'" + result + "'", new BeanPropertyRowMapper(User.class));
-        //List<Product> productList = jtm.query("select * from public.PRODUCT where product_id =" + productId, new BeanPropertyRowMapper(Product.class));
-
-        return cartuserproduct;
-    }
-
-
-    // textfield in webshop
-    @Override
-    public List<Products> searchProductovertextfield(String searchProduct, Pageable pageable)
-    {
-        productList = jtm2.query("select * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Products.class));
-        return productList;
-    }
-
-
-    // textfield in webshop with top 25
-    @Override
-    public List<Products> searchProductop25(String searchProduct)
-    {
-        productList = jtm2.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'", new BeanPropertyRowMapper(Products.class));
-        return productList;
-    }
+	// textfield in webshop with top 25
+	@Override
+	public List<Products> searchProductop25(String searchProduct) {
+		productList = jtm2.query("select top(25) * from Products where productname like " + "'" + searchProduct + "'",
+				new BeanPropertyRowMapper(Products.class));
+		return productList;
+	}
 
 }

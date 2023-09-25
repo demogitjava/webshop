@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.controller.interfaces;
 
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("registeruser")
 public interface i_registeruser {
 
-
-    @GetMapping({"registeruser", "/"})
-    ModelAndView registeruser();
+	@GetMapping({ "registeruser", "/" })
+	ModelAndView registeruser();
 }

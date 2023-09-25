@@ -4,10 +4,11 @@
  */
 package de.jgsoftware.webshop.serivce;
 
-import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
-import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
+import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 
 /**
  *
@@ -15,26 +16,23 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class Service_Products implements i_service_products
-{
-    
-    @Autowired
-    i_dao_products idaoproducts;
+public class Service_Products implements i_service_products {
 
-    @Override
-    public i_dao_products getIdaoproducts() {
-        return idaoproducts;
-    }
+	@Autowired
+	i_dao_products idaoproducts;
 
-    /**
-     *
-     * @param idaoproducts
-     */
-    @Override
-    public void setIdaoproducts(i_dao_products idaoproducts) {
-        this.idaoproducts = idaoproducts;
-    }
-    
-    
-    
+	@Override
+	public i_dao_products getIdaoproducts() {
+		return idaoproducts;
+	}
+
+	/**
+	 *
+	 * @param idaoproducts
+	 */
+	@Override
+	public void setIdaoproducts(i_dao_products idaoproducts) {
+		this.idaoproducts = idaoproducts;
+	}
+
 }

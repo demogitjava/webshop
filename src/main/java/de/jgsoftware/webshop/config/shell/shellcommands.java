@@ -1,15 +1,13 @@
 package de.jgsoftware.webshop.config.shell;
 
+import org.h2.tools.*;
 import org.springframework.shell.standard.ShellComponent;
+import org.springframework.shell.standard.ShellMethod;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
-import static org.h2.util.IOUtils.copy;
-import org.h2.tools.*;
-import org.springframework.shell.standard.ShellMethod;
 
 /**
  *
@@ -17,185 +15,165 @@ import org.springframework.shell.standard.ShellMethod;
  */
 
 @ShellComponent
-public class shellcommands
-{
+public class shellcommands {
 
-    org.h2.tools.Server h2Servertarget;
+	org.h2.tools.Server h2Servertarget;
 
-    @ShellMethod("helpcluster")
-    public String helpcluster()
-    {
-        System.out.print("start h2 cluster" + "\n");
-        System.out.print("----------------" + "\n");
-        System.out.print("to start the cluster on the source maschine " + "\n");
-        System.out.print("\n");
-        System.out.print("\n");
-        System.out.print("java org.h2.tools.CreateCluster" + "\n");
-        System.out.print("-urlSource jdbc:h2:tcp://localhost:9101/~/demodb" + "\n");
-        System.out.print("-urlTarget jdbc:h2:tcp://localhost:9102/~/demodb" + "\n");
-        System.out.print("-user root" + "\n");
-        System.out.print("-password jj78mvpr52k1" + "\n");
-        System.out.print("-serverList 192.168.178.6:9101,192.168.178.7:9102" + "\n");
+	@ShellMethod("helpcluster")
+	public String helpcluster() {
+		System.out.print("start h2 cluster" + "\n");
+		System.out.print("----------------" + "\n");
+		System.out.print("to start the cluster on the source maschine " + "\n");
+		System.out.print("\n");
+		System.out.print("\n");
+		System.out.print("java org.h2.tools.CreateCluster" + "\n");
+		System.out.print("-urlSource jdbc:h2:tcp://localhost:9101/~/demodb" + "\n");
+		System.out.print("-urlTarget jdbc:h2:tcp://localhost:9102/~/demodb" + "\n");
+		System.out.print("-user root" + "\n");
+		System.out.print("-password jj78mvpr52k1" + "\n");
+		System.out.print("-serverList 192.168.178.6:9101,192.168.178.7:9102" + "\n");
 
-        System.out.print("------------------------" + "\n");
-        System.out.print("192.168.178.6 -> webshop" + "\n");
-        System.out.print("192.168.178.7 -> target h2 container" + "\n");
+		System.out.print("------------------------" + "\n");
+		System.out.print("192.168.178.6 -> webshop" + "\n");
+		System.out.print("192.168.178.7 -> target h2 container" + "\n");
 
-        System.out.print("the url: http://www.h2database.com/html/advanced.html#clustering" + "\n");
+		System.out.print("the url: http://www.h2database.com/html/advanced.html#clustering" + "\n");
 
+		return "----------------------";
+	}
 
+	@ShellMethod("help")
+	public String help() {
+		System.out.print("\n");
+		System.out.print("cluster h2 database -> helpcluster" + "\n");
+		System.out.print(
+				"create a h2 cluster -> startcluster h2 ->  urlsource urltarget user password serverlocal servertaget"
+						+ "\n");
 
-        return "----------------------";
-    }
+		return "----------------------";
+	}
 
-    @ShellMethod("help")
-    public String help()
-    {
-        System.out.print("\n");
-        System.out.print("cluster h2 database -> helpcluster" + "\n");
-        System.out.print("create a h2 cluster -> startcluster h2 ->  urlsource urltarget user password serverlocal servertaget" + "\n");
+	@ShellMethod("create h2 cluster --->  startcluster urlSource urlTaget user password serverList")
+	public CreateCluster startcluster(String sturlsource, String sturltarget, String stuser, String stpassword,
+			String stservlocal, String stservtarget) {
+		/*
+		 * 
+		 * java org.h2.tools.CreateCluster -urlSource
+		 * jdbc:h2:tcp://localhost:9101/~/test -urlTarget
+		 * jdbc:h2:tcp://localhost:9102/~/test -user sa -serverList
+		 * localhost:9101,localhost:9102
+		 * 
+		 */
 
+		/*
+		 * String urlSource = sturlsource String urlTarget = sturltarget String user =
+		 * stuser
+		 */
+		System.out.print("urlSource" + "\n");
+		System.out.print("urlTarget" + "\n");
+		System.out.print("username" + "\n");
+		System.out.print("password" + "\n");
+		System.out.print("ServerList" + "\n" + "first source db" + "\n" + "second targetdb" + "\n");
 
-        return "----------------------";
-    }
+		org.h2.tools.CreateCluster h2cluster = new org.h2.tools.CreateCluster();
 
-    @ShellMethod("create h2 cluster --->  startcluster urlSource urlTaget user password serverList")
-    public CreateCluster startcluster(String sturlsource, String sturltarget, String stuser, String stpassword, String stservlocal, String stservtarget)
-    {
-        /*
+		try {
+			h2cluster.execute("-urlSource " + sturlsource, "-urlTarget " + sturltarget, "-user " + stuser,
+					"-password " + stpassword, "-serverList " + stservlocal + stservtarget);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
-            java org.h2.tools.CreateCluster
-                -urlSource jdbc:h2:tcp://localhost:9101/~/test
-                -urlTarget jdbc:h2:tcp://localhost:9102/~/test
-                -user sa
-                -serverList localhost:9101,localhost:9102
+		return h2cluster;
+	}
 
-         */
+	@ShellMethod("stopsourceserver")
+	public String stopsourceserver() {
 
-        /*
-            String urlSource = sturlsource
-            String urlTarget = sturltarget
-            String user = stuser
-         */
-        System.out.print("urlSource" + "\n");
-        System.out.print("urlTarget" + "\n");
-        System.out.print("username" + "\n");
-        System.out.print("password" + "\n");
-        System.out.print("ServerList" + "\n" + "first source db" + "\n" + "second targetdb" + "\n");
+		try {
 
+			h2Servertarget.stop();
+		} catch (Exception e) {
+			System.out.print("Fehler " + e);
+		}
 
-        org.h2.tools.CreateCluster h2cluster = new org.h2.tools.CreateCluster();
+		return "server is stopped " + h2Servertarget.getStatus();
+	}
 
-        try {
-            h2cluster.execute("-urlSource " + sturlsource, "-urlTarget " + sturltarget, "-user " + stuser, "-password " + stpassword, "-serverList " + stservlocal + stservtarget);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+	@ShellMethod("statussourceserver")
+	public String statussourceserver() {
+		try {
+			System.out.print("status of h2sourceserver" + h2Servertarget.getStatus() + "\n");
+		} catch (Exception e) {
+			System.out.print("Fehler " + e);
+		}
+		return h2Servertarget.getStatus();
+	}
 
-        return h2cluster;
-    }
+	@ShellMethod("startsourceserver")
+	public String startsourceserver() {
+		// java org.h2.tools.Server
+		// -tcp -tcpPort 9101
+		// -baseDir server2
 
+		String userdir = System.getProperty("user.home");
+		try {
 
-    @ShellMethod("stopsourceserver")
-    public String stopsourceserver()
-    {
+			h2Servertarget = org.h2.tools.Server.createPgServer("-pgAllowOthers");
+			h2Servertarget.start();
+			String h2status = (String) h2Servertarget.getStatus();
+			Integer h2port = (Integer) h2Servertarget.getPort();
+			System.out.print("Directory is " + userdir + "\n");
 
-        try
-        {
+			if (h2Servertarget.isRunning(true)) {
+				System.out.print("H2 Clustering startet as server2." + "\n");
+			} else {
+				throw new RuntimeException("Could not start H2 server." + "\n");
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException("Failed to start H2 server: " + e + "\n");
+		}
+		return "server status " + h2Servertarget.getStatus();
+	}
 
-            h2Servertarget.stop();
-        } catch(Exception e)
-        {
-            System.out.print("Fehler " +e);
-        }
+	// 192.168.178.6 de_webshop
+	@ShellMethod("install hosts ---> ihost")
+	public String ihosts() {
 
-        return "server is stopped " + h2Servertarget.getStatus();
-    }
+		String stresolv = new String("host installed");
 
-    @ShellMethod("statussourceserver")
-    public String statussourceserver()
-    {
-        try
-        {
-            System.out.print("status of h2sourceserver" + h2Servertarget.getStatus() + "\n");
-        } catch(Exception e)
-        {
-            System.out.print("Fehler " + e);
-        }
-        return h2Servertarget.getStatus();
-    }
+		File f = new File("/etc/hosts");
+		try {
 
-    @ShellMethod("startsourceserver")
-    public String startsourceserver() {
-        // java org.h2.tools.Server
-        //    -tcp -tcpPort 9101
-        //    -baseDir server2
+			FileWriter fileWriter = new FileWriter(f);
+			PrintWriter printWriter = new PrintWriter(fileWriter);
+			printWriter.print("192.168.178.6 de_webshop" + "\n");
 
-        String userdir = System.getProperty("user.home");
-        try {
+			printWriter.close();
+		} catch (Exception e) {
+			System.out.print("Fehler " + e);
+		}
+		return stresolv;
+	}
 
-            h2Servertarget = org.h2.tools.Server.createPgServer("-pgAllowOthers");
-            h2Servertarget.start();
-            String h2status = (String) h2Servertarget.getStatus();
-            Integer h2port = (Integer) h2Servertarget.getPort();
-            System.out.print("Directory is " + userdir + "\n");
+	@ShellMethod("install resolvconf ---> iresolvconf")
+	public String iresolvconf() {
+		String stresolv = new String("resolvconf installed");
 
-            if (h2Servertarget.isRunning(true)) {
-                System.out.print("H2 Clustering startet as server2." + "\n");
-            } else {
-                throw new RuntimeException("Could not start H2 server." + "\n");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to start H2 server: " + e + "\n");
-        }
-        return "server status " + h2Servertarget.getStatus();
-    }
+		File f = new File("/etc/resolv.conf");
+		try {
 
-    // 192.168.178.6	de_webshop
-    @ShellMethod("install hosts ---> ihost")
-    public String ihosts()
-    {
+			FileWriter fileWriter = new FileWriter(f);
+			PrintWriter printWriter = new PrintWriter(fileWriter);
+			printWriter.print("search demogitjava freewebshop" + "\n");
+			printWriter.print("nameserver 8.8.8.8 8.8.4.4" + "\n");
+			printWriter.print("options ndots:0" + "\n");
 
-        String stresolv = new String("host installed");
-
-        File f = new File("/etc/hosts");
-        try
-        {
-
-            FileWriter fileWriter = new FileWriter(f);
-            PrintWriter printWriter = new PrintWriter(fileWriter);
-            printWriter.print("192.168.178.6 de_webshop" + "\n");
-
-            printWriter.close();
-        } catch (Exception e)
-        {
-            System.out.print("Fehler " + e);
-        }
-        return stresolv;
-    }
-
-    @ShellMethod("install resolvconf ---> iresolvconf")
-    public String iresolvconf()
-    {
-        String stresolv = new String("resolvconf installed");
-
-        File f = new File("/etc/resolv.conf");
-        try
-        {
-
-            FileWriter fileWriter = new FileWriter(f);
-            PrintWriter printWriter = new PrintWriter(fileWriter);
-            printWriter.print("search demogitjava freewebshop" + "\n");
-            printWriter.print("nameserver 8.8.8.8 8.8.4.4" + "\n");
-            printWriter.print("options ndots:0" + "\n");
-
-            printWriter.close();
-        } catch (Exception e)
-        {
-            System.out.print("Fehler " + e);
-        }
-        return stresolv;
-    }
-
+			printWriter.close();
+		} catch (Exception e) {
+			System.out.print("Fehler " + e);
+		}
+		return stresolv;
+	}
 
 }

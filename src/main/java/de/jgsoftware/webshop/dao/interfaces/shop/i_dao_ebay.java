@@ -1,8 +1,5 @@
 package de.jgsoftware.webshop.dao.interfaces.shop;
 
-
-
-
 /**
  *
  * @author hoscho

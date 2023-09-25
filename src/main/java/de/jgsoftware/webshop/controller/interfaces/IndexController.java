@@ -5,34 +5,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 /**
  *
  * @author hoscho
  */
 
 @RequestMapping("/")
-public interface IndexController
-{
+public interface IndexController {
 
-    /**
-     *
-     * load default shopping page 
-     * in german
-     * @return 
-     */
-    @GetMapping({"index", "/"})
-    ModelAndView index();
+	/**
+	 *
+	 * load default shopping page in german
+	 * 
+	 * @return
+	 */
+	@GetMapping({ "index", "/" })
+	ModelAndView index();
 
-    @PostMapping({"searchProduct", "/productsearch"})
-    ModelAndView searchovertextfield(String searchProduct);
+	@PostMapping({ "searchProduct", "/productsearch" })
+	ModelAndView searchovertextfield(String searchProduct);
 
-    @GetMapping("/userprofile")
-    String userprofile();
+	@GetMapping("/userprofile")
+	String userprofile();
 
-    @GetMapping("/admin")
-    public String admin();
-
+	@GetMapping("/admin")
+	public String admin();
 
 }

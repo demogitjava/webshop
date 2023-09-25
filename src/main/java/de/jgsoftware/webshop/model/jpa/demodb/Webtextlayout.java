@@ -3,105 +3,103 @@ package de.jgsoftware.webshop.model.jpa.demodb;
 //import javax.persistence.*;
 import jakarta.persistence.*;
 
-
 /**
  *
  * @author hoscho
  */
 @Entity
 @Table(name = "WEBTEXTLAYOUT", schema = "PUBLIC", catalog = "DEMODB")
-public class Webtextlayout
-{
+public class Webtextlayout {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-    private String framename;
+	private String framename;
 
-    private String de;
+	private String de;
 
-    private String eng;
+	private String eng;
 
-    private String fr;
+	private String fr;
 
-    private String esp;
+	private String esp;
 
-    private String it;
+	private String it;
 
-    private String tr;
+	private String tr;
 
-    private String bindto;
+	private String bindto;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getFramename() {
-        return framename;
-    }
+	public String getFramename() {
+		return framename;
+	}
 
-    public void setFramename(String framename) {
-        this.framename = framename;
-    }
+	public void setFramename(String framename) {
+		this.framename = framename;
+	}
 
-    public String getDe() {
-        return de;
-    }
+	public String getDe() {
+		return de;
+	}
 
-    public void setDe(String de) {
-        this.de = de;
-    }
+	public void setDe(String de) {
+		this.de = de;
+	}
 
-    public String getEng() {
-        return eng;
-    }
+	public String getEng() {
+		return eng;
+	}
 
-    public void setEng(String eng) {
-        this.eng = eng;
-    }
+	public void setEng(String eng) {
+		this.eng = eng;
+	}
 
-    public String getFr() {
-        return fr;
-    }
+	public String getFr() {
+		return fr;
+	}
 
-    public void setFr(String fr) {
-        this.fr = fr;
-    }
+	public void setFr(String fr) {
+		this.fr = fr;
+	}
 
-    public String getEsp() {
-        return esp;
-    }
+	public String getEsp() {
+		return esp;
+	}
 
-    public void setEsp(String esp) {
-        this.esp = esp;
-    }
+	public void setEsp(String esp) {
+		this.esp = esp;
+	}
 
-    public String getIt() {
-        return it;
-    }
+	public String getIt() {
+		return it;
+	}
 
-    public void setIt(String it) {
-        this.it = it;
-    }
+	public void setIt(String it) {
+		this.it = it;
+	}
 
-    public String getTr() {
-        return tr;
-    }
+	public String getTr() {
+		return tr;
+	}
 
-    public void setTr(String tr) {
-        this.tr = tr;
-    }
+	public void setTr(String tr) {
+		this.tr = tr;
+	}
 
-    public String getBindto() {
-        return bindto;
-    }
+	public String getBindto() {
+		return bindto;
+	}
 
-    public void setBindto(String bindto) {
-        this.bindto = bindto;
-    }
+	public void setBindto(String bindto) {
+		this.bindto = bindto;
+	}
 }

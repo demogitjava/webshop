@@ -18,8 +18,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
-
+public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
@@ -29,51 +28,32 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder authBuilder) throws Exception {
-		authBuilder.jdbcAuthentication()
-				.dataSource(dataSource)
-				.passwordEncoder(new BCryptPasswordEncoder())
+		authBuilder.jdbcAuthentication().dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder())
 				.authoritiesByUsernameQuery("select username, role from users where username=?")
 				.usersByUsernameQuery("select username, password, enabled from users where username=?");
 
 	}
 
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder(){
+	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-
-
 	@Override
-	protected void configure(HttpSecurity http) throws Exception
-	{
+	protected void configure(HttpSecurity http) throws Exception {
 
+		http.csrf().disable().cors().and().authorizeRequests()
+				.antMatchers("/index.html", "/about", "/contact.html", "/service.html", "/admin.html",
+						"/userprofile.html", "/createuser.html", "/registeruser.html", "/signup.html", "/h2-console/**",
+						"/resources/**", "/static/**,")
+				.permitAll()
 
+				// .antMatchers("/profile/**").access("hasRole('ROLE_USER')")
+				// .antMatchers("/manager/**").access("hasRole('ROLE_MANAGER')")
+				.and().formLogin();
 
-		http
-				.csrf().disable().cors().and()
-				.authorizeRequests()
-				.antMatchers(
-						"/index.html",
-						"/about",
-						"/contact.html",
-						"/service.html",
-						"/admin.html",
-						"/userprofile.html",
-						"/createuser.html",
-						"/registeruser.html",
-						"/signup.html",
-						"/h2-console/**",
-						"/resources/**",
-						"/static/**,").permitAll()
-
-				//.antMatchers("/profile/**").access("hasRole('ROLE_USER')")
-				//.antMatchers("/manager/**").access("hasRole('ROLE_MANAGER')")
-				.and()
-				.formLogin();
-
-		//.rememberMe().tokenValiditySeconds(30000).key("keytoken!")
-		//.rememberMeParameter("checkRememberMe");
+		// .rememberMe().tokenValiditySeconds(30000).key("keytoken!")
+		// .rememberMeParameter("checkRememberMe");
 	}
 
 }

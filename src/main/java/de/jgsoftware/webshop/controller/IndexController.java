@@ -1,21 +1,21 @@
 package de.jgsoftware.webshop.controller;
 
-
-import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
-import de.jgsoftware.webshop.serivce.interfaces.i_index_service;
-import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.Date;
 import java.util.HashMap;
 
-import ua_parser.Parser;
+import javax.servlet.http.HttpServletRequest;
+
+import de.jgsoftware.webshop.model.jpa.demodb.Useragent;
+import de.jgsoftware.webshop.serivce.interfaces.i_index_service;
+import de.jgsoftware.webshop.serivce.interfaces.i_service_products;
 import ua_parser.Client;
+import ua_parser.Parser;
 
 /**
  *
@@ -25,196 +25,163 @@ import ua_parser.Client;
 @Controller
 public class IndexController implements de.jgsoftware.webshop.controller.interfaces.IndexController {
 
-    java.util.Locale locale;
+	java.util.Locale locale;
 
-    HashMap prodtlists;
+	HashMap prodtlists;
 
-    @Autowired
-    i_service_products iserviceproducts;
-    
-    @Autowired
-    HttpServletRequest request;
-    
-    ModelAndView mv;
-   
-    @Autowired
-    i_index_service index_service;
+	@Autowired
+	i_service_products iserviceproducts;
 
-    String languagestr;
+	@Autowired
+	HttpServletRequest request;
 
-    Principal principal;
+	ModelAndView mv;
 
-    /*
-        load products and items
-        by default with de
-     */
-    @Override
-    public ModelAndView index()
-    {
-        /*
+	@Autowired
+	i_index_service index_service;
 
-            save header form useragent to
-            table USERAGENT
+	String languagestr;
 
-         */
+	Principal principal;
 
-        // ip address client
-        String ipAddress = request.getRemoteAddr();
+	/*
+	 * load products and items by default with de
+	 */
+	@Override
+	public ModelAndView index() {
+		/*
+		 * 
+		 * save header form useragent to table USERAGENT
+		 * 
+		 */
 
-        String stuseragent = request.getHeader("user-agent");
+		// ip address client
+		String ipAddress = request.getRemoteAddr();
 
-        Parser uaParser = new Parser();
-        Client c = uaParser.parse(stuseragent);
+		String stuseragent = request.getHeader("user-agent");
 
-        String stbrowser = c.userAgent.family; // browser
-        String stbrowserversion = c.userAgent.family; // browser version
-        String stsystem = c.os.family; // operation system
+		Parser uaParser = new Parser();
+		Client c = uaParser.parse(stuseragent);
 
-        /*
-        System.out.println(c.userAgent.family); // => browser
-        System.out.println(c.userAgent.major);  // => browser version
-        System.out.println(c.userAgent.minor);  // => "1"
-        System.out.println(c.os.family);        // => operation system
-           */
+		String stbrowser = c.userAgent.family; // browser
+		String stbrowserversion = c.userAgent.family; // browser version
+		String stsystem = c.os.family; // operation system
 
-        // browser language like "de"
-        languagestr = RequestContextUtils.getLocale(request).getLanguage();
+		/*
+		 * System.out.println(c.userAgent.family); // => browser
+		 * System.out.println(c.userAgent.major); // => browser version
+		 * System.out.println(c.userAgent.minor); // => "1"
+		 * System.out.println(c.os.family); // => operation system
+		 */
 
-        Date date = new Date();
+		// browser language like "de"
+		languagestr = RequestContextUtils.getLocale(request).getLanguage();
 
-        Useragent muagent = new Useragent();
-        muagent.setIpAddress(ipAddress);
-        muagent.setStbrowser(stbrowser);
-        muagent.setStbrowserversion(stbrowserversion);
-        muagent.setStsystem(stsystem);
-        muagent.setStlanguage(languagestr);
-        muagent.setDate(date);
-        //=======================================
+		Date date = new Date();
 
+		Useragent muagent = new Useragent();
+		muagent.setIpAddress(ipAddress);
+		muagent.setStbrowser(stbrowser);
+		muagent.setStbrowserversion(stbrowserversion);
+		muagent.setStsystem(stsystem);
+		muagent.setStlanguage(languagestr);
+		muagent.setDate(date);
+		// =======================================
 
-        /*
-                save pojo
-              de.jgsoftware.webshop.model.useragent
-         */
-        index_service.getI_index_dao().saveuseragent(muagent);
+		/*
+		 * save pojo de.jgsoftware.webshop.model.useragent
+		 */
+		index_service.getI_index_dao().saveuseragent(muagent);
 
+		/*
+		 * 
+		 * begin MVC Controller de
+		 * 
+		 */
 
-        /*
+		mv = new ModelAndView("index");
 
-                begin MVC Controller de
+		languagestr = RequestContextUtils.getLocale(request).getLanguage();
+		principal = request.getUserPrincipal();
 
-         */
+		mv = new ModelAndView("de");
 
-        mv = new ModelAndView("index");
+		/*
+		 * user login
+		 */
+		if (principal == null) {
+			System.out.print("not login");
+		} else {
+			mv.addObject("lgusername", "User: " + principal.getName());
+		}
 
-        languagestr = RequestContextUtils.getLocale(request).getLanguage();
-        principal = request.getUserPrincipal();
+		/**
+		 * Get Country to display Language only for this Controller
+		 */
 
+		mv.addObject("lang", languagestr);
 
-        mv = new ModelAndView("de");
+		/**
+		 * load entities from table webtextlayout to contoller
+		 *
+		 * inject text from with webtextcomp[0] fist id of table
+		 */
+		mv.addObject("webtextcomp", index_service.getI_index_dao().getPageLanguageText());
 
+		mv.addObject("productList", iserviceproducts.getIdaoproducts().getProductsforLandingpage());
 
-        /*
-                user login
-         */
-        if(principal == null)
-        {
-            System.out.print("not login");
-        }
-        else {
-            mv.addObject("lgusername", "User: " + principal.getName());
-        }
+		return mv;
+	}
 
-        /**
-         *   Get Country to display Language
-         *   only for this Controller
-         */
+	/*
+	 * 
+	 * load items over search string -> String searchProduct
+	 * 
+	 * 
+	 */
+	@Override
+	public ModelAndView searchovertextfield(String searchProduct) {
+		mv = new ModelAndView("searchProduct");
 
-        mv.addObject("lang", languagestr);
+		String languagestr = RequestContextUtils.getLocale(request).getLanguage();
+		Principal principal = request.getUserPrincipal();
+		mv = new ModelAndView("de");
 
+		/*
+		 * user login
+		 */
+		if (principal == null) {
+			System.out.print("not login");
+		} else {
+			mv.addObject("lgusername", "User: " + principal.getName());
+		}
 
-        /**
-         *   load entities from table
-         *   webtextlayout to contoller
-         *
-         *   inject text from with webtextcomp[0] fist id of table
-         */
-        mv.addObject("webtextcomp", index_service.getI_index_dao().getPageLanguageText());
+		/**
+		 * Get Country to display Language only for this Controller
+		 */
 
-        mv.addObject("productList", iserviceproducts.getIdaoproducts().getProductsforLandingpage());
+		mv.addObject("lang", languagestr);
 
-        return mv;
-    }
+		/**
+		 * load entities from table webtextlayout to contoller
+		 *
+		 * inject text from with webtextcomp[0] fist id of table
+		 */
+		mv.addObject("webtextcomp", index_service.getI_index_dao().getPageLanguageText());
 
+		mv.addObject("productList", iserviceproducts.getIdaoproducts().searchProductop25(searchProduct));
 
-    /*
+		return mv;
+	}
 
-        load items over search string
-        -> String searchProduct
+	@Override
+	public String userprofile() {
+		return "redirect:/userprofile/";
+	}
 
-
-     */
-    @Override
-    public ModelAndView searchovertextfield(String searchProduct)
-    {
-        mv = new ModelAndView("searchProduct");
-
-        String languagestr = RequestContextUtils.getLocale(request).getLanguage();
-        Principal principal = request.getUserPrincipal();
-        mv = new ModelAndView("de");
-
-
-        /*
-                user login
-         */
-        if(principal == null)
-        {
-            System.out.print("not login");
-        }
-        else {
-            mv.addObject("lgusername", "User: " + principal.getName());
-        }
-
-        /**
-         *   Get Country to display Language
-         *   only for this Controller
-         */
-
-        mv.addObject("lang", languagestr);
-
-
-        /**
-         *   load entities from table
-         *   webtextlayout to contoller
-         *
-         *   inject text from with webtextcomp[0] fist id of table
-         */
-        mv.addObject("webtextcomp", index_service.getI_index_dao().getPageLanguageText());
-
-        mv.addObject("productList", iserviceproducts.getIdaoproducts().searchProductop25(searchProduct));
-
-
-
-
-
-
-        return mv;
-    }
-
-
-
-    @Override
-    public String userprofile()
-    {
-        return "redirect:/userprofile/";
-    }
-
-
-    @Override
-    public String admin()
-    {
-        return "redirect:/admin/";
-    }
-
+	@Override
+	public String admin() {
+		return "redirect:/admin/";
+	}
 
 }

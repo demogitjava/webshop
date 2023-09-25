@@ -1,8 +1,8 @@
 package de.jgsoftware.webshop.model.jpa.mawi;
 
-import jakarta.persistence.*;
-//import javax.persistence.*;
 import java.util.Date;
+
+import jakarta.persistence.*;
 
 /**
  *
@@ -11,35 +11,29 @@ import java.util.Date;
 
 @Entity
 //@Table(name = "BUCHUNGSDATEN", schema = "PUBLIC", catalog = "MAWI")
-public class Buchungsdaten
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+public class Buchungsdaten {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-    private Long kdnummer;
+	private Long kdnummer;
 
-    private String kdname;
+	private String kdname;
 
-    private Integer beleg;
+	private Integer beleg;
 
-    private Integer wg;
+	private Integer wg;
 
-    private Double vk;
+	private Double vk;
 
-    private Date bdatum;
+	private Date bdatum;
 
-    private Long artikelnummer;
+	private Long artikelnummer;
 
-    private Integer belegart;
+	private Integer belegart;
 
-    private Integer buchungskz;
+	private Integer buchungskz;
 
-    private Integer menge;
-
-
-
-
-
+	private Integer menge;
 
 }

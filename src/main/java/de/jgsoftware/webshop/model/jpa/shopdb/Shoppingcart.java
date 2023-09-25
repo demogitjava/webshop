@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.model.jpa.shopdb;
 
-
 //import javax.persistence.*;
 import jakarta.persistence.*;
 
@@ -11,38 +10,38 @@ import jakarta.persistence.*;
 
 @Entity
 public class Shoppingcart {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "ID")
-    private Integer id;
-    @Basic
-    @Column(name = "USER_ID")
-    private Integer userId;
-    @Basic
-    @Column(name = "PRODUCT_ID")
-    private Long productId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "ID")
+	private Integer id;
+	@Basic
+	@Column(name = "USER_ID")
+	private Integer userId;
+	@Basic
+	@Column(name = "PRODUCT_ID")
+	private Long productId;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public Long getProductId() {
-        return productId;
-    }
+	public Long getProductId() {
+		return productId;
+	}
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
 }

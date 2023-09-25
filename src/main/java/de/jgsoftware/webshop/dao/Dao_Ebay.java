@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.dao;
 
-
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,8 +8,6 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public class Dao_Ebay implements de.jgsoftware.webshop.dao.interfaces.shop.i_dao_ebay
-{
-
+public class Dao_Ebay implements de.jgsoftware.webshop.dao.interfaces.shop.i_dao_ebay {
 
 }

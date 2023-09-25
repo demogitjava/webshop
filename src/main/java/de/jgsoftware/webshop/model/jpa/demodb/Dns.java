@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.model.jpa.demodb;
 
-
 //import javax.persistence.Entity;
 //import javax.persistence.Id;
 //import javax.persistence.Table;
@@ -13,55 +12,53 @@ import jakarta.persistence.*;
 
 @Entity
 //@Table(name = "DNS", schema = "ROOT", catalog = "DEMODB")
-public class Dns 
-{
-    @Id
-    private Integer id;
-    
-    private String forwarddns;
-    private String reversedns;
-    private String dnszone;
-    private String dnstype;
+public class Dns {
+	@Id
+	private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
+	private String forwarddns;
+	private String reversedns;
+	private String dnszone;
+	private String dnstype;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getForwarddns() {
-        return forwarddns;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setForwarddns(String forwarddns) {
-        this.forwarddns = forwarddns;
-    }
+	public String getForwarddns() {
+		return forwarddns;
+	}
 
-    public String getReversedns() {
-        return reversedns;
-    }
+	public void setForwarddns(String forwarddns) {
+		this.forwarddns = forwarddns;
+	}
 
-    public void setReversedns(String reversedns) {
-        this.reversedns = reversedns;
-    }
+	public String getReversedns() {
+		return reversedns;
+	}
 
-    public String getDnszone() {
-        return dnszone;
-    }
+	public void setReversedns(String reversedns) {
+		this.reversedns = reversedns;
+	}
 
-    public void setDnszone(String dnszone) {
-        this.dnszone = dnszone;
-    }
+	public String getDnszone() {
+		return dnszone;
+	}
 
-    public String getDnstype() {
-        return dnstype;
-    }
+	public void setDnszone(String dnszone) {
+		this.dnszone = dnszone;
+	}
 
-    public void setDnstype(String dnstype) {
-        this.dnstype = dnstype;
-    }
-    
-    
+	public String getDnstype() {
+		return dnstype;
+	}
+
+	public void setDnstype(String dnstype) {
+		this.dnstype = dnstype;
+	}
+
 }

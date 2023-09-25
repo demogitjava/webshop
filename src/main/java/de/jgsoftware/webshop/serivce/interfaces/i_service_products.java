@@ -10,9 +10,9 @@ import de.jgsoftware.webshop.dao.interfaces.shop.i_dao_products;
  *
  * @author hoscho
  */
-public interface i_service_products 
-{
-    i_dao_products getIdaoproducts();
-    void setIdaoproducts(i_dao_products idaoproducts);
-    
+public interface i_service_products {
+	i_dao_products getIdaoproducts();
+
+	void setIdaoproducts(i_dao_products idaoproducts);
+
 }

@@ -1,11 +1,5 @@
 package de.jgsoftware.webshop.model.jpa.demodb;
 
-
-import java.io.Serializable;
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
-
 import jakarta.persistence.*;
 
 /**
@@ -13,38 +7,36 @@ import jakarta.persistence.*;
  * @author hoscho
  */
 
-
 @Entity
 //@Table(name = "SPRACHEN", schema = "PUBLIC", catalog = "DEMODB")
-public class Sprachen 
-{
-    @Id
-    private Integer id;
+public class Sprachen {
+	@Id
+	private Integer id;
 
-    private String sprache;
-    private String bezeichnung;
+	private String sprache;
+	private String bezeichnung;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getSprache() {
-        return sprache;
-    }
+	public String getSprache() {
+		return sprache;
+	}
 
-    public void setSprache(String sprache) {
-        this.sprache = sprache;
-    }
+	public void setSprache(String sprache) {
+		this.sprache = sprache;
+	}
 
-    public String getBezeichnung() {
-        return bezeichnung;
-    }
+	public String getBezeichnung() {
+		return bezeichnung;
+	}
 
-    public void setBezeichnung(String bezeichnung) {
-        this.bezeichnung = bezeichnung;
-    }
+	public void setBezeichnung(String bezeichnung) {
+		this.bezeichnung = bezeichnung;
+	}
 }

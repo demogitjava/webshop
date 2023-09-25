@@ -1,6 +1,5 @@
 package de.jgsoftware.webshop.model;
 
-
 //import javax.persistence.*;
 
 import jakarta.persistence.*;
@@ -12,40 +11,37 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "bootstrap_components")
-public class m_bootstrap_components
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class m_bootstrap_components {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
+	private String btcompname;
 
-    private String btcompname;
+	@Lob
+	private String txbootstrap;
 
-    @Lob
-    private String txbootstrap;
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public String getBtcompname() {
+		return btcompname;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setBtcompname(String btcompname) {
+		this.btcompname = btcompname;
+	}
 
-    public String getBtcompname() {
-        return btcompname;
-    }
+	public String getTxbootstrap() {
+		return txbootstrap;
+	}
 
-    public void setBtcompname(String btcompname) {
-        this.btcompname = btcompname;
-    }
-
-    public String getTxbootstrap() {
-        return txbootstrap;
-    }
-
-    public void setTxbootstrap(String txbootstrap) {
-        this.txbootstrap = txbootstrap;
-    }
+	public void setTxbootstrap(String txbootstrap) {
+		this.txbootstrap = txbootstrap;
+	}
 }
